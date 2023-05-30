@@ -1,0 +1,151 @@
+﻿<Page x:Class="Wpf_Karaokay.CashierPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Wpf_Karaokay"
+      mc:Ignorable="d" 
+      d:DesignHeight="1080" d:DesignWidth="1920"
+      Title="CashierPage"
+      DataContext="{DynamicResource CashierVM}">
+
+
+    <Grid Background="#FFF3EEEE">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="41*"/>
+            <RowDefinition Height="157*"/>
+            <RowDefinition Height="27*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="7*"/>
+            <ColumnDefinition Width="3*"/>
+        </Grid.ColumnDefinitions>
+
+        <Button
+            
+            Command="{Binding DataContext.StopTimmerCommand, RelativeSource={RelativeSource AncestorType={x:Type Page}}}"
+                        CommandParameter="{Binding}"
+            Style="{StaticResource MaterialDesignRaisedLightButton}"
+            ToolTip="MaterialDesignRaisedLightButton with Round Corners" Click="Button_Click" Background="#FFFEBD25" Grid.Column="1" Grid.Row="2" FontFamily="Gill Sans MT" FontSize="12" Margin="116,0,116,0" Height="109" VerticalAlignment="Center">
+            <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Gill Sans MT" FontSize="40" Height="48" Width="138" ><Run Text="Receipt"/><LineBreak/><Run Text=" "/></TextBlock>
+        </Button>
+        <TextBlock Text ="{Binding receiptText}" TextAlignment="Center" Grid.Column="1" TextWrapping="Wrap" FontFamily="Gill Sans MT" FontSize="15" Margin="10,196,10,11" Grid.RowSpan="2"/>
+        <Image Source="image 2 copy.png" Grid.Column="1" Margin="80,0,0,1" HorizontalAlignment="Left" Width="434"/>
+        <Button
+            
+            Command="{Binding DataContext.TimerCommand, RelativeSource={RelativeSource AncestorType={x:Type Page}}}"
+                        CommandParameter="{Binding}"
+            Style="{StaticResource MaterialDesignRaisedLightButton}"
+            ToolTip="MaterialDesignRaisedLightButton with Round Corners" Click="Button_Click" Background="#FF508014" Grid.Row="2" FontFamily="Gill Sans MT" FontSize="12" Margin="738,0,0,0" Height="71" VerticalAlignment="Center" HorizontalAlignment="Left" Width="246">
+            <TextBlock VerticalAlignment="Top" HorizontalAlignment="Left" FontFamily="Gill Sans MT" FontSize="40" Foreground="#DDFAF9F9" Height="66" Width="179" RenderTransformOrigin="0.618,0.644" ><Run Text="Start timer "/><LineBreak/><Run/><LineBreak/><Run Text=" "/></TextBlock>
+        </Button>
+
+
+        <!-- TextBlock to display the elapsed time -->
+
+        <Button Content="Previous" FontSize="25" Margin="256,0,0,0" Width="134" 
+                Command="{Binding DataContext.BackCommand, RelativeSource={RelativeSource AncestorType={x:Type Page}}}"
+                        CommandParameter="{Binding}" Background="#FF243257"  Foreground="#FFF5E9DB" Grid.Row="2" HorizontalAlignment="Left" Height="73" VerticalAlignment="Center"/>
+        <TabControl Margin="0,10,10,0" Grid.RowSpan="2">
+            <TabItem Header="Food" Height="175" >
+                <Grid Background="#FFE5E5E5">
+                    <DataGrid ItemsSource="{Binding FoodItems}">
+                        <DataGrid.Columns>
+                            <DataGridTemplateColumn Header="Name">
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <StackPanel Orientation="Horizontal">
+                                            <TextBlock Text="{Binding itemName}" />
+                                            <Grid>
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="*" />
+                                                    <ColumnDefinition Width="Auto" />
+                                                    <ColumnDefinition Width="Auto" />
+                                                </Grid.ColumnDefinitions>
+
+                                                <Button Grid.Column="1" Content="+" Command="{Binding DataContext.IncreaseQuantityCommand, RelativeSource={RelativeSource AncestorType={x:Type Page}}}"
+                        CommandParameter="{Binding}" />
+                                                <Button Grid.Column="2" Content="-" Command="{Binding DataContext.DecreaseQuantityCommand, RelativeSource={RelativeSource AncestorType={x:Type Page}}}"
+                        CommandParameter="{Binding}" />
+                                            </Grid>
+                                        </StackPanel>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+                            <DataGridTextColumn Header="Price" Binding="{Binding itemPrice}" />
+                            <!-- Other columns if needed -->
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Beverage" Height="170">
+                <Grid Background="#FFE5E5E5">
+                    <DataGrid ItemsSource="{Binding BeverageItems}">
+                        <DataGrid.Columns>
+                            <DataGridTemplateColumn Header="Name">
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <StackPanel Orientation="Horizontal">
+                                            <TextBlock Text="{Binding itemName}" />
+                                            <Grid>
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="*" />
+                                                    <ColumnDefinition Width="Auto" />
+                                                    <ColumnDefinition Width="Auto" />
+                                                </Grid.ColumnDefinitions>
+
+                                                <Button Grid.Column="1" Content="+" Command="{Binding DataContext.IncreaseQuantityCommand, RelativeSource={RelativeSource AncestorType={x:Type Page}}}"
+                        CommandParameter="{Binding}" />
+                                                <Button Grid.Column="2" Content="-" Command="{Binding DataContext.DecreaseQuantityCommand, RelativeSource={RelativeSource AncestorType={x:Type Page}}}"
+                        CommandParameter="{Binding}" />
+                                            </Grid>
+                                        </StackPanel>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+                            <DataGridTextColumn Header="Price" Binding="{Binding itemPrice}" />
+                            <!-- Other columns if needed -->
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </Grid>
+
+
+            </TabItem>
+            <TabItem Header="Others" Height="180">
+                <Grid Background="#FFE5E5E5">
+                    <DataGrid ItemsSource="{Binding OthersItems}">
+                        <DataGrid.Columns>
+                            <DataGridTemplateColumn Header="Name">
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <StackPanel Orientation="Horizontal">
+                                            <TextBlock Text="{Binding itemName}" />
+                                            <Grid>
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="3*" />
+                                                    <!-- Empty column to push buttons to the right -->
+                                                    <ColumnDefinition Width="Auto" />
+                                                    <!-- Column for buttons -->
+                                                </Grid.ColumnDefinitions>
+                                                <Button Grid.Column="1" Content="+" Command="{Binding DataContext.IncreaseQuantityCommand, RelativeSource={RelativeSource AncestorType={x:Type Page}}}"
+                        CommandParameter="{Binding}" />
+                                                <Button Grid.Column="2" Content="-" Command="{Binding DataContext.DecreaseQuantityCommand, RelativeSource={RelativeSource AncestorType={x:Type Page}}}"
+                        CommandParameter="{Binding}" />
+                                            </Grid>
+                                        </StackPanel>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+                            <DataGridTextColumn Header="Price" Binding="{Binding itemPrice}" />
+                            <!-- Other columns if needed -->
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </Grid>
+
+            </TabItem>
+        </TabControl>
+        <TextBlock Grid.Column="1" Margin="80,10,80,0" Grid.Row="1" TextWrapping="Wrap" Text="{Binding ElapsedTimeForRoom}" VerticalAlignment="Top" Height="62" FontSize="25" TextAlignment="Center" FontFamily="Gill Sans MT"/>
+
+
+    </Grid>
+</Page>

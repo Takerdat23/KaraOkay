@@ -1,0 +1,51 @@
+﻿<Window x:Class="Wpf_Karaokay.RoomsWindows"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Wpf_Karaokay"
+        mc:Ignorable="d"
+        Title="RoomsWindows" Height="1080" Width="1920"
+        DataContext="{DynamicResource RoomsVM}">
+    <Window.Resources>
+        <Style TargetType="Button">
+            <Style.Triggers>
+                <DataTrigger Binding="{Binding RMStatus}" Value="1">
+                    <Setter Property="Background" Value="Green" />
+                </DataTrigger>
+                <DataTrigger Binding="{Binding RMStatus}" Value="0">
+                    <Setter Property="Background" Value="Gray" />
+                </DataTrigger>
+            </Style.Triggers>
+        </Style>
+    </Window.Resources>
+    <Grid Margin="0,10,10,0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="26*"/>
+            <RowDefinition Height="107*"/>
+        </Grid.RowDefinitions>
+
+
+        <Image Grid.Row="0" Source="image 2 copy.png" HorizontalAlignment="Left" Width="1910"  />
+        <ItemsControl Grid.Row="1" ItemsSource="{Binding Rooms}" >
+            <ItemsControl.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <UniformGrid Columns="3"  />
+                </ItemsPanelTemplate>
+            </ItemsControl.ItemsPanel>
+            <ItemsControl.ItemTemplate>
+                <DataTemplate>
+                    <Button Width="132" Height="132"  Content="{Binding RmId}" 
+                        
+                        FontFamily="Gill Sans MT" FontSize="25"
+                        Command="{Binding DataContext.RoomButtonCommand, RelativeSource={RelativeSource AncestorType={x:Type Window}}}"
+                        CommandParameter="{Binding}"/>
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+        </ItemsControl>
+        <TextBlock HorizontalAlignment="Left" Margin="491,67,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="66" Width="429" FontFamily="Gill Sans MT" FontSize="60"><Run Text="Rooms"/><LineBreak/><Run/></TextBlock>
+        <Button  Content="Previous" FontSize="35"  
+                 Command="{Binding DataContext.BackButtonCommand, RelativeSource={RelativeSource AncestorType={x:Type Window}}}" Margin="1255,0,0,0" VerticalAlignment="Center" Height="121" FontFamily="Gill Sans MT" Background="#FF243257" Foreground="White" HorizontalAlignment="Left" Width="210"/>
+
+    </Grid>
+</Window>

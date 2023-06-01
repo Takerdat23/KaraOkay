@@ -22,6 +22,9 @@ namespace WPF_Karaokay
         public ReportWindow()
         {
             InitializeComponent();
+          
         }
+
+
     }
 }

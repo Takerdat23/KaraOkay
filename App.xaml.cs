@@ -7,7 +7,8 @@ using System.Threading.Tasks;
 using System.Windows;
 using Wpf_Karaokay.Model;
 using System.Windows.Navigation;
-using Wpf_Karaokay.ViewModel; 
+using Wpf_Karaokay.ViewModel;
+using WPF_Karaokay;
 
 namespace Wpf_Karaokay
 {
@@ -27,7 +28,8 @@ namespace Wpf_Karaokay
             // Initialize the TimerService
             TimerService = new TimerService();
 
-          
+            // Create an instance of your NavigationService
+     
 
 
         }

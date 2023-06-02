@@ -153,6 +153,7 @@ namespace Wpf_Karaokay.ViewModel
             }
             int orderPrice = (int)CurrentBill.OrderPice;
             CurrentBill.TotalPrice = ((seconds / 3600) * roomPrice) + orderPrice;
+            // set the billed field to true 
             CurrentBill.Billed = true; 
             DataProvider.Ins.DB.SaveChanges();  
 

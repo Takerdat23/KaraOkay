@@ -1,0 +1,171 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="KaraOkayModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Account">
+    <Key>
+      <PropertyRef Name="UserName" />
+    </Key>
+    <Property Name="UserName" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="DisplayName" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="Password" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="type" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="bill">
+    <Key>
+      <PropertyRef Name="BillID" />
+    </Key>
+    <Property Name="BillID" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="BillDate" Type="date" Nullable="false" />
+    <Property Name="RmId" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="OrderPice" Type="int" />
+    <Property Name="TotalPrice" Type="int" Nullable="false" />
+    <Property Name="Billed" Type="bit" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'KaraOkay.dbo.BillDetail' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="BillDetail">
+    <Key>
+      <PropertyRef Name="BillID" />
+      <PropertyRef Name="OrderID" />
+    </Key>
+    <Property Name="BillID" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="OrderID" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="Quantity" Type="int" />
+    <Property Name="TotalPrice" Type="int" />
+  </EntityType>
+  <EntityType Name="Employee">
+    <Key>
+      <PropertyRef Name="EmpId" />
+    </Key>
+    <Property Name="EmpId" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="EmpName" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="CCCD" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="EmpPhone" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="BirthDate" Type="date" />
+    <Property Name="PlaceOfOrigin" Type="varchar" MaxLength="100" />
+    <Property Name="AccountName" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="Items">
+    <Key>
+      <PropertyRef Name="itemID" />
+    </Key>
+    <Property Name="itemID" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="itemName" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="itemType" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="itemPrice" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="reports">
+    <Key>
+      <PropertyRef Name="ReportID" />
+    </Key>
+    <Property Name="ReportID" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="RpName" Type="varchar" MaxLength="100" />
+    <Property Name="startDate" Type="date" />
+    <Property Name="endDate" Type="date" />
+    <Property Name="BillId" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="Room">
+    <Key>
+      <PropertyRef Name="RmId" />
+    </Key>
+    <Property Name="RmId" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="RmType" Type="varchar" MaxLength="15" Nullable="false" />
+    <Property Name="RMStatus" Type="int" />
+    <Property Name="PricePerHour" Type="int" />
+  </EntityType>
+  <Association Name="FK__bill__RmId__4AB81AF0">
+    <End Role="Room" Type="Self.Room" Multiplicity="1" />
+    <End Role="bill" Type="Self.bill" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Room">
+        <PropertyRef Name="RmId" />
+      </Principal>
+      <Dependent Role="bill">
+        <PropertyRef Name="RmId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__BillDetai__BillI__4E88ABD4">
+    <End Role="bill" Type="Self.bill" Multiplicity="1" />
+    <End Role="BillDetail" Type="Self.BillDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="bill">
+        <PropertyRef Name="BillID" />
+      </Principal>
+      <Dependent Role="BillDetail">
+        <PropertyRef Name="BillID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__BillDetai__Order__4F7CD00D">
+    <End Role="Items" Type="Self.Items" Multiplicity="1" />
+    <End Role="BillDetail" Type="Self.BillDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Items">
+        <PropertyRef Name="itemID" />
+      </Principal>
+      <Dependent Role="BillDetail">
+        <PropertyRef Name="OrderID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Employee__Accoun__44FF419A">
+    <End Role="Account" Type="Self.Account" Multiplicity="0..1" />
+    <End Role="Employee" Type="Self.Employee" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Account">
+        <PropertyRef Name="UserName" />
+      </Principal>
+      <Dependent Role="Employee">
+        <PropertyRef Name="AccountName" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__reports__BillId__5535A963">
+    <End Role="bill" Type="Self.bill" Multiplicity="0..1" />
+    <End Role="reports" Type="Self.reports" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="bill">
+        <PropertyRef Name="BillID" />
+      </Principal>
+      <Dependent Role="reports">
+        <PropertyRef Name="BillId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="KaraOkayModelStoreContainer">
+    <EntitySet Name="Account" EntityType="Self.Account" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="bill" EntityType="Self.bill" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Employee" EntityType="Self.Employee" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Items" EntityType="Self.Items" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="reports" EntityType="Self.reports" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Room" EntityType="Self.Room" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="BillDetail" EntityType="Self.BillDetail" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [BillDetail].[BillID] AS [BillID], 
+    [BillDetail].[OrderID] AS [OrderID], 
+    [BillDetail].[Quantity] AS [Quantity], 
+    [BillDetail].[TotalPrice] AS [TotalPrice]
+    FROM [dbo].[BillDetail] AS [BillDetail]</DefiningQuery>
+    </EntitySet>
+    <AssociationSet Name="FK__bill__RmId__4AB81AF0" Association="Self.FK__bill__RmId__4AB81AF0">
+      <End Role="Room" EntitySet="Room" />
+      <End Role="bill" EntitySet="bill" />
+    </AssociationSet>
+    <AssociationSet Name="FK__BillDetai__BillI__4E88ABD4" Association="Self.FK__BillDetai__BillI__4E88ABD4">
+      <End Role="bill" EntitySet="bill" />
+      <End Role="BillDetail" EntitySet="BillDetail" />
+    </AssociationSet>
+    <AssociationSet Name="FK__BillDetai__Order__4F7CD00D" Association="Self.FK__BillDetai__Order__4F7CD00D">
+      <End Role="Items" EntitySet="Items" />
+      <End Role="BillDetail" EntitySet="BillDetail" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Employee__Accoun__44FF419A" Association="Self.FK__Employee__Accoun__44FF419A">
+      <End Role="Account" EntitySet="Account" />
+      <End Role="Employee" EntitySet="Employee" />
+    </AssociationSet>
+    <AssociationSet Name="FK__reports__BillId__5535A963" Association="Self.FK__reports__BillId__5535A963">
+      <End Role="bill" EntitySet="bill" />
+      <End Role="reports" EntitySet="reports" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

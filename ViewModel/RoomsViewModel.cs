@@ -34,9 +34,6 @@ namespace Wpf_Karaokay.ViewModel
             Rooms = new ObservableCollection<Room>(roomsFromDatabase);
             RoomButtonCommand = new RelayCommand<Room>(NavigateToCashierPage);
             BackButtonCommand = new RelayCommand<Room>(BackButton);
-            
-
-
         }
         private void NavigateToCashierPage(Room room)
         {
@@ -52,7 +49,7 @@ namespace Wpf_Karaokay.ViewModel
 
                 cashierPageViewModel.LoadSavedBillDetails(SelectedRoom); 
                 String CashierPageName = "CashierRoom" + SelectedRoom.RmId;
-         
+                //check if the CashierPageName is null 
                 NavigationService.NavigateToPage(CashierPageName);
             }
             else
@@ -69,7 +66,7 @@ namespace Wpf_Karaokay.ViewModel
         public void BackButton(Room room )
         {
 
-            NavigationService.RegisterWindow("ManagerForm", typeof(ManagerForm), new ManagerFormViewModel());
+            
             NavigationService.NavigateToWindow("ManagerForm"); 
         }
     }

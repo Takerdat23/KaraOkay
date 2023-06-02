@@ -27,22 +27,23 @@
 
 
         <Image Grid.Row="0" Source="image 2 copy.png" HorizontalAlignment="Left" Width="1910"  />
-        <ItemsControl Grid.Row="1" ItemsSource="{Binding Rooms}" >
-            <ItemsControl.ItemsPanel>
-                <ItemsPanelTemplate>
-                    <UniformGrid Columns="3"  />
-                </ItemsPanelTemplate>
-            </ItemsControl.ItemsPanel>
-            <ItemsControl.ItemTemplate>
-                <DataTemplate>
-                    <Button Width="132" Height="132"  Content="{Binding RmId}" 
-                        
+        <ScrollViewer Grid.Row="1" HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto">
+            <ItemsControl ItemsSource="{Binding Rooms}">
+                <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <UniformGrid Columns="3" />
+                    </ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <Button Width="132" Height="132" Content="{Binding RmId}" 
                         FontFamily="Gill Sans MT" FontSize="25"
                         Command="{Binding DataContext.RoomButtonCommand, RelativeSource={RelativeSource AncestorType={x:Type Window}}}"
-                        CommandParameter="{Binding}"/>
-                </DataTemplate>
-            </ItemsControl.ItemTemplate>
-        </ItemsControl>
+                        CommandParameter="{Binding}" />
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+        </ScrollViewer>
         <TextBlock HorizontalAlignment="Left" Margin="491,67,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="66" Width="429" FontFamily="Gill Sans MT" FontSize="60"><Run Text="Rooms"/><LineBreak/><Run/></TextBlock>
         <Button  Content="Previous" FontSize="35"  
                  Command="{Binding DataContext.BackButtonCommand, RelativeSource={RelativeSource AncestorType={x:Type Window}}}" Margin="1255,0,0,0" VerticalAlignment="Center" Height="121" FontFamily="Gill Sans MT" Background="#FF243257" Foreground="White" HorizontalAlignment="Left" Width="210"/>

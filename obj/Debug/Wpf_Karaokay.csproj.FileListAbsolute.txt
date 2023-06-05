@@ -139,3 +139,14 @@ D:\Karaokay\bin\Debug\GalaSoft.MvvmLight.Extras.pdb
 D:\Karaokay\bin\Debug\GalaSoft.MvvmLight.Extras.xml
 D:\Karaokay\bin\Debug\GalaSoft.MvvmLight.Platform.pdb
 D:\Karaokay\bin\Debug\GalaSoft.MvvmLight.Platform.xml
+D:\C#.NET\SE104_project\KaraOkay\bin\Debug\CommonServiceLocator.dll
+D:\C#.NET\SE104_project\KaraOkay\bin\Debug\GalaSoft.MvvmLight.dll
+D:\C#.NET\SE104_project\KaraOkay\bin\Debug\GalaSoft.MvvmLight.Extras.dll
+D:\C#.NET\SE104_project\KaraOkay\bin\Debug\GalaSoft.MvvmLight.Platform.dll
+D:\C#.NET\SE104_project\KaraOkay\bin\Debug\System.Windows.Interactivity.dll
+D:\C#.NET\SE104_project\KaraOkay\bin\Debug\GalaSoft.MvvmLight.pdb
+D:\C#.NET\SE104_project\KaraOkay\bin\Debug\GalaSoft.MvvmLight.xml
+D:\C#.NET\SE104_project\KaraOkay\bin\Debug\GalaSoft.MvvmLight.Extras.pdb
+D:\C#.NET\SE104_project\KaraOkay\bin\Debug\GalaSoft.MvvmLight.Extras.xml
+D:\C#.NET\SE104_project\KaraOkay\bin\Debug\GalaSoft.MvvmLight.Platform.pdb
+D:\C#.NET\SE104_project\KaraOkay\bin\Debug\GalaSoft.MvvmLight.Platform.xml

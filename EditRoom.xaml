@@ -8,7 +8,7 @@
         mc:Ignorable="d"
         Title="EditRoom" Width="800" Height="500"
         Background="#FFF6F7"
-        FontFamily="Gill Sans"
+ 
         DataContext="{DynamicResource EditRoomVM}"
         Name="editRoom">
     <Grid>

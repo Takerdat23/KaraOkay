@@ -30,7 +30,7 @@ namespace Wpf_Karaokay.ViewModel
             // Fetch your rooms from the database and populate the collection
 
            
-            List<Room> roomsFromDatabase = DataProvider.Ins.DB.Room.ToList();
+            List<Room> roomsFromDatabase = DataProvider.Ins.DB.Rooms.ToList();
             Rooms = new ObservableCollection<Room>(roomsFromDatabase);
             RoomButtonCommand = new RelayCommand<Room>(NavigateToCashierPage);
             BackButtonCommand = new RelayCommand<Room>(BackButton);

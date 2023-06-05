@@ -102,12 +102,6 @@ namespace WPF_Karaokay {
             return;
             case 2:
             this.adminBtn = ((System.Windows.Controls.Button)(target));
-            
-            #line 24 "..\..\MiddleWindow.xaml"
-            this.adminBtn.Click += new System.Windows.RoutedEventHandler(this.adminBtn_Click);
-            
-            #line default
-            #line hidden
             return;
             case 3:
             this.cashierBtn = ((System.Windows.Controls.Button)(target));

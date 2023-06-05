@@ -67,14 +67,6 @@ namespace WPF_Karaokay {
         
         #line 24 "..\..\LoginWindow.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
-        internal System.Windows.Controls.Button btn_exit;
-        
-        #line default
-        #line hidden
-        
-        
-        #line 36 "..\..\LoginWindow.xaml"
-        [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.TextBox txtUsername;
         
         #line default
@@ -92,14 +84,6 @@ namespace WPF_Karaokay {
         #line 39 "..\..\LoginWindow.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.Button loginBtn;
-        
-        #line default
-        #line hidden
-        
-        
-        #line 48 "..\..\LoginWindow.xaml"
-        [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
-        internal System.Windows.Controls.Button signupBtn;
         
         #line default
         #line hidden
@@ -141,9 +125,6 @@ namespace WPF_Karaokay {
             this.DialogHost = ((MaterialDesignThemes.Wpf.DialogHost)(target));
             return;
             case 3:
-            this.btn_exit = ((System.Windows.Controls.Button)(target));
-            return;
-            case 4:
             this.txtUsername = ((System.Windows.Controls.TextBox)(target));
             return;
             case 4:
@@ -151,9 +132,6 @@ namespace WPF_Karaokay {
             return;
             case 5:
             this.loginBtn = ((System.Windows.Controls.Button)(target));
-            return;
-            case 7:
-            this.signupBtn = ((System.Windows.Controls.Button)(target));
             return;
             }
             this._contentLoaded = true;

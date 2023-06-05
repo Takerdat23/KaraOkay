@@ -20,6 +20,6 @@ namespace Wpf_Karaokay.Model
         public Nullable<int> TotalPrice { get; set; }
     
         public virtual bill bill { get; set; }
-        public virtual Items Items { get; set; }
+        public virtual Item Item { get; set; }
     }
 }

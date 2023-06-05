@@ -87,7 +87,7 @@ warning 6002: The table/view 'KaraOkay.dbo.BillDetail' does not have a primary k
           <Property Name="version" Type="int" />
           <Property Name="definition" Type="varbinary(max)" />
         </EntityType>
-        <Association Name="FK__bill__RmId__37A5467C">
+        <Association Name="FK__bill__RmId__4AB81AF0">
           <End Role="Room" Type="Self.Room" Multiplicity="1" />
           <End Role="bill" Type="Self.bill" Multiplicity="*" />
           <ReferentialConstraint>
@@ -99,7 +99,7 @@ warning 6002: The table/view 'KaraOkay.dbo.BillDetail' does not have a primary k
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__BillDetai__BillI__3C69FB99">
+        <Association Name="FK__BillDetai__BillI__4E88ABD4">
           <End Role="bill" Type="Self.bill" Multiplicity="1" />
           <End Role="BillDetail" Type="Self.BillDetail" Multiplicity="*" />
           <ReferentialConstraint>
@@ -111,7 +111,7 @@ warning 6002: The table/view 'KaraOkay.dbo.BillDetail' does not have a primary k
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__BillDetai__Order__3D5E1FD2">
+        <Association Name="FK__BillDetai__Order__4F7CD00D">
           <End Role="Items" Type="Self.Items" Multiplicity="1" />
           <End Role="BillDetail" Type="Self.BillDetail" Multiplicity="*" />
           <ReferentialConstraint>
@@ -123,7 +123,7 @@ warning 6002: The table/view 'KaraOkay.dbo.BillDetail' does not have a primary k
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Employee__Accoun__31EC6D26">
+        <Association Name="FK__Employee__Accoun__44FF419A">
           <End Role="Account" Type="Self.Account" Multiplicity="0..1" />
           <End Role="Employee" Type="Self.Employee" Multiplicity="*" />
           <ReferentialConstraint>
@@ -135,7 +135,7 @@ warning 6002: The table/view 'KaraOkay.dbo.BillDetail' does not have a primary k
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__reports__BillId__4316F928">
+        <Association Name="FK__reports__BillId__5535A963">
           <End Role="bill" Type="Self.bill" Multiplicity="0..1" />
           <End Role="reports" Type="Self.reports" Multiplicity="*" />
           <ReferentialConstraint>
@@ -163,23 +163,23 @@ warning 6002: The table/view 'KaraOkay.dbo.BillDetail' does not have a primary k
     [BillDetail].[TotalPrice] AS [TotalPrice]
     FROM [dbo].[BillDetail] AS [BillDetail]</DefiningQuery>
           </EntitySet>
-          <AssociationSet Name="FK__bill__RmId__37A5467C" Association="Self.FK__bill__RmId__37A5467C">
+          <AssociationSet Name="FK__bill__RmId__4AB81AF0" Association="Self.FK__bill__RmId__4AB81AF0">
             <End Role="Room" EntitySet="Room" />
             <End Role="bill" EntitySet="bill" />
           </AssociationSet>
-          <AssociationSet Name="FK__BillDetai__BillI__3C69FB99" Association="Self.FK__BillDetai__BillI__3C69FB99">
+          <AssociationSet Name="FK__BillDetai__BillI__4E88ABD4" Association="Self.FK__BillDetai__BillI__4E88ABD4">
             <End Role="bill" EntitySet="bill" />
             <End Role="BillDetail" EntitySet="BillDetail" />
           </AssociationSet>
-          <AssociationSet Name="FK__BillDetai__Order__3D5E1FD2" Association="Self.FK__BillDetai__Order__3D5E1FD2">
+          <AssociationSet Name="FK__BillDetai__Order__4F7CD00D" Association="Self.FK__BillDetai__Order__4F7CD00D">
             <End Role="Items" EntitySet="Items" />
             <End Role="BillDetail" EntitySet="BillDetail" />
           </AssociationSet>
-          <AssociationSet Name="FK__Employee__Accoun__31EC6D26" Association="Self.FK__Employee__Accoun__31EC6D26">
+          <AssociationSet Name="FK__Employee__Accoun__44FF419A" Association="Self.FK__Employee__Accoun__44FF419A">
             <End Role="Account" EntitySet="Account" />
             <End Role="Employee" EntitySet="Employee" />
           </AssociationSet>
-          <AssociationSet Name="FK__reports__BillId__4316F928" Association="Self.FK__reports__BillId__4316F928">
+          <AssociationSet Name="FK__reports__BillId__5535A963" Association="Self.FK__reports__BillId__5535A963">
             <End Role="bill" EntitySet="bill" />
             <End Role="reports" EntitySet="reports" />
           </AssociationSet>
@@ -197,7 +197,7 @@ warning 6002: The table/view 'KaraOkay.dbo.BillDetail' does not have a primary k
           <Property Name="DisplayName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Password" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="type" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Employee" Relationship="Self.FK__Employee__Accoun__31EC6D26" FromRole="Account" ToRole="Employee" />
+          <NavigationProperty Name="Employees" Relationship="Self.FK__Employee__Accoun__44FF419A" FromRole="Account" ToRole="Employee" />
         </EntityType>
         <EntityType Name="bill">
           <Key>
@@ -209,9 +209,9 @@ warning 6002: The table/view 'KaraOkay.dbo.BillDetail' does not have a primary k
           <Property Name="OrderPice" Type="Int32" />
           <Property Name="TotalPrice" Type="Int32" Nullable="false" />
           <Property Name="Billed" Type="Boolean" />
-          <NavigationProperty Name="Room" Relationship="Self.FK__bill__RmId__37A5467C" FromRole="bill" ToRole="Room" />
-          <NavigationProperty Name="BillDetail" Relationship="Self.FK__BillDetai__BillI__3C69FB99" FromRole="bill" ToRole="BillDetail" />
-          <NavigationProperty Name="reports" Relationship="Self.FK__reports__BillId__4316F928" FromRole="bill" ToRole="reports" />
+          <NavigationProperty Name="Room" Relationship="Self.FK__bill__RmId__4AB81AF0" FromRole="bill" ToRole="Room" />
+          <NavigationProperty Name="BillDetails" Relationship="Self.FK__BillDetai__BillI__4E88ABD4" FromRole="bill" ToRole="BillDetail" />
+          <NavigationProperty Name="reports" Relationship="Self.FK__reports__BillId__5535A963" FromRole="bill" ToRole="reports" />
         </EntityType>
         <EntityType Name="Employee">
           <Key>
@@ -224,9 +224,9 @@ warning 6002: The table/view 'KaraOkay.dbo.BillDetail' does not have a primary k
           <Property Name="BirthDate" Type="DateTime" Precision="0" />
           <Property Name="PlaceOfOrigin" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="AccountName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="Account" Relationship="Self.FK__Employee__Accoun__31EC6D26" FromRole="Employee" ToRole="Account" />
+          <NavigationProperty Name="Account" Relationship="Self.FK__Employee__Accoun__44FF419A" FromRole="Employee" ToRole="Account" />
         </EntityType>
-        <EntityType Name="Items">
+        <EntityType Name="Item">
           <Key>
             <PropertyRef Name="itemID" />
           </Key>
@@ -234,9 +234,9 @@ warning 6002: The table/view 'KaraOkay.dbo.BillDetail' does not have a primary k
           <Property Name="itemName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="itemType" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="itemPrice" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="BillDetail" Relationship="Self.FK__BillDetai__Order__3D5E1FD2" FromRole="Items" ToRole="BillDetail" />
+          <NavigationProperty Name="BillDetails" Relationship="Self.FK__BillDetai__Order__4F7CD00D" FromRole="Items" ToRole="BillDetail" />
         </EntityType>
-        <EntityType Name="reports">
+        <EntityType Name="report">
           <Key>
             <PropertyRef Name="ReportID" />
           </Key>
@@ -245,7 +245,7 @@ warning 6002: The table/view 'KaraOkay.dbo.BillDetail' does not have a primary k
           <Property Name="startDate" Type="DateTime" Precision="0" />
           <Property Name="endDate" Type="DateTime" Precision="0" />
           <Property Name="BillId" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="bill" Relationship="Self.FK__reports__BillId__4316F928" FromRole="reports" ToRole="bill" />
+          <NavigationProperty Name="bill" Relationship="Self.FK__reports__BillId__5535A963" FromRole="reports" ToRole="bill" />
         </EntityType>
         <EntityType Name="Room">
           <Key>
@@ -255,9 +255,9 @@ warning 6002: The table/view 'KaraOkay.dbo.BillDetail' does not have a primary k
           <Property Name="RmType" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="RMStatus" Type="Int32" />
           <Property Name="PricePerHour" Type="Int32" />
-          <NavigationProperty Name="bill" Relationship="Self.FK__bill__RmId__37A5467C" FromRole="Room" ToRole="bill" />
+          <NavigationProperty Name="bills" Relationship="Self.FK__bill__RmId__4AB81AF0" FromRole="Room" ToRole="bill" />
         </EntityType>
-        <EntityType Name="sysdiagrams">
+        <EntityType Name="sysdiagram">
           <Key>
             <PropertyRef Name="diagram_id" />
           </Key>
@@ -276,10 +276,10 @@ warning 6002: The table/view 'KaraOkay.dbo.BillDetail' does not have a primary k
           <Property Name="OrderID" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Quantity" Type="Int32" />
           <Property Name="TotalPrice" Type="Int32" />
-          <NavigationProperty Name="bill" Relationship="Self.FK__BillDetai__BillI__3C69FB99" FromRole="BillDetail" ToRole="bill" />
-          <NavigationProperty Name="Items" Relationship="Self.FK__BillDetai__Order__3D5E1FD2" FromRole="BillDetail" ToRole="Items" />
+          <NavigationProperty Name="bill" Relationship="Self.FK__BillDetai__BillI__4E88ABD4" FromRole="BillDetail" ToRole="bill" />
+          <NavigationProperty Name="Item" Relationship="Self.FK__BillDetai__Order__4F7CD00D" FromRole="BillDetail" ToRole="Items" />
         </EntityType>
-        <Association Name="FK__Employee__Accoun__31EC6D26">
+        <Association Name="FK__Employee__Accoun__44FF419A">
           <End Role="Account" Type="Self.Account" Multiplicity="0..1" />
           <End Role="Employee" Type="Self.Employee" Multiplicity="*" />
           <ReferentialConstraint>
@@ -291,7 +291,7 @@ warning 6002: The table/view 'KaraOkay.dbo.BillDetail' does not have a primary k
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__bill__RmId__37A5467C">
+        <Association Name="FK__bill__RmId__4AB81AF0">
           <End Role="Room" Type="Self.Room" Multiplicity="1" />
           <End Role="bill" Type="Self.bill" Multiplicity="*" />
           <ReferentialConstraint>
@@ -303,7 +303,7 @@ warning 6002: The table/view 'KaraOkay.dbo.BillDetail' does not have a primary k
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__BillDetai__BillI__3C69FB99">
+        <Association Name="FK__BillDetai__BillI__4E88ABD4">
           <End Role="bill" Type="Self.bill" Multiplicity="1" />
           <End Role="BillDetail" Type="Self.BillDetail" Multiplicity="*" />
           <ReferentialConstraint>
@@ -315,9 +315,9 @@ warning 6002: The table/view 'KaraOkay.dbo.BillDetail' does not have a primary k
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__reports__BillId__4316F928">
+        <Association Name="FK__reports__BillId__5535A963">
           <End Role="bill" Type="Self.bill" Multiplicity="0..1" />
-          <End Role="reports" Type="Self.reports" Multiplicity="*" />
+          <End Role="reports" Type="Self.report" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="bill">
               <PropertyRef Name="BillID" />
@@ -327,8 +327,8 @@ warning 6002: The table/view 'KaraOkay.dbo.BillDetail' does not have a primary k
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__BillDetai__Order__3D5E1FD2">
-          <End Role="Items" Type="Self.Items" Multiplicity="1" />
+        <Association Name="FK__BillDetai__Order__4F7CD00D">
+          <End Role="Items" Type="Self.Item" Multiplicity="1" />
           <End Role="BillDetail" Type="Self.BillDetail" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Items">
@@ -339,34 +339,34 @@ warning 6002: The table/view 'KaraOkay.dbo.BillDetail' does not have a primary k
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="KaraOkayEntities1" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="Account" EntityType="Self.Account" />
-          <EntitySet Name="bill" EntityType="Self.bill" />
-          <EntitySet Name="Employee" EntityType="Self.Employee" />
-          <EntitySet Name="Items" EntityType="Self.Items" />
-          <EntitySet Name="reports" EntityType="Self.reports" />
-          <EntitySet Name="Room" EntityType="Self.Room" />
-          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
-          <EntitySet Name="BillDetail" EntityType="Self.BillDetail" />
-          <AssociationSet Name="FK__Employee__Accoun__31EC6D26" Association="Self.FK__Employee__Accoun__31EC6D26">
-            <End Role="Account" EntitySet="Account" />
-            <End Role="Employee" EntitySet="Employee" />
+        <EntityContainer Name="KaraOkayEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Accounts" EntityType="Self.Account" />
+          <EntitySet Name="bills" EntityType="Self.bill" />
+          <EntitySet Name="Employees" EntityType="Self.Employee" />
+          <EntitySet Name="Items" EntityType="Self.Item" />
+          <EntitySet Name="reports" EntityType="Self.report" />
+          <EntitySet Name="Rooms" EntityType="Self.Room" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+          <EntitySet Name="BillDetails" EntityType="Self.BillDetail" />
+          <AssociationSet Name="FK__Employee__Accoun__44FF419A" Association="Self.FK__Employee__Accoun__44FF419A">
+            <End Role="Account" EntitySet="Accounts" />
+            <End Role="Employee" EntitySet="Employees" />
           </AssociationSet>
-          <AssociationSet Name="FK__bill__RmId__37A5467C" Association="Self.FK__bill__RmId__37A5467C">
-            <End Role="Room" EntitySet="Room" />
-            <End Role="bill" EntitySet="bill" />
+          <AssociationSet Name="FK__bill__RmId__4AB81AF0" Association="Self.FK__bill__RmId__4AB81AF0">
+            <End Role="Room" EntitySet="Rooms" />
+            <End Role="bill" EntitySet="bills" />
           </AssociationSet>
-          <AssociationSet Name="FK__BillDetai__BillI__3C69FB99" Association="Self.FK__BillDetai__BillI__3C69FB99">
-            <End Role="bill" EntitySet="bill" />
-            <End Role="BillDetail" EntitySet="BillDetail" />
+          <AssociationSet Name="FK__BillDetai__BillI__4E88ABD4" Association="Self.FK__BillDetai__BillI__4E88ABD4">
+            <End Role="bill" EntitySet="bills" />
+            <End Role="BillDetail" EntitySet="BillDetails" />
           </AssociationSet>
-          <AssociationSet Name="FK__reports__BillId__4316F928" Association="Self.FK__reports__BillId__4316F928">
-            <End Role="bill" EntitySet="bill" />
+          <AssociationSet Name="FK__reports__BillId__5535A963" Association="Self.FK__reports__BillId__5535A963">
+            <End Role="bill" EntitySet="bills" />
             <End Role="reports" EntitySet="reports" />
           </AssociationSet>
-          <AssociationSet Name="FK__BillDetai__Order__3D5E1FD2" Association="Self.FK__BillDetai__Order__3D5E1FD2">
+          <AssociationSet Name="FK__BillDetai__Order__4F7CD00D" Association="Self.FK__BillDetai__Order__4F7CD00D">
             <End Role="Items" EntitySet="Items" />
-            <End Role="BillDetail" EntitySet="BillDetail" />
+            <End Role="BillDetail" EntitySet="BillDetails" />
           </AssociationSet>
         </EntityContainer>
       </Schema>
@@ -374,8 +374,8 @@ warning 6002: The table/view 'KaraOkay.dbo.BillDetail' does not have a primary k
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="KaraOkayModelStoreContainer" CdmEntityContainer="KaraOkayEntities1">
-          <EntitySetMapping Name="Account">
+        <EntityContainerMapping StorageEntityContainer="KaraOkayModelStoreContainer" CdmEntityContainer="KaraOkayEntities">
+          <EntitySetMapping Name="Accounts">
             <EntityTypeMapping TypeName="KaraOkayModel.Account">
               <MappingFragment StoreEntitySet="Account">
                 <ScalarProperty Name="UserName" ColumnName="UserName" />
@@ -385,7 +385,7 @@ warning 6002: The table/view 'KaraOkay.dbo.BillDetail' does not have a primary k
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="bill">
+          <EntitySetMapping Name="bills">
             <EntityTypeMapping TypeName="KaraOkayModel.bill">
               <MappingFragment StoreEntitySet="bill">
                 <ScalarProperty Name="BillID" ColumnName="BillID" />
@@ -397,7 +397,7 @@ warning 6002: The table/view 'KaraOkay.dbo.BillDetail' does not have a primary k
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Employee">
+          <EntitySetMapping Name="Employees">
             <EntityTypeMapping TypeName="KaraOkayModel.Employee">
               <MappingFragment StoreEntitySet="Employee">
                 <ScalarProperty Name="EmpId" ColumnName="EmpId" />
@@ -411,7 +411,7 @@ warning 6002: The table/view 'KaraOkay.dbo.BillDetail' does not have a primary k
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Items">
-            <EntityTypeMapping TypeName="KaraOkayModel.Items">
+            <EntityTypeMapping TypeName="KaraOkayModel.Item">
               <MappingFragment StoreEntitySet="Items">
                 <ScalarProperty Name="itemID" ColumnName="itemID" />
                 <ScalarProperty Name="itemName" ColumnName="itemName" />
@@ -421,7 +421,7 @@ warning 6002: The table/view 'KaraOkay.dbo.BillDetail' does not have a primary k
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="reports">
-            <EntityTypeMapping TypeName="KaraOkayModel.reports">
+            <EntityTypeMapping TypeName="KaraOkayModel.report">
               <MappingFragment StoreEntitySet="reports">
                 <ScalarProperty Name="ReportID" ColumnName="ReportID" />
                 <ScalarProperty Name="RpName" ColumnName="RpName" />
@@ -431,7 +431,7 @@ warning 6002: The table/view 'KaraOkay.dbo.BillDetail' does not have a primary k
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Room">
+          <EntitySetMapping Name="Rooms">
             <EntityTypeMapping TypeName="KaraOkayModel.Room">
               <MappingFragment StoreEntitySet="Room">
                 <ScalarProperty Name="RmId" ColumnName="RmId" />
@@ -442,7 +442,7 @@ warning 6002: The table/view 'KaraOkay.dbo.BillDetail' does not have a primary k
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="sysdiagrams">
-            <EntityTypeMapping TypeName="KaraOkayModel.sysdiagrams">
+            <EntityTypeMapping TypeName="KaraOkayModel.sysdiagram">
               <MappingFragment StoreEntitySet="sysdiagrams">
                 <ScalarProperty Name="name" ColumnName="name" />
                 <ScalarProperty Name="principal_id" ColumnName="principal_id" />
@@ -452,7 +452,7 @@ warning 6002: The table/view 'KaraOkay.dbo.BillDetail' does not have a primary k
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="BillDetail">
+          <EntitySetMapping Name="BillDetails">
             <EntityTypeMapping TypeName="KaraOkayModel.BillDetail">
               <MappingFragment StoreEntitySet="BillDetail">
                 <ScalarProperty Name="BillID" ColumnName="BillID" />
@@ -476,7 +476,7 @@ warning 6002: The table/view 'KaraOkay.dbo.BillDetail' does not have a primary k
     <Options>
       <DesignerInfoPropertySet>
         <DesignerProperty Name="ValidateOnBuild" Value="true" />
-        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
         <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
         <DesignerProperty Name="UseLegacyProvider" Value="false" />
         <DesignerProperty Name="CodeGenerationStrategy" Value="None" />

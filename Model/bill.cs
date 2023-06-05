@@ -17,8 +17,8 @@ namespace Wpf_Karaokay.Model
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public bill()
         {
-            this.BillDetail = new HashSet<BillDetail>();
-            this.reports = new HashSet<reports>();
+            this.BillDetails = new HashSet<BillDetail>();
+            this.reports = new HashSet<report>();
         }
     
         public string BillID { get; set; }
@@ -30,8 +30,8 @@ namespace Wpf_Karaokay.Model
     
         public virtual Room Room { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<BillDetail> BillDetail { get; set; }
+        public virtual ICollection<BillDetail> BillDetails { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<reports> reports { get; set; }
+        public virtual ICollection<report> reports { get; set; }
     }
 }

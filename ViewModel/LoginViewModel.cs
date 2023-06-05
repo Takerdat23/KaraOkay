@@ -53,7 +53,7 @@ namespace Wpf_Karaokay.ViewModel
             // NavigationService.RegisterWindow("MiddleWindow", typeof(MiddleWindow), new MiddleWindowViewModel());
             NavigationService.RegisterWindow("ManagerForm", typeof(ManagerForm), new ManagerFormViewModel());
 
-            List<Account> accountsFromDatabase = DataProvider.Ins.DB.Account.ToList();
+            List<Account> accountsFromDatabase = DataProvider.Ins.DB.Accounts.ToList();
             Accounts = new ObservableCollection<Account>(accountsFromDatabase);
 
             LoginCommand = new RelayCommand<Window>(Login);

@@ -13,10 +13,10 @@ namespace Wpf_Karaokay.Model
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class KaraOkayEntities1 : DbContext
+    public partial class KaraOkayEntities : DbContext
     {
-        public KaraOkayEntities1()
-            : base("name=KaraOkayEntities1")
+        public KaraOkayEntities()
+            : base("name=KaraOkayEntities")
         {
         }
     
@@ -25,13 +25,13 @@ namespace Wpf_Karaokay.Model
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<Account> Account { get; set; }
-        public virtual DbSet<bill> bill { get; set; }
-        public virtual DbSet<Employee> Employee { get; set; }
-        public virtual DbSet<Items> Items { get; set; }
-        public virtual DbSet<reports> reports { get; set; }
-        public virtual DbSet<Room> Room { get; set; }
-        public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
-        public virtual DbSet<BillDetail> BillDetail { get; set; }
+        public virtual DbSet<Account> Accounts { get; set; }
+        public virtual DbSet<bill> bills { get; set; }
+        public virtual DbSet<Employee> Employees { get; set; }
+        public virtual DbSet<Item> Items { get; set; }
+        public virtual DbSet<report> reports { get; set; }
+        public virtual DbSet<Room> Rooms { get; set; }
+        public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
+        public virtual DbSet<BillDetail> BillDetails { get; set; }
     }
 }

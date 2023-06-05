@@ -49,13 +49,16 @@
         <TabControl Margin="0,10,10,0" Grid.RowSpan="2">
             <TabItem Header="Food" Height="175" >
                 <Grid Background="#FFE5E5E5">
-                    <DataGrid ItemsSource="{Binding FoodItems}">
+                    <DataGrid ItemsSource="{Binding FoodItems}" AutoGenerateColumns="False">
                         <DataGrid.Columns>
-                            <DataGridTemplateColumn Header="Name">
+                            <DataGridTextColumn Header="Name" Binding="{Binding itemName}" />
+                            <DataGridTextColumn Header="type" Binding="{Binding itemType}" />
+                            <DataGridTextColumn Header="Price" Binding="{Binding itemPrice}" />
+                            <DataGridTemplateColumn Header="Quantity">
                                 <DataGridTemplateColumn.CellTemplate>
                                     <DataTemplate>
                                         <StackPanel Orientation="Horizontal">
-                                            <TextBlock Text="{Binding itemName}" />
+                                  
                                             <Grid>
                                                 <Grid.ColumnDefinitions>
                                                     <ColumnDefinition Width="*" />
@@ -72,7 +75,7 @@
                                     </DataTemplate>
                                 </DataGridTemplateColumn.CellTemplate>
                             </DataGridTemplateColumn>
-                            <DataGridTextColumn Header="Price" Binding="{Binding itemPrice}" />
+                            
                             <!-- Other columns if needed -->
                         </DataGrid.Columns>
                     </DataGrid>
@@ -80,13 +83,16 @@
             </TabItem>
             <TabItem Header="Beverage" Height="170">
                 <Grid Background="#FFE5E5E5">
-                    <DataGrid ItemsSource="{Binding BeverageItems}">
+                    <DataGrid ItemsSource="{Binding BeverageItems}"  AutoGenerateColumns="False">
                         <DataGrid.Columns>
-                            <DataGridTemplateColumn Header="Name">
+                            <DataGridTextColumn Header="Name" Binding="{Binding itemName}" />
+                            <DataGridTextColumn Header="type" Binding="{Binding itemType}" />
+                            <DataGridTextColumn Header="Price" Binding="{Binding itemPrice}" />
+                            <DataGridTemplateColumn Header="Quantity">
                                 <DataGridTemplateColumn.CellTemplate>
                                     <DataTemplate>
                                         <StackPanel Orientation="Horizontal">
-                                            <TextBlock Text="{Binding itemName}" />
+                            
                                             <Grid>
                                                 <Grid.ColumnDefinitions>
                                                     <ColumnDefinition Width="*" />
@@ -103,7 +109,7 @@
                                     </DataTemplate>
                                 </DataGridTemplateColumn.CellTemplate>
                             </DataGridTemplateColumn>
-                            <DataGridTextColumn Header="Price" Binding="{Binding itemPrice}" />
+
                             <!-- Other columns if needed -->
                         </DataGrid.Columns>
                     </DataGrid>
@@ -113,20 +119,23 @@
             </TabItem>
             <TabItem Header="Others" Height="180">
                 <Grid Background="#FFE5E5E5">
-                    <DataGrid ItemsSource="{Binding OthersItems}">
+                    <DataGrid ItemsSource="{Binding OthersItems}"  AutoGenerateColumns="False">
                         <DataGrid.Columns>
-                            <DataGridTemplateColumn Header="Name">
+                            <DataGridTextColumn Header="Name" Binding="{Binding itemName}" />
+                            <DataGridTextColumn Header="type" Binding="{Binding itemType}" />
+                            <DataGridTextColumn Header="Price" Binding="{Binding itemPrice}" />
+                            <DataGridTemplateColumn Header="Quantity">
                                 <DataGridTemplateColumn.CellTemplate>
                                     <DataTemplate>
                                         <StackPanel Orientation="Horizontal">
-                                            <TextBlock Text="{Binding itemName}" />
+                                  
                                             <Grid>
                                                 <Grid.ColumnDefinitions>
-                                                    <ColumnDefinition Width="3*" />
-                                                    <!-- Empty column to push buttons to the right -->
+                                                    <ColumnDefinition Width="*" />
                                                     <ColumnDefinition Width="Auto" />
-                                                    <!-- Column for buttons -->
+                                                    <ColumnDefinition Width="Auto" />
                                                 </Grid.ColumnDefinitions>
+
                                                 <Button Grid.Column="1" Content="+" Command="{Binding DataContext.IncreaseQuantityCommand, RelativeSource={RelativeSource AncestorType={x:Type Page}}}"
                         CommandParameter="{Binding}" />
                                                 <Button Grid.Column="2" Content="-" Command="{Binding DataContext.DecreaseQuantityCommand, RelativeSource={RelativeSource AncestorType={x:Type Page}}}"
@@ -136,7 +145,7 @@
                                     </DataTemplate>
                                 </DataGridTemplateColumn.CellTemplate>
                             </DataGridTemplateColumn>
-                            <DataGridTextColumn Header="Price" Binding="{Binding itemPrice}" />
+
                             <!-- Other columns if needed -->
                         </DataGrid.Columns>
                     </DataGrid>

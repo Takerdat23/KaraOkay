@@ -12,12 +12,12 @@ namespace Wpf_Karaokay.Model
     using System;
     using System.Collections.Generic;
     
-    public partial class Items
+    public partial class Item
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Items()
+        public Item()
         {
-            this.BillDetail = new HashSet<BillDetail>();
+            this.BillDetails = new HashSet<BillDetail>();
         }
     
         public string itemID { get; set; }
@@ -26,6 +26,6 @@ namespace Wpf_Karaokay.Model
         public int itemPrice { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<BillDetail> BillDetail { get; set; }
+        public virtual ICollection<BillDetail> BillDetails { get; set; }
     }
 }

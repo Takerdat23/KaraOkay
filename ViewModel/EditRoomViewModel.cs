@@ -76,7 +76,7 @@ namespace Wpf_Karaokay.ViewModel
         {
 
             
-            List<Room> roomsFromDatabase = DataProvider.Ins.DB.Room.ToList();
+            List<Room> roomsFromDatabase = DataProvider.Ins.DB.Rooms.ToList();
             Rooms = new ObservableCollection<Room>(roomsFromDatabase);
             //LoadRooms();
 

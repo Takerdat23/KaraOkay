@@ -12,7 +12,7 @@ namespace Wpf_Karaokay.Model
     using System;
     using System.Collections.Generic;
     
-    public partial class reports
+    public partial class report
     {
         public string ReportID { get; set; }
         public string RpName { get; set; }

@@ -136,7 +136,7 @@
     <Compile Include="Model\Employee.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="Model\Items.cs">
+    <Compile Include="Model\Item.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\Model1.Context.cs">
@@ -155,13 +155,13 @@
       <DependentUpon>Model1.edmx</DependentUpon>
     </Compile>
     <Compile Include="Model\NavigationService.cs" />
-    <Compile Include="Model\reports.cs">
+    <Compile Include="Model\report.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\Room.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="Model\sysdiagrams.cs">
+    <Compile Include="Model\sysdiagram.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\TimerService.cs" />
@@ -299,6 +299,8 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Group 3.png" />
+  </ItemGroup>
+  <ItemGroup>
     <Content Include="Model\Model1.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>Model1.edmx</DependentUpon>

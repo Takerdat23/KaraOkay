@@ -315,6 +315,9 @@
     <Resource Include="Frame.png" />
     <Resource Include="Menu.png" />
     <Resource Include="Employee.png" />
+    <Resource Include="ADMINadmin.png" />
+    <Resource Include="extraline.png" />
+    <Resource Include="ADMINextraline.png" />
     <Content Include="Model\Model1.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>Model1.edmx</DependentUpon>

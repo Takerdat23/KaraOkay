@@ -11,17 +11,15 @@ namespace Wpf_Karaokay.Model
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
-
+    
     public partial class BillDetail
     {
-        [Key]
         public string BillID { get; set; }
         public string OrderID { get; set; }
         public Nullable<int> Quantity { get; set; }
         public Nullable<int> TotalPrice { get; set; }
     
         public virtual bill bill { get; set; }
-        public virtual Item Item { get; set; }
+        public virtual Items Items { get; set; }
     }
 }

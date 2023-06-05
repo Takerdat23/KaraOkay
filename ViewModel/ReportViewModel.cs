@@ -75,7 +75,7 @@ namespace Wpf_Karaokay.ViewModel
             List<bill> billsInRange = new List<bill>();
 
             // Assuming you have a collection of all bills available
-            List<bill> allBills = DataProvider.Ins.DB.bills.Where(b => b.Billed == true).ToList(); 
+            List<bill> allBills = DataProvider.Ins.DB.bill.Where(b => b.Billed == true).ToList(); 
 
             // Iterate over the bills and filter based on the date range
             foreach (bill bill in allBills)

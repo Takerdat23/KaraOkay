@@ -155,3 +155,5 @@ D:\C#.NET\SE104_project\KaraOkay\bin\Debug\GalaSoft.MvvmLight.Platform.xml
 D:\Karaokay\obj\Debug\EditEmployee.g.cs
 D:\Karaokay\obj\Debug\EditEmployee.baml
 >>>>>>> branchEditRoom
+D:\C#.NET\SE104_project\KaraOkay\obj\Debug\EditEmployee.g.cs
+D:\C#.NET\SE104_project\KaraOkay\obj\Debug\EditEmployee.baml

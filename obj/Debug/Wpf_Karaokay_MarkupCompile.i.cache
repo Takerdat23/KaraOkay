@@ -10,19 +10,11 @@ none
 false
 DEBUG;TRACE
 D:\C#.NET\SE104_project\KaraOkay\App.xaml
-<<<<<<< HEAD
-151718067705
+15344781792
 2739969757
-4426346738
+45-1985077517
 132-1871294686
-AddMenu.xaml;AddRoom.xaml;CashierPage.xaml;EditMenu.xaml;EditRoom.xaml;FinalBill.xaml;LoginWindow.xaml;MainWindow.xaml;ManagerForm.xaml;MenuManager.xaml;MiddleWindow.xaml;ReportWindow.xaml;ResourceXAML\MainResource.xaml;RoomManager.xaml;RoomsWindows.xaml;
-=======
-16-633460449
-2739969757
-47197860654
-132-1871294686
-AddMenu.xaml;AddRoom.xaml;CashierPage.xaml;EditEmployee.xaml;EditMenu.xaml;EditRoom.xaml;FinalBill.xaml;LoginWindow.xaml;MainWindow.xaml;ManagerForm.xaml;MenuManager.xaml;MiddleWindow.xaml;ReportWindow.xaml;ResourceXAML\MainResource.xaml;RoomManager.xaml;RoomsWindows.xaml;
->>>>>>> branchEditRoom
+AddMenu.xaml;AddRoom.xaml;CashierPage.xaml;EditEmployee.xaml;EditMenu.xaml;EditRoom.xaml;FinalBill.xaml;LoginWindow.xaml;MainWindow.xaml;ManagerForm.xaml;MenuManager.xaml;ReportWindow.xaml;ResourceXAML\MainResource.xaml;RoomManager.xaml;RoomsWindows.xaml;
 
 False
 

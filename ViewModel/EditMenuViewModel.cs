@@ -15,7 +15,7 @@ namespace Wpf_Karaokay.ViewModel
 {
     public class EditMenuViewModel : BaseViewModel
     {
-        private Items Item { get; set; }
+        private Item Item { get; set; }
         private string _ItemID;
         public string ItemID
         {
@@ -59,7 +59,7 @@ namespace Wpf_Karaokay.ViewModel
             }
         }
 
-        public ObservableCollection<Items> Items { get; set; }
+        public ObservableCollection<Item> Items { get; set; }
 
         public ICommand InsertCommand { get; set; }
         public ICommand UpdateCommand { get; set; }
@@ -71,8 +71,8 @@ namespace Wpf_Karaokay.ViewModel
         {
 
 
-            List<Items> itemsFromDatabase = DataProvider.Ins.DB.Items.ToList();
-            Items = new ObservableCollection<Items>(itemsFromDatabase);
+            List<Item> itemsFromDatabase = DataProvider.Ins.DB.Items.ToList();
+            Items = new ObservableCollection<Item>(itemsFromDatabase);
             //LoadRooms();
 
             InsertCommand = new RelayCommand(Insert);
@@ -103,7 +103,7 @@ namespace Wpf_Karaokay.ViewModel
                     connection.Open();
                     command.ExecuteNonQuery();
                     // Notify the UI that the collection has been modified
-                    Items item = new Items()
+                    Item item = new Item()
                     {
                         itemID = ItemID,
                         itemName = ItemName,
@@ -142,7 +142,7 @@ namespace Wpf_Karaokay.ViewModel
                     command.ExecuteNonQuery();
                     // Update other properties as needed
 
-                    Items item = Items.Where(r => r.itemID == ItemID).FirstOrDefault();
+                    Item item = Items.Where(r => r.itemID == ItemID).FirstOrDefault();
                     int index = Items.IndexOf(item);
                     if (index != -1)
                     {
@@ -182,7 +182,7 @@ namespace Wpf_Karaokay.ViewModel
                     connection.Open();
                     command.ExecuteNonQuery();
                     // Notify the UI that the collection has been modified
-                    Items item = Items.FirstOrDefault(r => r.itemID == ItemID);
+                    Item item = Items.FirstOrDefault(r => r.itemID == ItemID);
                     Items.Remove(item);
                     OnPropertyChanged(nameof(Items));
                     MessageBox.Show("Item deleted successfully!");
@@ -196,8 +196,9 @@ namespace Wpf_Karaokay.ViewModel
         }
         private void Back(Window p)
         {
+            NavigationService.RegisterWindow("ManagerForm", typeof(ManagerForm), new ManagerFormViewModel());
             NavigationService.NavigateToWindow("ManagerForm");
-            p.Close();
+     
         }
     }
 }

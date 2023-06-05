@@ -180,7 +180,7 @@
     <Compile Include="Service\NavigationService.cs" />
     <Compile Include="ViewModel\BaseViewModel.cs" />
     <Compile Include="ViewModel\CashierViewModel.cs" />
-    <Compile Include="ViewModel\EditEmployee.cs" />
+    <Compile Include="ViewModel\EditEmployeeViewModel.cs" />
     <Compile Include="ViewModel\EditMenuViewModel.cs" />
     <Compile Include="ViewModel\EditRoomViewModel.cs" />
     <Compile Include="ViewModel\FinalBillViewModel.cs" />

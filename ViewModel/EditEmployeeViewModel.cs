@@ -11,7 +11,7 @@ using Wpf_Karaokay.Model;
 
 namespace Wpf_Karaokay.ViewModel
 {
-    public class EditEmployee : BaseViewModel
+    public class EditEmployeeViewModel : BaseViewModel
     {
         private Employee Employee { get; set; }
         private string _EmpID;
@@ -87,11 +87,11 @@ namespace Wpf_Karaokay.ViewModel
         public ICommand DeleteCommand { get; set; }
         public ICommand BackCommand { get; set; }
 
-        public EditEmployee()
+        public EditEmployeeViewModel()
         {
 
 
-            List<Employee> employeesFromDatabase = DataProvider.Ins.DB.Employee.ToList();
+            List<Employee> employeesFromDatabase = DataProvider.Ins.DB.Employees.ToList();
             Employees = new ObservableCollection<Employee>(employeesFromDatabase);
             //LoadRooms();
 
@@ -220,8 +220,9 @@ namespace Wpf_Karaokay.ViewModel
         }
         private void Back(Window p)
         {
+            NavigationService.RegisterWindow("ManagerForm", typeof(ManagerForm), new ManagerFormViewModel());
             NavigationService.NavigateToWindow("ManagerForm");
-            p.Close();
+         
         }
     }
 }

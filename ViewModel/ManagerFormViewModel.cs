@@ -35,6 +35,9 @@ namespace Wpf_Karaokay.ViewModel
             NavigationService.RegisterWindow("ReportWindow", typeof(ReportWindow), new ReportViewModel());
 
             NavigationService.RegisterWindow("EditRoom", typeof(EditRoom), new EditRoomViewModel());
+            NavigationService.RegisterWindow("EditMenu", typeof(EditRoom), new EditMenuViewModel());
+
+            NavigationService.RegisterWindow("EmployeeWindow", typeof(EditEmployee), new EditEmployeeViewModel());
 
 
             CashierCmd = new RelayCommand(SwitchToRoomWindows);
@@ -63,9 +66,6 @@ namespace Wpf_Karaokay.ViewModel
             
             NavigationService.NavigateToWindow("EditRoom");
 
-            //EditRoom room = new EditRoom();
-            //room.Show();
-
         }
 
         private void SwitchToEditMenu(object parameter)
@@ -73,13 +73,13 @@ namespace Wpf_Karaokay.ViewModel
             
             
             NavigationService.NavigateToWindow("EditMenu");
-            //Application.Current.MainWindow.Close();
+         
 
         }
 
         private void SwitchToEmployee(object parameter)
         {
-            MessageBox.Show("No employee window yet!!", "Notification", MessageBoxButton.OK, MessageBoxImage.Information);
+            NavigationService.NavigateToWindow("EmployeeWindow");
         }
 
         private void SwitchToReport(object parameter)

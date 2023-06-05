@@ -51,7 +51,8 @@
         <Label Content="Place of Origin" Foreground="Black" FontWeight="Bold" FontSize="13" HorizontalAlignment="Left" Margin="23,292,0,0" VerticalAlignment="Top"/>
 
         <Button Content="BACK" FontSize="14" FontWeight="Bold" BorderBrush="Black" Foreground="Black" BorderThickness="2" Background="#FC4F41" 
-                materialDesign:ButtonAssist.CornerRadius="20" Margin="9,10,121,0" VerticalAlignment="Top" Height="30"/>
+                materialDesign:ButtonAssist.CornerRadius="20" Margin="9,10,121,0" VerticalAlignment="Top" Height="30" Command="{Binding DataContext.BackCommand, RelativeSource={RelativeSource AncestorType={x:Type Window}}}"
+                        CommandParameter="{Binding}"/>
 
 
     </Grid>

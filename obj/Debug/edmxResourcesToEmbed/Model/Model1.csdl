@@ -1,0 +1,183 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="KaraOkayModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Account">
+    <Key>
+      <PropertyRef Name="UserName" />
+    </Key>
+    <Property Name="UserName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="DisplayName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Password" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="type" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Employee" Relationship="Self.FK__Employee__Accoun__31EC6D26" FromRole="Account" ToRole="Employee" />
+  </EntityType>
+  <EntityType Name="bill">
+    <Key>
+      <PropertyRef Name="BillID" />
+    </Key>
+    <Property Name="BillID" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="BillDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="RmId" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="OrderPice" Type="Int32" />
+    <Property Name="TotalPrice" Type="Int32" Nullable="false" />
+    <Property Name="Billed" Type="Boolean" />
+    <NavigationProperty Name="Room" Relationship="Self.FK__bill__RmId__37A5467C" FromRole="bill" ToRole="Room" />
+    <NavigationProperty Name="BillDetail" Relationship="Self.FK__BillDetai__BillI__3C69FB99" FromRole="bill" ToRole="BillDetail" />
+    <NavigationProperty Name="reports" Relationship="Self.FK__reports__BillId__4316F928" FromRole="bill" ToRole="reports" />
+  </EntityType>
+  <EntityType Name="Employee">
+    <Key>
+      <PropertyRef Name="EmpId" />
+    </Key>
+    <Property Name="EmpId" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="EmpName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="CCCD" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="EmpPhone" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="BirthDate" Type="DateTime" Precision="0" />
+    <Property Name="PlaceOfOrigin" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="AccountName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Account" Relationship="Self.FK__Employee__Accoun__31EC6D26" FromRole="Employee" ToRole="Account" />
+  </EntityType>
+  <EntityType Name="Items">
+    <Key>
+      <PropertyRef Name="itemID" />
+    </Key>
+    <Property Name="itemID" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="itemName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="itemType" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="itemPrice" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="BillDetail" Relationship="Self.FK__BillDetai__Order__3D5E1FD2" FromRole="Items" ToRole="BillDetail" />
+  </EntityType>
+  <EntityType Name="reports">
+    <Key>
+      <PropertyRef Name="ReportID" />
+    </Key>
+    <Property Name="ReportID" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="RpName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="startDate" Type="DateTime" Precision="0" />
+    <Property Name="endDate" Type="DateTime" Precision="0" />
+    <Property Name="BillId" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="bill" Relationship="Self.FK__reports__BillId__4316F928" FromRole="reports" ToRole="bill" />
+  </EntityType>
+  <EntityType Name="Room">
+    <Key>
+      <PropertyRef Name="RmId" />
+    </Key>
+    <Property Name="RmId" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="RmType" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="RMStatus" Type="Int32" />
+    <Property Name="PricePerHour" Type="Int32" />
+    <NavigationProperty Name="bill" Relationship="Self.FK__bill__RmId__37A5467C" FromRole="Room" ToRole="bill" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="BillDetail">
+    <Key>
+      <PropertyRef Name="BillID" />
+      <PropertyRef Name="OrderID" />
+    </Key>
+    <Property Name="BillID" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="OrderID" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Quantity" Type="Int32" />
+    <Property Name="TotalPrice" Type="Int32" />
+    <NavigationProperty Name="bill" Relationship="Self.FK__BillDetai__BillI__3C69FB99" FromRole="BillDetail" ToRole="bill" />
+    <NavigationProperty Name="Items" Relationship="Self.FK__BillDetai__Order__3D5E1FD2" FromRole="BillDetail" ToRole="Items" />
+  </EntityType>
+  <Association Name="FK__Employee__Accoun__31EC6D26">
+    <End Role="Account" Type="Self.Account" Multiplicity="0..1" />
+    <End Role="Employee" Type="Self.Employee" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Account">
+        <PropertyRef Name="UserName" />
+      </Principal>
+      <Dependent Role="Employee">
+        <PropertyRef Name="AccountName" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__bill__RmId__37A5467C">
+    <End Role="Room" Type="Self.Room" Multiplicity="1" />
+    <End Role="bill" Type="Self.bill" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Room">
+        <PropertyRef Name="RmId" />
+      </Principal>
+      <Dependent Role="bill">
+        <PropertyRef Name="RmId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__BillDetai__BillI__3C69FB99">
+    <End Role="bill" Type="Self.bill" Multiplicity="1" />
+    <End Role="BillDetail" Type="Self.BillDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="bill">
+        <PropertyRef Name="BillID" />
+      </Principal>
+      <Dependent Role="BillDetail">
+        <PropertyRef Name="BillID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__reports__BillId__4316F928">
+    <End Role="bill" Type="Self.bill" Multiplicity="0..1" />
+    <End Role="reports" Type="Self.reports" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="bill">
+        <PropertyRef Name="BillID" />
+      </Principal>
+      <Dependent Role="reports">
+        <PropertyRef Name="BillId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__BillDetai__Order__3D5E1FD2">
+    <End Role="Items" Type="Self.Items" Multiplicity="1" />
+    <End Role="BillDetail" Type="Self.BillDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Items">
+        <PropertyRef Name="itemID" />
+      </Principal>
+      <Dependent Role="BillDetail">
+        <PropertyRef Name="OrderID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="KaraOkayEntities1" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Account" EntityType="Self.Account" />
+    <EntitySet Name="bill" EntityType="Self.bill" />
+    <EntitySet Name="Employee" EntityType="Self.Employee" />
+    <EntitySet Name="Items" EntityType="Self.Items" />
+    <EntitySet Name="reports" EntityType="Self.reports" />
+    <EntitySet Name="Room" EntityType="Self.Room" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+    <EntitySet Name="BillDetail" EntityType="Self.BillDetail" />
+    <AssociationSet Name="FK__Employee__Accoun__31EC6D26" Association="Self.FK__Employee__Accoun__31EC6D26">
+      <End Role="Account" EntitySet="Account" />
+      <End Role="Employee" EntitySet="Employee" />
+    </AssociationSet>
+    <AssociationSet Name="FK__bill__RmId__37A5467C" Association="Self.FK__bill__RmId__37A5467C">
+      <End Role="Room" EntitySet="Room" />
+      <End Role="bill" EntitySet="bill" />
+    </AssociationSet>
+    <AssociationSet Name="FK__BillDetai__BillI__3C69FB99" Association="Self.FK__BillDetai__BillI__3C69FB99">
+      <End Role="bill" EntitySet="bill" />
+      <End Role="BillDetail" EntitySet="BillDetail" />
+    </AssociationSet>
+    <AssociationSet Name="FK__reports__BillId__4316F928" Association="Self.FK__reports__BillId__4316F928">
+      <End Role="bill" EntitySet="bill" />
+      <End Role="reports" EntitySet="reports" />
+    </AssociationSet>
+    <AssociationSet Name="FK__BillDetai__Order__3D5E1FD2" Association="Self.FK__BillDetai__Order__3D5E1FD2">
+      <End Role="Items" EntitySet="Items" />
+      <End Role="BillDetail" EntitySet="BillDetail" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

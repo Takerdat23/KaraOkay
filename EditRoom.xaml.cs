@@ -33,5 +33,28 @@ namespace Wpf_Karaokay
         {
 
         }
+
+        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
+
+        private void clearBtn_Click(object sender, RoutedEventArgs e)
+        {
+            clearData();
+        }
+
+        public void clearData() 
+        {
+            txtRoomID.Clear();
+            txtRoomType.Clear();    
+            txtRoomStatus.Clear();
+            txtPricePerHour.Clear();
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

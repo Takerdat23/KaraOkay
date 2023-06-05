@@ -6,7 +6,8 @@
         xmlns:local="clr-namespace:Wpf_Karaokay"
         mc:Ignorable="d"
         Title="ManagerForm" Height="450" Width="800"
-        DataContext="{DynamicResource ManagerFVM}">
+        DataContext="{DynamicResource ManagerFVM}"
+        Name="managerForm">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" MinHeight="159"/>
@@ -29,7 +30,6 @@
         <Button
             Command="{Binding DataContext.RoomCmd, RelativeSource={RelativeSource AncestorType={x:Type Window}}}"
                         CommandParameter="{Binding}"
-            
             IsEnabled="{Binding DataContext.RoomCmd, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}"
             Style="{StaticResource MaterialDesignRaisedLightButton}"
             ToolTip="MaterialDesignRaisedLightButton with Round Corners" Margin="215,25,440,0" Grid.Row="1" Height="132" VerticalAlignment="Top" Background="#FF243257">

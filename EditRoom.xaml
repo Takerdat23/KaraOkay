@@ -3,37 +3,49 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         xmlns:local="clr-namespace:Wpf_Karaokay"
         mc:Ignorable="d"
-        Title="EditRoom" Height="760" Width="450">
+        Title="EditRoom" Width="800" Height="500"
+        Background="#FFF6F7"
+        FontFamily="Gill Sans"
+        DataContext="{DynamicResource EditRoomVM}"
+        Name="editRoom">
     <Grid>
-        <Button
-            
-            IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}"
-            Style="{StaticResource MaterialDesignRaisedLightButton}"
-            ToolTip="MaterialDesignRaisedLightButton with Round Corners" Margin="0,637,0,0" Height="67" VerticalAlignment="Top" HorizontalAlignment="Center" Width="274" Background="#FF243257" >
-            <TextBlock TextAlignment="Center" Foreground="#FFFFF6F7" FontFamily="Gill Sans MT" FontSize="25" Width="56" Text="Save" RenderTransformOrigin="0.655,0.55" />
-        </Button>
-        <TextBlock  TextAlignment="Center" HorizontalAlignment="Center" TextWrapping="Wrap" Text="Edit room" VerticalAlignment="Top" Height="50" Width="450" FontFamily="Gill Sans MT" FontSize="30" Background="#FF243257" Foreground="#FFDDD8D8"/>
-        <StackPanel Margin="20,106,20,574" Background="#FFFEBD25">
-            <TextBox TextWrapping="Wrap" Text="Room id" Width="408" Height="64"  FontFamily="Gill Sans MT" FontSize="20"/>
-        </StackPanel>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="104*"/>
+            <ColumnDefinition Width="213*"/>
+            <ColumnDefinition Width="83*"/>
+        </Grid.ColumnDefinitions>
+        <Label Content="EDIT ROOM" Foreground="Black" FontSize="24" FontWeight="Black" HorizontalAlignment="Left" Margin="113,33,0,347" Grid.Column="1"/>
+        <Button x:Name="insertBtn" BorderBrush="Black" BorderThickness="2" materialDesign:ButtonAssist.CornerRadius="20" Content="INSERT"  Background="#47a992" Foreground="Black" HorizontalAlignment="Left" Margin="94,364,0,0" VerticalAlignment="Top" Height="39" Width="96" FontWeight="Bold" FontSize="15" Command="{Binding InsertCommand}"/>
+        <Button x:Name="updateBtn" BorderBrush="Black" BorderThickness="2" materialDesign:ButtonAssist.CornerRadius="20" Content="UPDATE" Background="#FEBD25" Foreground="Black" HorizontalAlignment="Left" Margin="54,364,0,0" VerticalAlignment="Top" Height="39" Width="96" FontWeight="Bold" FontSize="15" Command="{Binding UpdateCommand}" Grid.Column="1"/>
+        <Button x:Name="deleteBtn" BorderBrush="Black" BorderThickness="2" materialDesign:ButtonAssist.CornerRadius="20" Content="DELETE" Background="#FC4F41" Foreground="Black" HorizontalAlignment="Left" Margin="226,364,0,0" VerticalAlignment="Top" Height="39" Width="96" FontWeight="Bold" FontSize="15" Command="{Binding DeleteCommand}" Grid.Column="1"/>
+        <Button x:Name="clearBtn" BorderBrush="Black" BorderThickness="2" materialDesign:ButtonAssist.CornerRadius="20" Content="CLEAR" Foreground="Black" HorizontalAlignment="Left" Margin="386,364,0,0" VerticalAlignment="Top" Height="39" Width="98" FontWeight="Bold" FontSize="15" Click="clearBtn_Click" RenderTransformOrigin="0.526,-0.625" Grid.Column="1" Grid.ColumnSpan="2"/>
 
-        <StackPanel Margin="20,235,20,445" Background="#FFFEBD25">
-            <TextBox TextWrapping="Wrap" Text="'Type' + 'Name'" Width="408" Height="64"  FontFamily="Gill Sans MT" FontSize="20"/>
-        </StackPanel>
+        <DataGrid Name="dataGrid" ItemsSource="{Binding Rooms}" Background="White" SelectionMode="Extended" BorderBrush="Black" BorderThickness="2"  AutoGenerateColumns="False" Margin="152,102,38,143" Grid.Column="1" Grid.ColumnSpan="2" >
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Room ID" Binding="{Binding RmId}" />
+                <DataGridTextColumn Header="Room Type" Binding="{Binding RmType}" />
+                <DataGridTextColumn Header="Room Status" Binding="{Binding RMStatus}" />
+                <DataGridTextColumn Header="Price Per Hour" Binding="{Binding PricePerHour}" />
+                <!-- Add more columns for other properties as needed -->
+            </DataGrid.Columns>
+        </DataGrid>
+        <TextBox x:Name="txtRoomID" materialDesign:HintAssist.Hint=" Enter Room ID" Background="White" BorderBrush="Black" BorderThickness="2" HorizontalAlignment="Left" Margin="154,111,0,0" TextWrapping="Wrap" Text="{Binding RoomID}" VerticalAlignment="Top" Width="176" Grid.ColumnSpan="2"/>
+        <TextBox x:Name="txtRoomType" materialDesign:HintAssist.Hint=" Enter Room Type" Background="White" BorderBrush="Black" BorderThickness="2" HorizontalAlignment="Left" Margin="154,167,0,0" TextWrapping="Wrap" Text="{Binding RoomType}" VerticalAlignment="Top" Width="176" Grid.ColumnSpan="2"/>
+        <TextBox x:Name="txtRoomStatus" materialDesign:HintAssist.Hint=" Enter Room Status" Background="White" BorderBrush="Black" BorderThickness="2" HorizontalAlignment="Left" Margin="154,221,0,0" TextWrapping="Wrap" Text="{Binding RoomStatus}" VerticalAlignment="Top" Width="176" Grid.ColumnSpan="2"/>
+        <TextBox x:Name="txtPricePerHour" materialDesign:HintAssist.Hint=" Enter Price Per Hour" Background="White" BorderBrush="Black" BorderThickness="2" HorizontalAlignment="Left" Margin="154,282,0,0" TextWrapping="Wrap" Text="{Binding PricePerHour}" VerticalAlignment="Top" Width="176" Grid.ColumnSpan="2"/>
+        <Label Content="Room ID" Foreground="Black" FontWeight="Bold" FontSize="13"  HorizontalAlignment="Left" Margin="44,111,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.528,0.119"/>
+        <Label Content="Room Type" Foreground="Black" FontWeight="Bold" FontSize="13" HorizontalAlignment="Left" Margin="44,167,0,0" VerticalAlignment="Top"/>
+        <Label Content="Room Status" Foreground="Black" FontWeight="Bold" FontSize="13" HorizontalAlignment="Left" Margin="44,221,0,0" VerticalAlignment="Top"/>
+        <Label Content="Price Per Hour" Foreground="Black" FontWeight="Bold" FontSize="13" HorizontalAlignment="Left" Margin="44,283,0,0" VerticalAlignment="Top"/>
+        <Button Content="BACK" FontSize="14" FontWeight="Bold" BorderBrush="Black" Foreground="Black" BorderThickness="2" Background="#FC4F41" 
+                materialDesign:ButtonAssist.CornerRadius="20" Margin="9,10,121,0" VerticalAlignment="Top" Height="30"/>
 
-        <StackPanel Margin="20,359,20,321" Background="#FFFEBD25">
-            <TextBox TextWrapping="Wrap" Text="Type" Width="408" Height="64"  FontFamily="Gill Sans MT" FontSize="20"/>
-        </StackPanel>
 
-        <StackPanel Margin="20,483,20,197" Background="#FFFEBD25">
-            <TextBox TextWrapping="Wrap" Text="Price per hour" Width="408" Height="64"  FontFamily="Gill Sans MT" FontSize="20"/>
-        </StackPanel>
-        <TextBlock HorizontalAlignment="Left" Margin="20,85,0,0" TextWrapping="Wrap" Text="Edit the room number " VerticalAlignment="Top" Width="191"/>
-        <TextBlock HorizontalAlignment="Left" Margin="20,214,0,0" TextWrapping="Wrap" Text="Edit the name" VerticalAlignment="Top" Width="394"/>
-        <TextBlock HorizontalAlignment="Left" Margin="20,338,0,0" TextWrapping="Wrap" Text="Edit room type" VerticalAlignment="Top" Width="191"/>
-        <TextBlock HorizontalAlignment="Left" Margin="20,462,0,0" TextWrapping="Wrap" Text="Edit the price per hour" VerticalAlignment="Top" Width="191"/>
+
+
 
     </Grid>
 </Window>

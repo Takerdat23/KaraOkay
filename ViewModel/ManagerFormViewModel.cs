@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
+using Wpf_Karaokay.Model;
 using WPF_Karaokay;
 
 namespace Wpf_Karaokay.ViewModel
@@ -32,6 +33,9 @@ namespace Wpf_Karaokay.ViewModel
 
             NavigationService.RegisterWindow("ReportWindow", typeof(ReportWindow), new ReportViewModel());
 
+            NavigationService.RegisterWindow("EditRoom", typeof(EditRoom), new EditRoomViewModel());
+
+
             CashierCmd = new RelayCommand(SwitchToRoomWindows);
             RoomCmd = new RelayCommand(SwitchToEditRoom);
             MenuCmd = new RelayCommand(SwitchToEditMenu);
@@ -54,12 +58,11 @@ namespace Wpf_Karaokay.ViewModel
 
         private void SwitchToEditRoom(object parameter)
         {
+
             
-            
-            NavigationService.NavigateToWindow("EditRoom"); 
+            NavigationService.NavigateToWindow("EditRoom");
 
             //EditRoom room = new EditRoom();
-            Application.Current.MainWindow.Close();
             //room.Show();
 
         }
@@ -69,7 +72,7 @@ namespace Wpf_Karaokay.ViewModel
             
             
             NavigationService.NavigateToWindow("EditMenu");
-            Application.Current.MainWindow.Close();
+            //Application.Current.MainWindow.Close();
 
         }
 

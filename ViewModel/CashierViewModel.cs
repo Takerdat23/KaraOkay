@@ -14,7 +14,7 @@ namespace Wpf_Karaokay.ViewModel
 {
     public class CashierViewModel : BaseViewModel
     {
-        public ObservableCollection<Item> Items { get; set; }
+        public ObservableCollection<Items> Items { get; set; }
         public ObservableCollection<BillDetail> BillDetails { get; set; }
         public ICommand TimerCommand { get; private set; }
         public ICommand StopTimmerCommand { get; private set; }
@@ -22,9 +22,9 @@ namespace Wpf_Karaokay.ViewModel
         public ICommand DecreaseQuantityCommand { get; private set; }
         public ICommand IncreaseQuantityCommand { get; private set; }
 
-        public ObservableCollection<Item> FoodItems { get; set; }
-        public ObservableCollection<Item> BeverageItems { get; set; }
-        public ObservableCollection<Item> OthersItems { get; set; }
+        public ObservableCollection<Items> FoodItems { get; set; }
+        public ObservableCollection<Items> BeverageItems { get; set; }
+        public ObservableCollection<Items> OthersItems { get; set; }
 
         public Room CurrentRoom { get; set; }
 
@@ -45,13 +45,13 @@ namespace Wpf_Karaokay.ViewModel
         public CashierViewModel()
         {
             //Load the current room 
-            Items = new ObservableCollection<Item>(DataProvider.Ins.DB.Items.ToList());
-            FoodItems = new ObservableCollection<Item>(Items.Where(i => i.itemType == "food"));
-            BeverageItems = new ObservableCollection<Item>(Items.Where(i => i.itemType == "beverage"));
-            OthersItems = new ObservableCollection<Item>(Items.Where(i => i.itemType == "others"));
+            Items = new ObservableCollection<Items>(DataProvider.Ins.DB.Items.ToList());
+            FoodItems = new ObservableCollection<Items>(Items.Where(i => i.itemType == "food"));
+            BeverageItems = new ObservableCollection<Items>(Items.Where(i => i.itemType == "beverage"));
+            OthersItems = new ObservableCollection<Items>(Items.Where(i => i.itemType == "others"));
 
-            DecreaseQuantityCommand = new RelayCommand<Item>(DecreaseQuantity);
-            IncreaseQuantityCommand = new RelayCommand<Item>(IncreaseQuantity);
+            DecreaseQuantityCommand = new RelayCommand<Items>(DecreaseQuantity);
+            IncreaseQuantityCommand = new RelayCommand<Items>(IncreaseQuantity);
             TimerCommand = new RelayCommand<Room>(StartTimer);
             StopTimmerCommand = new RelayCommand<Room>(StopTimer);
             BackCommand = new RelayCommand<Window>(BackButton);
@@ -63,7 +63,7 @@ namespace Wpf_Karaokay.ViewModel
         }
 
 
-        private void DecreaseQuantity(Item item)
+        private void DecreaseQuantity(Items item)
         {
             if (CurrentBill == null)
             {
@@ -90,7 +90,7 @@ namespace Wpf_Karaokay.ViewModel
             
         }
 
-        private void IncreaseQuantity(Item item)
+        private void IncreaseQuantity(Items item)
         {
 
             if (CurrentBill== null)
@@ -153,6 +153,7 @@ namespace Wpf_Karaokay.ViewModel
             }
             int orderPrice = (int)CurrentBill.OrderPice;
             CurrentBill.TotalPrice = ((seconds / 3600) * roomPrice) + orderPrice;
+            // set the billed field to true 
             CurrentBill.Billed = true; 
             DataProvider.Ins.DB.SaveChanges();  
 
@@ -185,10 +186,10 @@ namespace Wpf_Karaokay.ViewModel
             
 
             // get the bill info 
-            CurrentBill = DataProvider.Ins.DB.bills.FirstOrDefault(b => (b.RmId == room.RmId) && (b.Billed == false));
+            CurrentBill = DataProvider.Ins.DB.bill.FirstOrDefault(b => (b.RmId == room.RmId) && (b.Billed == false));
             if (CurrentBill != null)
             {
-                CurrentReceipt = DataProvider.Ins.DB.BillDetails.Where(bd => bd.BillID == CurrentBill.BillID).ToList();
+                CurrentReceipt = DataProvider.Ins.DB.BillDetail.Where(bd => bd.BillID == CurrentBill.BillID).ToList();
                 if (CurrentReceipt != null)
                 {
                     this.PrintReceipt(CurrentReceipt);
@@ -219,7 +220,7 @@ namespace Wpf_Karaokay.ViewModel
             foreach (BillDetail billDetail in billdetails)
             {
                 // get item base on the OrderId 
-                Item item = DataProvider.Ins.DB.Items.FirstOrDefault(i => (i.itemID == billDetail.OrderID));
+                Items item = DataProvider.Ins.DB.Items.FirstOrDefault(i => (i.itemID == billDetail.OrderID));
                 //calculate the bill orderprice 
                 CurrentBill.OrderPice += item.itemPrice * billDetail.Quantity;
                 receiptBuilder.AppendLine($"Item: {item.itemName}, Quantity: {billDetail.Quantity}, Price: {item.itemPrice * billDetail.Quantity}");
@@ -243,7 +244,7 @@ namespace Wpf_Karaokay.ViewModel
             CurrentBill.TotalPrice = 0;
             CurrentBill.RmId = CurrentRoom.RmId;
 
-            DataProvider.Ins.DB.bills.Add(CurrentBill);
+            DataProvider.Ins.DB.bill.Add(CurrentBill);
             DataProvider.Ins.DB.SaveChanges(); 
            
         }

@@ -1,13 +1,15 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-                    xmlns:viewModel="clr-namespace:Wpf_Karaokay.ViewModel" 
-                    xmlns:local="clr-namespace:Wpf_Karaokay.ResourceXAML">
+                    xmlns:viewModel="clr-namespace:Wpf_Karaokay.ViewModel" >
     <viewModel:RoomsWindowViewModel x:Key="RoomsVM"></viewModel:RoomsWindowViewModel>
     <viewModel:MainViewModel x:Key="MainVM"></viewModel:MainViewModel>
     <viewModel:CashierViewModel x:Key="CashierVM"></viewModel:CashierViewModel>
     <viewModel:ManagerFormViewModel x:Key="ManagerFVM"></viewModel:ManagerFormViewModel>
     <viewModel:FinalBillViewModel x:Key="FinalVM"></viewModel:FinalBillViewModel>
     <viewModel:ReportViewModel x:Key="ReportVM"></viewModel:ReportViewModel>
-    
+    <viewModel:MiddleWindowViewModel x:Key="MiddleVM"></viewModel:MiddleWindowViewModel>
+    <viewModel:LoginViewModel x:Key="LoginVM"></viewModel:LoginViewModel>
+    <viewModel:EditRoomViewModel x:Key="EditRoomVM"></viewModel:EditRoomViewModel>
+
 
 </ResourceDictionary>

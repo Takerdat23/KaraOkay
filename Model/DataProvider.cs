@@ -23,11 +23,11 @@ namespace Wpf_Karaokay.Model
             }
         }
 
-        public KaraOkayEntities DB { get; set; }
+        public KaraOkayEntities1 DB { get; set; }
 
         private DataProvider()
         {
-            DB = new KaraOkayEntities();
+            DB = new KaraOkayEntities1();
         }
     }
 }

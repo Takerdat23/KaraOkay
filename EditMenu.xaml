@@ -8,6 +8,7 @@
         WindowStartupLocation="CenterScreen"
         mc:Ignorable="d"
         Title="EditMenu" Width="800" Height="500"
+        Background="#FFF6F7"
         DataContext="{StaticResource EditMenuVM}">
     <Grid>
         <Grid.ColumnDefinitions>

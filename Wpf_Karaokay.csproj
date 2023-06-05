@@ -105,6 +105,9 @@
     <Compile Include="CashierPage.xaml.cs">
       <DependentUpon>CashierPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="EditEmployee.xaml.cs">
+      <DependentUpon>EditEmployee.xaml</DependentUpon>
+    </Compile>
     <Compile Include="EditMenu.xaml.cs">
       <DependentUpon>EditMenu.xaml</DependentUpon>
     </Compile>
@@ -177,6 +180,7 @@
     <Compile Include="Service\NavigationService.cs" />
     <Compile Include="ViewModel\BaseViewModel.cs" />
     <Compile Include="ViewModel\CashierViewModel.cs" />
+    <Compile Include="ViewModel\EditEmployee.cs" />
     <Compile Include="ViewModel\EditMenuViewModel.cs" />
     <Compile Include="ViewModel\EditRoomViewModel.cs" />
     <Compile Include="ViewModel\FinalBillViewModel.cs" />
@@ -195,6 +199,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="CashierPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="EditEmployee.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

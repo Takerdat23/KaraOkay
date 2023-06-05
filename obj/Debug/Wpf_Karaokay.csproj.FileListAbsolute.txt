@@ -139,3 +139,5 @@ D:\Karaokay\bin\Debug\GalaSoft.MvvmLight.Extras.pdb
 D:\Karaokay\bin\Debug\GalaSoft.MvvmLight.Extras.xml
 D:\Karaokay\bin\Debug\GalaSoft.MvvmLight.Platform.pdb
 D:\Karaokay\bin\Debug\GalaSoft.MvvmLight.Platform.xml
+D:\Karaokay\obj\Debug\EditEmployee.g.cs
+D:\Karaokay\obj\Debug\EditEmployee.baml

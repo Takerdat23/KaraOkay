@@ -28,5 +28,18 @@ namespace Wpf_Karaokay
         {
 
         }
+
+        private void clearBtn_Click(object sender, RoutedEventArgs e)
+        {
+            clearData();
+        }
+
+        public void clearData()
+        {
+            txtItemID.Clear();
+            txtItemName.Clear();
+            txtItemType.Clear();
+            txtItemPrice.Clear();
+        }
     }
 }

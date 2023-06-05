@@ -144,7 +144,16 @@ namespace Wpf_Karaokay.ViewModel
                     connection.Open();
                     command.ExecuteNonQuery();
                     // Update other properties as needed
-
+                    Room room = Rooms.Where(r => r.RmId == RoomID).FirstOrDefault();
+                    int index = Rooms.IndexOf(room);
+                    if (index != -1)
+                    {
+                        room.RmId = RoomID;
+                        room.RmType = RoomType;
+                        room.RMStatus = int.Parse(RoomStatus);
+                        room.PricePerHour = int.Parse(PricePerHour);
+                        Rooms[index] = room;
+                    }
                     // Notify the UI that the collection has been modified
                     OnPropertyChanged(nameof(Rooms));
                     MessageBox.Show("Room updated successfully!");

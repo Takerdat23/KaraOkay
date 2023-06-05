@@ -7,7 +7,6 @@
     <viewModel:ManagerFormViewModel x:Key="ManagerFVM"></viewModel:ManagerFormViewModel>
     <viewModel:FinalBillViewModel x:Key="FinalVM"></viewModel:FinalBillViewModel>
     <viewModel:ReportViewModel x:Key="ReportVM"></viewModel:ReportViewModel>
-    <viewModel:MiddleWindowViewModel x:Key="MiddleVM"></viewModel:MiddleWindowViewModel>
     <viewModel:LoginViewModel x:Key="LoginVM"></viewModel:LoginViewModel>
     <viewModel:EditRoomViewModel x:Key="EditRoomVM"></viewModel:EditRoomViewModel>
     <viewModel:EditMenuViewModel x:Key="EditMenuVM"></viewModel:EditMenuViewModel>

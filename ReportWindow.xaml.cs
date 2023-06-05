@@ -25,6 +25,9 @@ namespace WPF_Karaokay
           
         }
 
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
 
+        }
     }
 }

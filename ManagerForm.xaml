@@ -3,75 +3,70 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         xmlns:local="clr-namespace:Wpf_Karaokay"
+        WindowStartupLocation="CenterScreen"
         mc:Ignorable="d"
-        Title="ManagerForm" Height="450" Width="800"
+        Title="ManagerForm" Height="500" Width="800"
+        Background="#FFF6F7"
         DataContext="{DynamicResource ManagerFVM}"
         Name="managerForm">
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="Auto" MinHeight="159"/>
+            <RowDefinition Height="200" MinHeight="159"/>
             <RowDefinition/>
         </Grid.RowDefinitions>
-        <Grid HorizontalAlignment="Center" Margin="0,16,0,13" Width="162">
-            <Image Source="image 2 copy.png" Margin="0,0,0,20" HorizontalAlignment="Center" Width="162"/>
-            <TextBlock HorizontalAlignment="Center" Margin="0,95,0,0" TextWrapping="Wrap" Text="Manager" VerticalAlignment="Top" Height="35" Width="82" FontSize="20"/>
 
-        </Grid>
+        <Image Source="ADMINextraline.png" Margin="139,10,327,273" Grid.RowSpan="2"/>
+
 
         <Button
             Command="{Binding DataContext.CashierCmd, RelativeSource={RelativeSource AncestorType={x:Type Window}}}"
-                        CommandParameter="{Binding}"
-            Style="{StaticResource MaterialDesignRaisedLightButton}"
-            ToolTip="MaterialDesignRaisedLightButton with Round Corners" Margin="10,25,645,0" Grid.Row="1" Height="132"  VerticalAlignment="Top"  Background="#FFFEBD25">
-            <TextBlock
-      Text="Cashier" FontFamily="Gill Sans MT" FontSize="25" />
+                        CommandParameter="{Binding}" Margin="35,59,617,0" Height="132"  VerticalAlignment="Top" Background="#FFFC4F41" BorderBrush="Black" BorderThickness="2" Grid.Row="1">
+            <Image Source="Frame.png" Width="80" Height="83"/>
         </Button>
-        <Button
+
+        <Button BorderBrush="Black" BorderThickness="2"
             Command="{Binding DataContext.RoomCmd, RelativeSource={RelativeSource AncestorType={x:Type Window}}}"
                         CommandParameter="{Binding}"
             IsEnabled="{Binding DataContext.RoomCmd, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}"
-            Style="{StaticResource MaterialDesignRaisedLightButton}"
-            ToolTip="MaterialDesignRaisedLightButton with Round Corners" Margin="215,25,440,0" Grid.Row="1" Height="132" VerticalAlignment="Top" Background="#FF243257">
-            <TextBlock
-                Text="Rooms" Foreground="#FFFFF6F7" FontFamily="Gill Sans MT" FontSize="25" />
+            Margin="419,59,232,0" Grid.Row="1" Height="132" VerticalAlignment="Top" Background="#F5E9DB">
+            <Image Source="Room.png" Height="83" Width="80"/>
         </Button>
-        <Button
+
+        <Button BorderBrush="Black" BorderThickness="2"
             Command="{Binding DataContext.MenuCmd, RelativeSource={RelativeSource AncestorType={x:Type Window}}}"
                         CommandParameter="{Binding}"
             
             IsEnabled="{Binding DataContext.MenuCmd, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}"
-            Style="{StaticResource MaterialDesignRaisedLightButton}"
-            ToolTip="MaterialDesignRaisedLightButton with Round Corners" Margin="432,25,223,0" Grid.Row="1" Height="132" VerticalAlignment="Top" Background="#FFFC4F41">
-            <TextBlock
-                Text="Menu" FontFamily="Gill Sans MT" FontSize="25" />
+            Margin="619,59,30,0" Height="132" VerticalAlignment="Top" Background="#243257" Grid.Row="1">
+            <Image Source="Menu.png" Height="72" Width="106"/>
         </Button>
-        <Button
+
+        <Button BorderBrush="Black" BorderThickness="2"
             Command="{Binding DataContext.EmployCmd, RelativeSource={RelativeSource AncestorType={x:Type Window}}}"
                         CommandParameter="{Binding}"
             
             IsEnabled="{Binding DataContext.EmployCmd, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}"
-            Style="{StaticResource MaterialDesignRaisedLightButton}"
-            ToolTip="MaterialDesignRaisedLightButton with Round Corners" Margin="645,25,10,0" Grid.Row="1" Height="132" VerticalAlignment="Top" Background="#FFFFF6F7">
-            <TextBlock
-                Text="Employees" FontFamily="Gill Sans MT" FontSize="25" />
+            Margin="232,59,420,0" Height="132" VerticalAlignment="Top" Background="#243257" Grid.Row="1">
+            <Image Source="Employee.png" Width="93" Height="66"/>
         </Button>
 
-        <Frame x:Name="MainFrame"  />
-        <Button
+
+        <Button BorderBrush="Black" BorderThickness="2"
             Command="{Binding DataContext.ReportCmd, RelativeSource={RelativeSource AncestorType={x:Type Window}}}"
             CommandParameter="{Binding}"
             
             IsEnabled="{Binding DataContext.RoomCmd, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}"
-            Style="{StaticResource MaterialDesignRaisedLightButton}"
-            ToolTip="MaterialDesignRaisedLightButton with Round Corners" Margin="284,209,296,0" Grid.Row="1" Background="#FF243257" RenderTransformOrigin="0.561,0.567" Height="40" VerticalAlignment="Top">
-            <TextBlock
-                Text="Report" Foreground="#FFFFF6F7" FontFamily="Gill Sans MT" FontSize="25" />
+            Margin="520,44,128,0" Background="#F5E9DB" RenderTransformOrigin="0.561,0.567" Height="133" VerticalAlignment="Top">
+            <Image Source="Report.png" Width="80"/>
         </Button>
 
-
-
-
+        <Label Content="Cashier" FontWeight="Bold" FontSize="20" HorizontalAlignment="Left" Margin="69,191,0,0" VerticalAlignment="Top" Grid.Row="1"/>
+        <Label Content="Rooms" FontWeight="Bold" FontSize="20" HorizontalAlignment="Left" Margin="455,191,0,0" Grid.Row="1" VerticalAlignment="Top"/>
+        <Label Content="Menu" FontWeight="Bold" FontSize="20" HorizontalAlignment="Left" Margin="660,191,0,0" VerticalAlignment="Top" Grid.Row="1"/>
+        <Label Content="Employees" FontWeight="Bold" FontSize="20" HorizontalAlignment="Left" Margin="245,191,0,0" Grid.Row="1" VerticalAlignment="Top"/>
+        <Label Content="Report" FontWeight="Bold" FontSize="20" HorizontalAlignment="Left" Margin="557,174,0,0" VerticalAlignment="Top" Grid.RowSpan="2"/>
     </Grid>
 
 </Window>

@@ -307,7 +307,14 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="Report.png" />
+    <Resource Include="Room.png" />
     <Resource Include="Group 3.png" />
+    <Resource Include="ADMIN.png" />
+    <Resource Include="Group 7.png" />
+    <Resource Include="Frame.png" />
+    <Resource Include="Menu.png" />
+    <Resource Include="Employee.png" />
     <Content Include="Model\Model1.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>Model1.edmx</DependentUpon>

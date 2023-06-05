@@ -11,23 +11,24 @@
         Name="loginWindow"
         TextElement.Foreground="{DynamicResource MaterialDesignBody}"
         Background="#FFF6F7"
+        BorderBrush="Black"
+        BorderThickness="3"
         WindowStartupLocation="CenterScreen"
         DataContext="{DynamicResource LoginVM}">
 
-    <materialDesign:Card UniformCornerRadius="15" 
-                         Background="{DynamicResource MaterialDesignPaper}" Margin="25" materialDesign:ElevationAssist.Elevation="Dp4">
+    <materialDesign:Card>
         <materialDesign:DialogHost CloseOnClickAway="True" x:Name="DialogHost">
             <StackPanel>
-                <Image Margin="0 60 0 5" Source="image 2 copy.png" Height="130"></Image>
-                <TextBlock Margin="0 25 0 5" HorizontalAlignment="Center" FontSize="28" FontWeight="Bold" Text="Welcome Back!"/>
-                <TextBlock HorizontalAlignment="Center" FontSize="17" FontWeight="SemiBold" Text="Log in to your existing account"/>
+                <Image Margin="0 80 0 5" Source="image 2 copy.png" Height="130"></Image>
+                <TextBlock Margin="0 25 0 5" HorizontalAlignment="Center" FontSize="28" FontWeight="Bold" Text="Welcome to Karaokay!"/>
+                <TextBlock HorizontalAlignment="Center" FontSize="17" FontWeight="SemiBold" Text="Log in to your account"/>
                 <TextBox Margin="0 50 0 0" x:Name="txtUsername" Width="300" FontSize="18" 
+                         BorderBrush="Black" BorderThickness="2"
                          materialDesign:HintAssist.Hint="Enter Username"
-                         BorderThickness="2" BorderBrush="{DynamicResource MaterialDesignDivider}" 
                          Style="{StaticResource MaterialDesignOutlinedTextBox}" Text="{Binding Username}"/>
                 <PasswordBox Margin="0 20 0 0" x:Name="txtPassword" Width="300" FontSize="18" 
                              materialDesign:HintAssist.Hint="Enter Password"
-                             BorderThickness="2" BorderBrush="{DynamicResource MaterialDesignDivider}" 
+                             BorderBrush="Black" BorderThickness="2"
                              Style="{StaticResource MaterialDesignOutlinedPasswordBox}">
                     <i:Interaction.Triggers>
                         <i:EventTrigger EventName="PasswordChanged">
@@ -36,11 +37,15 @@
                     </i:Interaction.Triggers>
                 </PasswordBox>
                 
-                <Button Margin="0 35 0 0" x:Name="loginBtn" Background="#243257" 
+                <Button Margin="0 35 0 0" x:Name="loginBtn" Background="#243257" BorderBrush="Black" BorderThickness="2" FontWeight="Bold"
                         Style="{StaticResource MaterialDesignFlatMidBgButton}"
                         materialDesign:ElevationAssist.Elevation="Dp0"  Height="53" Width="300"
                         materialDesign:ButtonAssist.CornerRadius="10" FontSize="18" Content="LOG IN" Command="{Binding LoginCommand}" CommandParameter="{Binding ElementName=loginWindow}"/>
-                
+                <Button Margin="0 15 0 0" x:Name="exitBtn" Background="#FC4F41" BorderBrush="Black" BorderThickness="2" FontWeight="Bold"
+                        Style="{StaticResource MaterialDesignFlatMidBgButton}"
+                        materialDesign:ElevationAssist.Elevation="Dp0"  Height="53" Width="300"
+                        materialDesign:ButtonAssist.CornerRadius="10" FontSize="18" Content="EXIT" Click="exitBtn_Click" />
+
             </StackPanel>
         </materialDesign:DialogHost>
     </materialDesign:Card>

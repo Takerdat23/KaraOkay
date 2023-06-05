@@ -37,7 +37,7 @@
                         CommandParameter="{Binding}"
             Style="{StaticResource MaterialDesignRaisedLightButton}"
             ToolTip="MaterialDesignRaisedLightButton with Round Corners" Click="Button_Click" Background="#FF508014" Grid.Row="2" FontFamily="Gill Sans MT" FontSize="12" Margin="738,0,0,0" Height="71" VerticalAlignment="Center" HorizontalAlignment="Left" Width="246">
-            <TextBlock VerticalAlignment="Top" HorizontalAlignment="Left" FontFamily="Gill Sans MT" FontSize="40" Foreground="#DDFAF9F9" Height="66" Width="179" RenderTransformOrigin="0.618,0.644" ><Run Text="Start timer "/><LineBreak/><Run/><LineBreak/><Run Text=" "/></TextBlock>
+            <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" FontFamily="Gill Sans MT" FontSize="40" Foreground="#DDFAF9F9" Height="53" Width="179" RenderTransformOrigin="0.618,0.644" ><Run Text="Start timer "/><LineBreak/><Run/><LineBreak/><Run Text=" "/></TextBlock>
         </Button>
 
 

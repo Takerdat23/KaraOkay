@@ -39,6 +39,10 @@ namespace Wpf_Karaokay.ViewModel
 
             NavigationService.RegisterWindow("EmployeeWindow", typeof(EditEmployee), new EditEmployeeViewModel());
 
+            NavigationService.RegisterWindow("EditMenu", typeof(EditMenu), new EditMenuViewModel());
+
+            NavigationService.RegisterWindow("EditEmployee", typeof(EditEmployee), new EditEmployee());
+
 
             CashierCmd = new RelayCommand(SwitchToRoomWindows);
             RoomCmd = new RelayCommand(SwitchToEditRoom);

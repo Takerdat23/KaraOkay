@@ -123,9 +123,6 @@
     <Compile Include="MenuManager.xaml.cs">
       <DependentUpon>MenuManager.xaml</DependentUpon>
     </Compile>
-    <Compile Include="MiddleWindow.xaml.cs">
-      <DependentUpon>MiddleWindow.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Model\Account.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -187,7 +184,6 @@
     <Compile Include="ViewModel\LoginViewModel.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
     <Compile Include="ViewModel\ManagerFormViewModel.cs" />
-    <Compile Include="ViewModel\MiddleWindowViewModel.cs" />
     <Compile Include="ViewModel\ReportViewModel.cs" />
     <Compile Include="ViewModel\RoomsViewModel.cs" />
     <Page Include="AddMenu.xaml">
@@ -241,10 +237,6 @@
     <Page Include="MenuManager.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="MiddleWindow.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
     </Page>
     <Page Include="ReportWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -307,16 +299,17 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="Report.png" />
+    <Resource Include="Room.png" />
     <Resource Include="Group 3.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="report.png" />
-    <Resource Include="roomManger.png" />
-    <Resource Include="employee_button.png" />
-    <Resource Include="Cashier.png" />
-    <Resource Include="MenuManger.png" />
-    <Resource Include="MenuManage.png" />
     <Resource Include="ADMIN.png" />
+    <Resource Include="Group 7.png" />
+    <Resource Include="Frame.png" />
+    <Resource Include="Menu.png" />
+    <Resource Include="Employee.png" />
+    <Resource Include="ADMINadmin.png" />
+    <Resource Include="extraline.png" />
+    <Resource Include="ADMINextraline.png" />
     <Content Include="Model\Model1.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>Model1.edmx</DependentUpon>

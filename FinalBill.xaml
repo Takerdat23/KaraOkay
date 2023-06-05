@@ -8,8 +8,9 @@
         Title="Final Bill" Height="760" Width="450"
         DataContext="{DynamicResource FinalVM}">
     <Grid>
-        <TextBlock HorizontalAlignment="Center" Margin="0,37,0,0" TextWrapping="Wrap" Text="Receipt" VerticalAlignment="Top" Height="44" Width="132" FontFamily="Gill Sans MT" FontSize="30" TextAlignment="Center"/>
-        <TextBlock HorizontalAlignment="Center" Margin="0,86,0,0" TextWrapping="Wrap" Text="{Binding FinalReceipt}" VerticalAlignment="Top" Height="648" Width="430" FontSize="20"/>
-
+        <TextBlock HorizontalAlignment="Center" Margin="0,48,0,0" TextWrapping="Wrap" Text="Receipt" VerticalAlignment="Top" Height="44" Width="132" FontFamily="Gill Sans MT" FontSize="30" FontWeight="SemiBold" TextAlignment="Center"/>
+        <TextBlock HorizontalAlignment="Center" Margin="0,87,0,0" TextWrapping="Wrap" Text="Thank you for choosing us!" VerticalAlignment="Top" Height="32" Width="274" FontFamily="Gill Sans MT" FontSize="20" TextAlignment="Center"/>
+        <TextBlock HorizontalAlignment="Center" Margin="0,134,0,96" TextWrapping="Wrap" Text="{Binding FinalReceipt}" Width="430" FontSize="20"/>
+        <Image Source="image 2 copy.png" Height ="100" Margin="159,653,159,-9"/>
     </Grid>
 </Window>

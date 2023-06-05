@@ -8,11 +8,9 @@
         xmlns:Wpf="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf" x:Class="WPF_Karaokay.ReportWindow"
         mc:Ignorable="d"
         Title="ReportWindow" Height="600" Width="950"
-        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
-        Background="{DynamicResource MaterialDesignBackground}"
+        Background="#FFF6F7"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}" 
         FontFamily="{DynamicResource MaterialDesignFont}"
-        AllowsTransparency="True"
-        WindowStyle="None"
         WindowStartupLocation="CenterScreen"
         ResizeMode="NoResize"
         DataContext="{DynamicResource ReportVM}">
@@ -20,28 +18,37 @@
 
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="90*"/>
+            <RowDefinition Height="180*"/>
             <RowDefinition Height="311*"/>
         </Grid.RowDefinitions>
-        <Button Background="#FC4F41" Style="{StaticResource MaterialDesignFlatMidBgButton}"
+
+
+        <Label Content="Report Revenue" Foreground="Black" FontSize="30" FontWeight="Bold" HorizontalAlignment="Center" Margin="0,63,0,0" VerticalAlignment="Top"/>
+        <Label Content="From date" FontSize="20" Foreground="Black" FontWeight="Bold" HorizontalAlignment="Left" Margin="47,114,0,0" VerticalAlignment="Top"/>
+        <Label Content="To date" FontSize="20" Foreground="Black" FontWeight="Bold" HorizontalAlignment="Left" Margin="47,160,0,0" VerticalAlignment="Top"/>
+
+
+        <Button Background="#47a992" Style="{StaticResource MaterialDesignFlatMidBgButton}" BorderBrush="Black" BorderThickness="2" Foreground="Black"
                         materialDesign:ElevationAssist.Elevation="Dp0"
-                        materialDesign:ButtonAssist.CornerRadius="10" FontSize="30" Content="Report" Margin="334,34,334,0" Height="50" VerticalAlignment="Top"
+                        materialDesign:ButtonAssist.CornerRadius="20" FontSize="20" Content="View Report" Margin="740,130,49,0" Height="46" VerticalAlignment="Top"
                         Command="{Binding DataContext.ReportCmd, RelativeSource={RelativeSource AncestorType={x:Type Window}}}"
                         CommandParameter="{Binding}"/>
-        <DatePicker  FontSize ="25"  Margin="0,50,718,12" SelectedDate="{Binding StartDate}" VerticalAlignment="Stretch" HorizontalAlignment="Right" Width="222" />
-        <DatePicker FontSize ="25"  Margin="0,50,10,12" SelectedDate="{Binding EndDate}" VerticalAlignment="Stretch" HorizontalAlignment="Right" Width="222" />
+        <DatePicker  FontSize ="20"  Margin="0,110,276,64" SelectedDate="{Binding StartDate}" VerticalAlignment="Stretch" HorizontalAlignment="Right" Width="498" />
+        <DatePicker FontSize ="20"  Margin="0,160,276,22" SelectedDate="{Binding EndDate}" VerticalAlignment="Stretch" HorizontalAlignment="Right" Width="498" />
         <materialDesign:Card Content="Card" HorizontalAlignment="Left" Margin="944,-176,0,0" VerticalAlignment="Top"/>
-       
-        <Wpf:CartesianChart Series="{Binding SeriesCollection}" Margin="0,21,0,0" Grid.Row="1" HorizontalAlignment="Center" Width="950">
+
+        <Wpf:CartesianChart Series="{Binding SeriesCollection}" Margin="0,214,0,0" HorizontalAlignment="Center" Width="950" Grid.RowSpan="2">
             <Wpf:CartesianChart.AxisX>
                 <Wpf:Axis Title="Bill Dates" FontStyle="Oblique" Labels="{Binding BillLabels}"  />
-                
+
             </Wpf:CartesianChart.AxisX>
         </Wpf:CartesianChart>
 
-        <Button Content="back" Margin="438,93,439,10"
+        <Button Content="Back" Margin="10,10,865,172" materialDesign:ButtonAssist.CornerRadius="15" BorderBrush="Black" BorderThickness="2" Foreground="Black" FontSize="16"
                 Command="{Binding DataContext.BackCmd, RelativeSource={RelativeSource AncestorType={x:Type Window}}}"
                         CommandParameter="{Binding}"/>
+
+
 
 
 

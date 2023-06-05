@@ -2,10 +2,12 @@
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:Wpf_Karaokay"
       mc:Ignorable="d" 
       d:DesignHeight="1080" d:DesignWidth="1920"
+      Background="#FFF6F7"
       Title="CashierPage"
       DataContext="{DynamicResource CashierVM}">
 
@@ -21,47 +23,33 @@
             <ColumnDefinition Width="3*"/>
         </Grid.ColumnDefinitions>
 
-        <Button
+        <Button materialDesign:ButtonAssist.CornerRadius="30" BorderBrush="Black" BorderThickness="2"
             
             Command="{Binding DataContext.StopTimmerCommand, RelativeSource={RelativeSource AncestorType={x:Type Page}}}"
                         CommandParameter="{Binding}"
             Style="{StaticResource MaterialDesignRaisedLightButton}"
-            ToolTip="MaterialDesignRaisedLightButton with Round Corners" Click="Button_Click" Background="#FFFEBD25" Grid.Column="1" Grid.Row="2" FontFamily="Gill Sans MT" FontSize="12" Margin="116,0,116,0" Height="109" VerticalAlignment="Center">
-            <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Gill Sans MT" FontSize="40" Height="48" Width="138" ><Run Text="Receipt"/><LineBreak/><Run Text=" "/></TextBlock>
+            Click="Button_Click" Background="#FFFEBD25" Grid.Row="2" FontFamily="Gill Sans MT" FontSize="12" Margin="173,0,173,0" Height="70"  VerticalAlignment="Center" Grid.Column="1">
+            <TextBlock HorizontalAlignment="Center" Foreground="Black" VerticalAlignment="Center" FontFamily="Gill Sans MT" FontSize="35" Height="42" Width="109" ><Run Text="Receipt"/><LineBreak/><Run Text=" "/></TextBlock>
         </Button>
         <TextBlock Text ="{Binding receiptText}" TextAlignment="Center" Grid.Column="1" TextWrapping="Wrap" FontFamily="Gill Sans MT" FontSize="15" Margin="10,196,10,11" Grid.RowSpan="2"/>
         <Image Source="image 2 copy.png" Grid.Column="1" Margin="80,0,0,1" HorizontalAlignment="Left" Width="434"/>
-        <Button
+        <Button materialDesign:ButtonAssist.CornerRadius="30" BorderBrush="Black" BorderThickness="2"
             
             Command="{Binding DataContext.TimerCommand, RelativeSource={RelativeSource AncestorType={x:Type Page}}}"
                         CommandParameter="{Binding}"
             Style="{StaticResource MaterialDesignRaisedLightButton}"
-            ToolTip="MaterialDesignRaisedLightButton with Round Corners" Click="Button_Click" Background="#FF508014" Grid.Row="2" FontFamily="Gill Sans MT" FontSize="12" Margin="738,0,0,0" Height="71" VerticalAlignment="Center" HorizontalAlignment="Left" Width="246">
-            <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" FontFamily="Gill Sans MT" FontSize="40" Foreground="#DDFAF9F9" Height="53" Width="179" RenderTransformOrigin="0.618,0.644" ><Run Text="Start timer "/><LineBreak/><Run/><LineBreak/><Run Text=" "/></TextBlock>
+            Click="Button_Click" Background="#47a992" Foreground="Black" Grid.Row="2" FontFamily="Gill Sans MT" FontSize="12" Margin="738,0,0,0" Height="71" VerticalAlignment="Center" HorizontalAlignment="Left" Width="246">
+            <TextBlock VerticalAlignment="Center" HorizontalAlignment="Left" FontFamily="Gill Sans MT" FontSize="35" Height="44" Width="140" RenderTransformOrigin="0.618,0.644" ><Run Text="Start timer "/><LineBreak/><Run/><LineBreak/><Run Text=" "/></TextBlock>
         </Button>
 
 
         <!-- TextBlock to display the elapsed time -->
 
-
-        <Button
-            Command="{Binding DataContext.BackCommand, RelativeSource={RelativeSource AncestorType={x:Type Page}}}"
-                        CommandParameter="{Binding}"
-          
-            ToolTip="MaterialDesignRaisedLightButton with Round Corners" Margin="117,0,0,0"  Background="#FFFFF6F7" Height="100" VerticalAlignment="Center" HorizontalAlignment="Left" Width="100" Grid.Row="2">
-            <Button.Template>
-                <ControlTemplate TargetType="{x:Type Button}">
-                    <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                </ControlTemplate>
-            </Button.Template>
-            <Button.Content>
-                <Image Source="Group 3.png" Stretch="Uniform" Height="101" Width="78"/>
-            </Button.Content>
-
-
-        </Button>
+        <Button Content="Back" FontSize="30" Margin="177,0,0,0" Width="246" Height="70" materialDesign:ButtonAssist.CornerRadius="30" BorderBrush="Black" BorderThickness="2"
+                Command="{Binding DataContext.BackCommand, RelativeSource={RelativeSource AncestorType={x:Type Page}}}"
+                        CommandParameter="{Binding}" Foreground="Black" Background="#FC4F41" Grid.Row="2" HorizontalAlignment="Left" VerticalAlignment="Center"/>
         <TabControl Margin="0,10,10,0" Grid.RowSpan="2">
-            <TabItem Header="Food" Height="175" >
+            <TabItem Header="Food" Height="99" >
                 <Grid Background="#FFE5E5E5">
                     <DataGrid ItemsSource="{Binding FoodItems}" AutoGenerateColumns="False">
                         <DataGrid.Columns>
@@ -95,7 +83,7 @@
                     </DataGrid>
                 </Grid>
             </TabItem>
-            <TabItem Header="Beverage" Height="170">
+            <TabItem Header="Beverage" Height="91">
                 <Grid Background="#FFE5E5E5">
                     <DataGrid ItemsSource="{Binding BeverageItems}"  AutoGenerateColumns="False">
                         <DataGrid.Columns>

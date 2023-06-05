@@ -3,105 +3,70 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         xmlns:local="clr-namespace:Wpf_Karaokay"
+        WindowStartupLocation="CenterScreen"
         mc:Ignorable="d"
-        Title="ManagerForm" Height="550" Width="970"
+        Title="ManagerForm" Height="500" Width="800"
+        Background="#FFF6F7"
         DataContext="{DynamicResource ManagerFVM}"
         Name="managerForm">
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="Auto" MinHeight="159"/>
+            <RowDefinition Height="200" MinHeight="159"/>
             <RowDefinition/>
         </Grid.RowDefinitions>
 
-        <Image Source="image 2 copy.png" Margin="10,10,0,10" HorizontalAlignment="Left" Width="162"/>
-        <Image Source="ADMIN.png" Margin="258,9,266,2"/>
+        <Image Source="ADMINextraline.png" Margin="139,10,327,273" Grid.RowSpan="2"/>
+
 
         <Button
             Command="{Binding DataContext.CashierCmd, RelativeSource={RelativeSource AncestorType={x:Type Window}}}"
-                        CommandParameter="{Binding}"
-          
-            ToolTip="MaterialDesignRaisedLightButton with Round Corners" Margin="-5,69,767,0" Grid.Row="1" Height="216"  VerticalAlignment="Top"  Background="#FFFFF6F7">
-            <Button.Template>
-                <ControlTemplate TargetType="{x:Type Button}">
-                    <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                </ControlTemplate>
-            </Button.Template>
-            <Button.Content>
-                <Image Source="Cashier.png" Stretch="Uniform" Height="215" Width="188"/>
-            </Button.Content>
-
-
+                        CommandParameter="{Binding}" Margin="35,59,617,0" Height="132"  VerticalAlignment="Top" Background="#FFFC4F41" BorderBrush="Black" BorderThickness="2" Grid.Row="1">
+            <Image Source="Frame.png" Width="80" Height="83"/>
         </Button>
-        <Button
+
+        <Button BorderBrush="Black" BorderThickness="2"
             Command="{Binding DataContext.RoomCmd, RelativeSource={RelativeSource AncestorType={x:Type Window}}}"
                         CommandParameter="{Binding}"
-            
-            
-            Margin="188,69,576,0" Height="216" VerticalAlignment="Top" Background="#FFFFF6F7" Grid.Row="1">
-
-            <Button.Template>
-                <ControlTemplate TargetType="{x:Type Button}">
-                    <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                </ControlTemplate>
-            </Button.Template>
-            <Button.Content>
-                <Image Source="roomManger.png" Stretch="Uniform"/>
-            </Button.Content>
-
+            IsEnabled="{Binding DataContext.RoomCmd, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}"
+            Margin="419,59,232,0" Grid.Row="1" Height="132" VerticalAlignment="Top" Background="#F5E9DB">
+            <Image Source="Room.png" Height="83" Width="80"/>
         </Button>
-        <Button
+
+        <Button BorderBrush="Black" BorderThickness="2"
             Command="{Binding DataContext.MenuCmd, RelativeSource={RelativeSource AncestorType={x:Type Window}}}"
                         CommandParameter="{Binding}"
             
-             Margin="386,69,386,0" Grid.Row="1" Height="216" VerticalAlignment="Top" Background="#FFFFF6F7" >
-
-            <Button.Template>
-                <ControlTemplate TargetType="{x:Type Button}">
-                    <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                </ControlTemplate>
-            </Button.Template>
-            <Button.Content>
-                <Image Source="MenuManger.png" Stretch="Uniform"/>
-            </Button.Content>
-
-
+            IsEnabled="{Binding DataContext.MenuCmd, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}"
+            Margin="619,59,30,0" Height="132" VerticalAlignment="Top" Background="#243257" Grid.Row="1">
+            <Image Source="Menu.png" Height="72" Width="106"/>
         </Button>
-        <Button Command="{Binding DataContext.EmployCmd, RelativeSource={RelativeSource AncestorType={x:Type Window}}}"
-        CommandParameter="{Binding}" Margin="584,69,190,0" Grid.Row="1" Height="216" VerticalAlignment="Top" Background="#FFFFF6F7">
 
-
-            <Button.Template>
-                <ControlTemplate TargetType="{x:Type Button}">
-                    <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                </ControlTemplate>
-            </Button.Template>
-            <Button.Content>
-                <Image Source="employee_button.png" Stretch="Uniform"/>
-            </Button.Content>
-
+        <Button BorderBrush="Black" BorderThickness="2"
+            Command="{Binding DataContext.EmployCmd, RelativeSource={RelativeSource AncestorType={x:Type Window}}}"
+                        CommandParameter="{Binding}"
+            
+            IsEnabled="{Binding DataContext.EmployCmd, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}"
+            Margin="232,59,420,0" Height="132" VerticalAlignment="Top" Background="#243257" Grid.Row="1">
+            <Image Source="Employee.png" Width="93" Height="66"/>
         </Button>
-        <Button
+
+
+        <Button BorderBrush="Black" BorderThickness="2"
             Command="{Binding DataContext.ReportCmd, RelativeSource={RelativeSource AncestorType={x:Type Window}}}"
             CommandParameter="{Binding}"
             
             IsEnabled="{Binding DataContext.RoomCmd, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}"
-            Style="{StaticResource MaterialDesignRaisedLightButton}"
-            ToolTip="MaterialDesignRaisedLightButton with Round Corners" Margin="785,69,0,0" Grid.Row="1" Background="#FFFFF6F7" RenderTransformOrigin="0.561,0.567" Height="216" VerticalAlignment="Top">
-
-            <Button.Template>
-                <ControlTemplate TargetType="{x:Type Button}">
-                    <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                </ControlTemplate>
-            </Button.Template>
-            <Button.Content>
-                <Image Source="report.png" Stretch="Uniform"/>
-            </Button.Content>
+            Margin="520,44,128,0" Background="#F5E9DB" RenderTransformOrigin="0.561,0.567" Height="133" VerticalAlignment="Top">
+            <Image Source="Report.png" Width="80"/>
         </Button>
 
-
-
-
+        <Label Content="Cashier" FontWeight="Bold" FontSize="20" HorizontalAlignment="Left" Margin="69,191,0,0" VerticalAlignment="Top" Grid.Row="1"/>
+        <Label Content="Rooms" FontWeight="Bold" FontSize="20" HorizontalAlignment="Left" Margin="455,191,0,0" Grid.Row="1" VerticalAlignment="Top"/>
+        <Label Content="Menu" FontWeight="Bold" FontSize="20" HorizontalAlignment="Left" Margin="660,191,0,0" VerticalAlignment="Top" Grid.Row="1"/>
+        <Label Content="Employees" FontWeight="Bold" FontSize="20" HorizontalAlignment="Left" Margin="245,191,0,0" Grid.Row="1" VerticalAlignment="Top"/>
+        <Label Content="Report" FontWeight="Bold" FontSize="20" HorizontalAlignment="Left" Margin="557,174,0,0" VerticalAlignment="Top" Grid.RowSpan="2"/>
     </Grid>
 
 </Window>

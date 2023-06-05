@@ -3,6 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         xmlns:local="clr-namespace:Wpf_Karaokay"
         mc:Ignorable="d"
         Title="RoomsWindows" WindowState="Maximized" Height="1080" Width="1920"
@@ -25,8 +26,6 @@
             <RowDefinition Height="107*"/>
         </Grid.RowDefinitions>
 
-
-        <Image Grid.Row="0" Source="image 2 copy.png" HorizontalAlignment="Left" Width="1910"  />
         <ScrollViewer Grid.Row="1" HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto">
             <ItemsControl ItemsSource="{Binding Rooms}">
                 <ItemsControl.ItemsPanel>
@@ -44,25 +43,9 @@
                 </ItemsControl.ItemTemplate>
             </ItemsControl>
         </ScrollViewer>
-        <TextBlock HorizontalAlignment="Left" Margin="491,67,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="66" Width="429" FontFamily="Gill Sans MT" FontSize="60"><Run Text="Rooms"/><LineBreak/><Run/></TextBlock>
-
-
-        <Button
-            Command="{Binding DataContext.BackButtonCommand, RelativeSource={RelativeSource AncestorType={x:Type Window}}}"
-                        CommandParameter="{Binding}"
-          
-            ToolTip="MaterialDesignRaisedLightButton with Round Corners" Margin="1395,0,0,0"  Background="#FFFFF6F7" Height="100" VerticalAlignment="Center" HorizontalAlignment="Left" Width="100">
-            <Button.Template>
-                <ControlTemplate TargetType="{x:Type Button}">
-                    <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                </ControlTemplate>
-            </Button.Template>
-            <Button.Content>
-                <Image Source="Group 3.png" Stretch="Uniform" Height="101" Width="78"/>
-            </Button.Content>
-
-
-        </Button>
+        <TextBlock HorizontalAlignment="Center" Margin="0,81,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="66" Width="205" FontFamily="Gill Sans MT" FontSize="60" FontWeight="Black"><Run Text="Rooms"/><LineBreak/><Run/></TextBlock>
+        <Button  Content="Back" FontSize="35" Width="140"
+                 Command="{Binding DataContext.BackButtonCommand, RelativeSource={RelativeSource AncestorType={x:Type Window}}}" Margin="10,10,0,0" VerticalAlignment="Top" Height="70" FontFamily="Gill Sans MT" Background="#FF243257" Foreground="White" HorizontalAlignment="Left"/>
 
     </Grid>
 </Window>

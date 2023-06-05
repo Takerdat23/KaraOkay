@@ -301,6 +301,13 @@
     <Resource Include="Group 3.png" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="report.png" />
+    <Resource Include="roomManger.png" />
+    <Resource Include="employee_button.png" />
+    <Resource Include="Cashier.png" />
+    <Resource Include="MenuManger.png" />
+    <Resource Include="MenuManage.png" />
+    <Resource Include="ADMIN.png" />
     <Content Include="Model\Model1.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>Model1.edmx</DependentUpon>

@@ -43,9 +43,23 @@
 
         <!-- TextBlock to display the elapsed time -->
 
-        <Button Content="Previous" FontSize="25" Margin="256,0,0,0" Width="134" 
-                Command="{Binding DataContext.BackCommand, RelativeSource={RelativeSource AncestorType={x:Type Page}}}"
-                        CommandParameter="{Binding}" Background="#FF243257"  Foreground="#FFF5E9DB" Grid.Row="2" HorizontalAlignment="Left" Height="73" VerticalAlignment="Center"/>
+
+        <Button
+            Command="{Binding DataContext.BackCommand, RelativeSource={RelativeSource AncestorType={x:Type Page}}}"
+                        CommandParameter="{Binding}"
+          
+            ToolTip="MaterialDesignRaisedLightButton with Round Corners" Margin="117,0,0,0"  Background="#FFFFF6F7" Height="100" VerticalAlignment="Center" HorizontalAlignment="Left" Width="100" Grid.Row="2">
+            <Button.Template>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                </ControlTemplate>
+            </Button.Template>
+            <Button.Content>
+                <Image Source="Group 3.png" Stretch="Uniform" Height="101" Width="78"/>
+            </Button.Content>
+
+
+        </Button>
         <TabControl Margin="0,10,10,0" Grid.RowSpan="2">
             <TabItem Header="Food" Height="175" >
                 <Grid Background="#FFE5E5E5">
@@ -58,7 +72,7 @@
                                 <DataGridTemplateColumn.CellTemplate>
                                     <DataTemplate>
                                         <StackPanel Orientation="Horizontal">
-                                  
+
                                             <Grid>
                                                 <Grid.ColumnDefinitions>
                                                     <ColumnDefinition Width="*" />
@@ -75,7 +89,7 @@
                                     </DataTemplate>
                                 </DataGridTemplateColumn.CellTemplate>
                             </DataGridTemplateColumn>
-                            
+
                             <!-- Other columns if needed -->
                         </DataGrid.Columns>
                     </DataGrid>
@@ -92,7 +106,7 @@
                                 <DataGridTemplateColumn.CellTemplate>
                                     <DataTemplate>
                                         <StackPanel Orientation="Horizontal">
-                            
+
                                             <Grid>
                                                 <Grid.ColumnDefinitions>
                                                     <ColumnDefinition Width="*" />
@@ -128,7 +142,7 @@
                                 <DataGridTemplateColumn.CellTemplate>
                                     <DataTemplate>
                                         <StackPanel Orientation="Horizontal">
-                                  
+
                                             <Grid>
                                                 <Grid.ColumnDefinitions>
                                                     <ColumnDefinition Width="*" />

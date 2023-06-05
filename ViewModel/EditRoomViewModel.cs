@@ -188,8 +188,9 @@ namespace Wpf_Karaokay.ViewModel
         }
         private void Back(Window p) 
         {
+            NavigationService.RegisterWindow("ManagerForm", typeof(ManagerForm), new ManagerFormViewModel());
             NavigationService.NavigateToWindow("ManagerForm");
-            p.Close();
+      
         }
         
     }

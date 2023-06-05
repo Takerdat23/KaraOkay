@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Wpf_Karaokay"
         mc:Ignorable="d"
-        Title="RoomsWindows" Height="1080" Width="1920"
+        Title="RoomsWindows" WindowState="Maximized" Height="1080" Width="1920"
         DataContext="{DynamicResource RoomsVM}">
     <Window.Resources>
         <Style TargetType="Button">
@@ -45,8 +45,24 @@
             </ItemsControl>
         </ScrollViewer>
         <TextBlock HorizontalAlignment="Left" Margin="491,67,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="66" Width="429" FontFamily="Gill Sans MT" FontSize="60"><Run Text="Rooms"/><LineBreak/><Run/></TextBlock>
-        <Button  Content="Previous" FontSize="35"  
-                 Command="{Binding DataContext.BackButtonCommand, RelativeSource={RelativeSource AncestorType={x:Type Window}}}" Margin="1255,0,0,0" VerticalAlignment="Center" Height="121" FontFamily="Gill Sans MT" Background="#FF243257" Foreground="White" HorizontalAlignment="Left" Width="210"/>
+
+
+        <Button
+            Command="{Binding DataContext.BackButtonCommand, RelativeSource={RelativeSource AncestorType={x:Type Window}}}"
+                        CommandParameter="{Binding}"
+          
+            ToolTip="MaterialDesignRaisedLightButton with Round Corners" Margin="1395,0,0,0"  Background="#FFFFF6F7" Height="100" VerticalAlignment="Center" HorizontalAlignment="Left" Width="100">
+            <Button.Template>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                </ControlTemplate>
+            </Button.Template>
+            <Button.Content>
+                <Image Source="Group 3.png" Stretch="Uniform" Height="101" Width="78"/>
+            </Button.Content>
+
+
+        </Button>
 
     </Grid>
 </Window>

@@ -27,7 +27,8 @@ namespace Wpf_Karaokay.ViewModel
 
 
         public ManagerFormViewModel() {
-           
+
+            
 
             NavigationService.RegisterWindow("RoomsWindow", typeof(RoomsWindows), new RoomsWindowViewModel());
 

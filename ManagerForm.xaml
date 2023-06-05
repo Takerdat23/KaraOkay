@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Wpf_Karaokay"
         mc:Ignorable="d"
-        Title="ManagerForm" Height="450" Width="800"
+        Title="ManagerForm" Height="550" Width="970"
         DataContext="{DynamicResource ManagerFVM}"
         Name="managerForm">
     <Grid>
@@ -13,60 +13,90 @@
             <RowDefinition Height="Auto" MinHeight="159"/>
             <RowDefinition/>
         </Grid.RowDefinitions>
-        <Grid HorizontalAlignment="Center" Margin="0,16,0,13" Width="162">
-            <Image Source="image 2 copy.png" Margin="0,0,0,20" HorizontalAlignment="Center" Width="162"/>
-            <TextBlock HorizontalAlignment="Center" Margin="0,95,0,0" TextWrapping="Wrap" Text="Manager" VerticalAlignment="Top" Height="35" Width="82" FontSize="20"/>
 
-        </Grid>
+        <Image Source="image 2 copy.png" Margin="10,10,0,10" HorizontalAlignment="Left" Width="162"/>
+        <Image Source="ADMIN.png" Margin="258,9,266,2"/>
 
         <Button
             Command="{Binding DataContext.CashierCmd, RelativeSource={RelativeSource AncestorType={x:Type Window}}}"
                         CommandParameter="{Binding}"
-            Style="{StaticResource MaterialDesignRaisedLightButton}"
-            ToolTip="MaterialDesignRaisedLightButton with Round Corners" Margin="10,25,645,0" Grid.Row="1" Height="132"  VerticalAlignment="Top"  Background="#FFFEBD25">
-            <TextBlock
-      Text="Cashier" FontFamily="Gill Sans MT" FontSize="25" />
+          
+            ToolTip="MaterialDesignRaisedLightButton with Round Corners" Margin="-5,69,767,0" Grid.Row="1" Height="216"  VerticalAlignment="Top"  Background="#FFFFF6F7">
+            <Button.Template>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                </ControlTemplate>
+            </Button.Template>
+            <Button.Content>
+                <Image Source="Cashier.png" Stretch="Uniform" Height="215" Width="188"/>
+            </Button.Content>
+
+
         </Button>
         <Button
             Command="{Binding DataContext.RoomCmd, RelativeSource={RelativeSource AncestorType={x:Type Window}}}"
                         CommandParameter="{Binding}"
-            IsEnabled="{Binding DataContext.RoomCmd, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}"
-            Style="{StaticResource MaterialDesignRaisedLightButton}"
-            ToolTip="MaterialDesignRaisedLightButton with Round Corners" Margin="215,25,440,0" Grid.Row="1" Height="132" VerticalAlignment="Top" Background="#FF243257">
-            <TextBlock
-                Text="Rooms" Foreground="#FFFFF6F7" FontFamily="Gill Sans MT" FontSize="25" />
+            
+            
+            Margin="188,69,576,0" Height="216" VerticalAlignment="Top" Background="#FFFFF6F7" Grid.Row="1">
+
+            <Button.Template>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                </ControlTemplate>
+            </Button.Template>
+            <Button.Content>
+                <Image Source="roomManger.png" Stretch="Uniform"/>
+            </Button.Content>
+
         </Button>
         <Button
             Command="{Binding DataContext.MenuCmd, RelativeSource={RelativeSource AncestorType={x:Type Window}}}"
                         CommandParameter="{Binding}"
             
-            IsEnabled="{Binding DataContext.MenuCmd, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}"
-            Style="{StaticResource MaterialDesignRaisedLightButton}"
-            ToolTip="MaterialDesignRaisedLightButton with Round Corners" Margin="432,25,223,0" Grid.Row="1" Height="132" VerticalAlignment="Top" Background="#FFFC4F41">
-            <TextBlock
-                Text="Menu" FontFamily="Gill Sans MT" FontSize="25" />
-        </Button>
-        <Button
-            Command="{Binding DataContext.EmployCmd, RelativeSource={RelativeSource AncestorType={x:Type Window}}}"
-                        CommandParameter="{Binding}"
-            
-            IsEnabled="{Binding DataContext.EmployCmd, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}"
-            Style="{StaticResource MaterialDesignRaisedLightButton}"
-            ToolTip="MaterialDesignRaisedLightButton with Round Corners" Margin="645,25,10,0" Grid.Row="1" Height="132" VerticalAlignment="Top" Background="#FFFFF6F7">
-            <TextBlock
-                Text="Employees" FontFamily="Gill Sans MT" FontSize="25" />
-        </Button>
+             Margin="386,69,386,0" Grid.Row="1" Height="216" VerticalAlignment="Top" Background="#FFFFF6F7" >
 
-        <Frame x:Name="MainFrame"  />
+            <Button.Template>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                </ControlTemplate>
+            </Button.Template>
+            <Button.Content>
+                <Image Source="MenuManger.png" Stretch="Uniform"/>
+            </Button.Content>
+
+
+        </Button>
+        <Button Command="{Binding DataContext.EmployCmd, RelativeSource={RelativeSource AncestorType={x:Type Window}}}"
+        CommandParameter="{Binding}" Margin="584,69,190,0" Grid.Row="1" Height="216" VerticalAlignment="Top" Background="#FFFFF6F7">
+
+
+            <Button.Template>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                </ControlTemplate>
+            </Button.Template>
+            <Button.Content>
+                <Image Source="employee_button.png" Stretch="Uniform"/>
+            </Button.Content>
+
+        </Button>
         <Button
             Command="{Binding DataContext.ReportCmd, RelativeSource={RelativeSource AncestorType={x:Type Window}}}"
             CommandParameter="{Binding}"
             
             IsEnabled="{Binding DataContext.RoomCmd, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}"
             Style="{StaticResource MaterialDesignRaisedLightButton}"
-            ToolTip="MaterialDesignRaisedLightButton with Round Corners" Margin="284,209,296,0" Grid.Row="1" Background="#FF243257" RenderTransformOrigin="0.561,0.567" Height="40" VerticalAlignment="Top">
-            <TextBlock
-                Text="Report" Foreground="#FFFFF6F7" FontFamily="Gill Sans MT" FontSize="25" />
+            ToolTip="MaterialDesignRaisedLightButton with Round Corners" Margin="785,69,0,0" Grid.Row="1" Background="#FFFFF6F7" RenderTransformOrigin="0.561,0.567" Height="216" VerticalAlignment="Top">
+
+            <Button.Template>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                </ControlTemplate>
+            </Button.Template>
+            <Button.Content>
+                <Image Source="report.png" Stretch="Uniform"/>
+            </Button.Content>
         </Button>
 
 

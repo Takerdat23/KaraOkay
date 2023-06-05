@@ -66,7 +66,7 @@ namespace Wpf_Karaokay.ViewModel
         public void BackButton(Room room )
         {
 
-            
+            NavigationService.RegisterWindow("ManagerForm", typeof(ManagerForm), new ManagerFormViewModel());
             NavigationService.NavigateToWindow("ManagerForm"); 
         }
     }

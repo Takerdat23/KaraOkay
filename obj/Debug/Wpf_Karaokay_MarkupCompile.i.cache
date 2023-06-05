@@ -4,16 +4,16 @@
 winexe
 C#
 .cs
-D:\Karaokay\obj\Debug\
+D:\C#.NET\SE104_project\KaraOkay\obj\Debug\
 Wpf_Karaokay
 none
 false
 DEBUG;TRACE
-D:\Karaokay\App.xaml
+D:\C#.NET\SE104_project\KaraOkay\App.xaml
 16-633460449
 2739969757
 47197860654
-132-1830798008
+132-1871294686
 AddMenu.xaml;AddRoom.xaml;CashierPage.xaml;EditEmployee.xaml;EditMenu.xaml;EditRoom.xaml;FinalBill.xaml;LoginWindow.xaml;MainWindow.xaml;ManagerForm.xaml;MenuManager.xaml;MiddleWindow.xaml;ReportWindow.xaml;ResourceXAML\MainResource.xaml;RoomManager.xaml;RoomsWindows.xaml;
 
 True

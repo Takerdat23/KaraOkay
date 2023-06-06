@@ -137,6 +137,11 @@ namespace Wpf_Karaokay.ViewModel
 
         private void StopTimer(Room room)
         {
+            if (CurrentRoom.RMStatus == 0)
+            {
+                MessageBox.Show("The timer haven't started yet", "Notification", MessageBoxButton.OK, MessageBoxImage.Information);
+                return; 
+            }
 
             StringBuilder receiptBuilder = new StringBuilder();
 
@@ -144,29 +149,45 @@ namespace Wpf_Karaokay.ViewModel
             int seconds = _timerService.GetElapsedSeconds(room);
             _timerService.StopTimerForRoom(room);
             room.RMStatus = 0;
-            
+            ElapsedTimeForRoom = "0 Seconds";  
+            OnPropertyChanged(nameof(ElapsedTimeForRoom));
             CurrentBill.OrderPice = 0;
             int roomPrice = (int)room.PricePerHour;
-            foreach(BillDetail billd in CurrentReceipt)
+            if (CurrentReceipt == null)
             {
-                CurrentBill.OrderPice += (billd.TotalPrice * billd.Quantity);    
+                CurrentBill.OrderPice = 0;
             }
+            else
+            {
+                foreach (BillDetail billd in CurrentReceipt)
+                {
+                    CurrentBill.OrderPice += (billd.TotalPrice * billd.Quantity);
+                }
+            }
+            
             int orderPrice = (int)CurrentBill.OrderPice;
             CurrentBill.TotalPrice = ((seconds / 3600) * roomPrice) + orderPrice;
             // set the billed field to true 
             CurrentBill.Billed = true; 
             DataProvider.Ins.DB.SaveChanges();  
 
+            
             receiptBuilder.AppendLine(receiptText);
             receiptBuilder.AppendLine($"Time : {seconds}");
             receiptBuilder.AppendLine($"Room price per hour : {roomPrice}");
             receiptBuilder.AppendLine($"Total: {CurrentBill.TotalPrice}");
 
             string FinalBill = receiptBuilder.ToString();
+            FinalBill finalbill = new FinalBill();
             FinalBillViewModel FinalviewModel = new FinalBillViewModel();
             FinalviewModel.GetFinalBill(FinalBill);
-            NavigationService.RegisterWindow("FinalBillWindow", typeof(FinalBill), FinalviewModel);
-            NavigationService.NavigateToWindow("FinalBillWindow");
+            finalbill.DataContext = FinalviewModel;
+            finalbill.Show();
+
+            CurrentReceipt = null;
+            this.PrintReceipt(CurrentReceipt);
+
+
         }
 
         private void TimerCallback(Room room)
@@ -212,19 +233,27 @@ namespace Wpf_Karaokay.ViewModel
             RoomName = "Room " + CurrentRoom.RmId;
         }
 
-
+        // print to the temporary bill 
         public void PrintReceipt(List<BillDetail> billdetails)
         {
             StringBuilder receiptBuilder = new StringBuilder();
 
-            foreach (BillDetail billDetail in billdetails)
+            if(billdetails== null)
             {
-                // get item base on the OrderId 
-                Item item = DataProvider.Ins.DB.Items.FirstOrDefault(i => (i.itemID == billDetail.OrderID));
-                //calculate the bill orderprice 
-                CurrentBill.OrderPice += item.itemPrice * billDetail.Quantity;
-                receiptBuilder.AppendLine($"Item: {item.itemName}, Quantity: {billDetail.Quantity}, Price: {item.itemPrice * billDetail.Quantity}");
+                receiptBuilder.AppendLine(""); 
             }
+            else
+            {
+                foreach (BillDetail billDetail in billdetails)
+                {
+                    // get item base on the OrderId 
+                    Item item = DataProvider.Ins.DB.Items.FirstOrDefault(i => (i.itemID == billDetail.OrderID));
+                    //calculate the bill orderprice 
+                    CurrentBill.OrderPice += item.itemPrice * billDetail.Quantity;
+                    receiptBuilder.AppendLine($"Item: {item.itemName}, Quantity: {billDetail.Quantity}, Price: {item.itemPrice * billDetail.Quantity}");
+                }
+            }
+            
 
             string receipt = receiptBuilder.ToString();
             receiptText = receipt;

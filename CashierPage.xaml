@@ -28,7 +28,7 @@
             Command="{Binding DataContext.StopTimmerCommand, RelativeSource={RelativeSource AncestorType={x:Type Page}}}"
                         CommandParameter="{Binding}"
             Style="{StaticResource MaterialDesignRaisedLightButton}"
-            Click="Button_Click" Background="#FFFEBD25" Grid.Row="2" FontFamily="Gill Sans MT" FontSize="12" Margin="173,0,173,0" Height="70"  VerticalAlignment="Center" Grid.Column="1">
+            Click="Button_Click" Background="#FFFEBD25" Grid.Row="2" FontFamily="Gill Sans MT" FontSize="12" Margin="144,0,145,0" Height="70"  VerticalAlignment="Center" Grid.Column="1">
             <TextBlock HorizontalAlignment="Center" Foreground="Black" VerticalAlignment="Center" FontFamily="Gill Sans MT" FontSize="35" Height="42" Width="109" ><Run Text="Receipt"/><LineBreak/><Run Text=" "/></TextBlock>
         </Button>
         <TextBlock Text ="{Binding receiptText}" TextAlignment="Center" Grid.Column="1" TextWrapping="Wrap" FontFamily="Gill Sans MT" FontSize="15" Margin="10,196,10,11" Grid.RowSpan="2"/>

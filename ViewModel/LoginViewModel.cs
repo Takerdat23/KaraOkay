@@ -77,7 +77,7 @@ namespace Wpf_Karaokay.ViewModel
             {
                 MessageBox.Show("Bạn là admin. Login thành công");
                 NavigationService.NavigateToWindow("ManagerForm");
-                p.Close();
+            
             }
             else
             {

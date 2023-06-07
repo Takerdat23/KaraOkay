@@ -9,12 +9,21 @@ Wpf_Karaokay
 none
 false
 DEBUG;TRACE
+<<<<<<< HEAD
 D:\C#.NET\SE104_project\KaraOkay\App.xaml
 10-1765925805
 2739969757
 40798234196
 132-1871294686
 CashierPage.xaml;EditEmployee.xaml;EditMenu.xaml;EditRoom.xaml;FinalBill.xaml;LoginWindow.xaml;ManagerForm.xaml;ReportWindow.xaml;ResourceXAML\MainResource.xaml;RoomsWindows.xaml;
+=======
+D:\Karaokay\App.xaml
+17788448796
+2739969757
+48-256480678
+132-1830798008
+AboutUsWindow.xaml;AddMenu.xaml;AddRoom.xaml;CashierPage.xaml;EditEmployee.xaml;EditMenu.xaml;EditRoom.xaml;FinalBill.xaml;LoginWindow.xaml;MainWindow.xaml;ManagerForm.xaml;MenuManager.xaml;MiddleWindow.xaml;ReportWindow.xaml;ResourceXAML\MainResource.xaml;RoomManager.xaml;RoomsWindows.xaml;
+>>>>>>> drop-account
 
 False
 

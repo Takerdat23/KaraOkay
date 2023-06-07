@@ -20,9 +20,7 @@ namespace Wpf_Karaokay.ViewModel
         public ICommand EmployCmd { get; private set; }
         public ICommand ReportCmd { get; private set; }
 
-
-
-
+        public ICommand LogOutCommand { get; private set; }
 
 
 
@@ -43,12 +41,15 @@ namespace Wpf_Karaokay.ViewModel
 
             NavigationService.RegisterWindow("EditEmployee", typeof(EditEmployee), new EditEmployee());
 
+            NavigationService.RegisterWindow("LoginWindow", typeof(LoginWindow), new LoginViewModel());
+
 
             CashierCmd = new RelayCommand(SwitchToRoomWindows);
             RoomCmd = new RelayCommand(SwitchToEditRoom);
             MenuCmd = new RelayCommand(SwitchToEditMenu);
             EmployCmd = new RelayCommand(SwitchToEmployee);
             ReportCmd = new RelayCommand(SwitchToReport);
+            LogOutCommand = new RelayCommand(LogOut);
         }
 
         private void SwitchToRoomWindows(object parameter)
@@ -91,6 +92,12 @@ namespace Wpf_Karaokay.ViewModel
             NavigationService.NavigateToWindow("ReportWindow");
         }
 
-        
+        private void LogOut(object parameter) 
+        {
+            NavigationService.NavigateToWindow("LoginWindow");
+        }
+
+
+
     }
 }

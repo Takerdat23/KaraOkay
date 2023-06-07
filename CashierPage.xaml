@@ -32,20 +32,20 @@
             <TextBlock HorizontalAlignment="Center" Foreground="Black" VerticalAlignment="Center" FontFamily="Gill Sans MT" FontSize="35" Height="42" Width="109" ><Run Text="Receipt"/><LineBreak/><Run Text=" "/></TextBlock>
         </Button>
         <TextBlock Text ="{Binding receiptText}" TextAlignment="Center" Grid.Column="1" TextWrapping="Wrap" FontFamily="Gill Sans MT" FontSize="15" Margin="10,196,10,11" Grid.RowSpan="2"/>
-        <Image Source="image 2 copy.png" Grid.Column="1" Margin="80,0,0,1" HorizontalAlignment="Left" Width="434"/>
+        <Image Source="image 2 copy.png" Grid.Column="1" Margin="97,7,0,10" HorizontalAlignment="Left" Width="416"/>
         <Button materialDesign:ButtonAssist.CornerRadius="30" BorderBrush="Black" BorderThickness="2"
             
             Command="{Binding DataContext.TimerCommand, RelativeSource={RelativeSource AncestorType={x:Type Page}}}"
                         CommandParameter="{Binding}"
             Style="{StaticResource MaterialDesignRaisedLightButton}"
-            Click="Button_Click" Background="#47a992" Foreground="Black" Grid.Row="2" FontFamily="Gill Sans MT" FontSize="12" Margin="738,0,0,0" Height="71" VerticalAlignment="Center" HorizontalAlignment="Left" Width="246">
+            Click="Button_Click" Background="#47a992" Foreground="Black" Grid.Row="2" FontFamily="Gill Sans MT" FontSize="12" Margin="837,0,0,0" Height="71" VerticalAlignment="Center" HorizontalAlignment="Left" Width="246">
             <TextBlock VerticalAlignment="Center" HorizontalAlignment="Left" FontFamily="Gill Sans MT" FontSize="35" Height="44" Width="140" RenderTransformOrigin="0.618,0.644" ><Run Text="Start timer "/><LineBreak/><Run/><LineBreak/><Run Text=" "/></TextBlock>
         </Button>
 
 
         <!-- TextBlock to display the elapsed time -->
 
-        <Button Content="Back" FontSize="30" Margin="177,0,0,0" Width="246" Height="70" materialDesign:ButtonAssist.CornerRadius="30" BorderBrush="Black" BorderThickness="2"
+        <Button Content="Back" FontSize="30" Margin="183,0,0,0" Width="246" Height="70" materialDesign:ButtonAssist.CornerRadius="30" BorderBrush="Black" BorderThickness="2"
                 Command="{Binding DataContext.BackCommand, RelativeSource={RelativeSource AncestorType={x:Type Page}}}"
                         CommandParameter="{Binding}" Foreground="Black" Background="#FC4F41" Grid.Row="2" HorizontalAlignment="Left" VerticalAlignment="Center"/>
         <TabControl Margin="0,10,10,0" Grid.RowSpan="2">

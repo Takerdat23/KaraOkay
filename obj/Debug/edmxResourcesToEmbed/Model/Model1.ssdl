@@ -1,14 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="KaraOkayModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-  <EntityType Name="Account">
-    <Key>
-      <PropertyRef Name="UserName" />
-    </Key>
-    <Property Name="UserName" Type="varchar" MaxLength="100" Nullable="false" />
-    <Property Name="DisplayName" Type="varchar" MaxLength="100" Nullable="false" />
-    <Property Name="Password" Type="varchar" MaxLength="100" Nullable="false" />
-    <Property Name="type" Type="int" Nullable="false" />
-  </EntityType>
   <EntityType Name="bill">
     <Key>
       <PropertyRef Name="BillID" />
@@ -42,7 +33,7 @@ warning 6002: The table/view 'KaraOkay.dbo.BillDetail' does not have a primary k
     <Property Name="EmpPhone" Type="varchar" MaxLength="100" Nullable="false" />
     <Property Name="BirthDate" Type="date" />
     <Property Name="PlaceOfOrigin" Type="varchar" MaxLength="100" />
-    <Property Name="AccountName" Type="varchar" MaxLength="100" />
+    <Property Name="Password" Type="varchar" MaxLength="100" />
   </EntityType>
   <EntityType Name="Items">
     <Key>
@@ -118,6 +109,7 @@ warning 6002: The table/view 'KaraOkay.dbo.BillDetail' does not have a primary k
       </Dependent>
     </ReferentialConstraint>
   </Association>
+<<<<<<< HEAD
   <Association Name="FK__Employee__Accoun__44FF419A">
     <End Role="Account" Type="Self.Account" Multiplicity="0..1" />
     <End Role="Employee" Type="Self.Employee" Multiplicity="*" />
@@ -131,6 +123,9 @@ warning 6002: The table/view 'KaraOkay.dbo.BillDetail' does not have a primary k
     </ReferentialConstraint>
   </Association>
   <Association Name="FK__reports__BillId__5535A963">
+=======
+  <Association Name="FK__reports__BillId__4316F928">
+>>>>>>> drop-account
     <End Role="bill" Type="Self.bill" Multiplicity="0..1" />
     <End Role="reports" Type="Self.reports" Multiplicity="*" />
     <ReferentialConstraint>
@@ -143,7 +138,6 @@ warning 6002: The table/view 'KaraOkay.dbo.BillDetail' does not have a primary k
     </ReferentialConstraint>
   </Association>
   <EntityContainer Name="KaraOkayModelStoreContainer">
-    <EntitySet Name="Account" EntityType="Self.Account" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="bill" EntityType="Self.bill" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Employee" EntityType="Self.Employee" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Items" EntityType="Self.Items" Schema="dbo" store:Type="Tables" />
@@ -170,11 +164,15 @@ warning 6002: The table/view 'KaraOkay.dbo.BillDetail' does not have a primary k
       <End Role="Items" EntitySet="Items" />
       <End Role="BillDetail" EntitySet="BillDetail" />
     </AssociationSet>
+<<<<<<< HEAD
     <AssociationSet Name="FK__Employee__Accoun__44FF419A" Association="Self.FK__Employee__Accoun__44FF419A">
       <End Role="Account" EntitySet="Account" />
       <End Role="Employee" EntitySet="Employee" />
     </AssociationSet>
     <AssociationSet Name="FK__reports__BillId__5535A963" Association="Self.FK__reports__BillId__5535A963">
+=======
+    <AssociationSet Name="FK__reports__BillId__4316F928" Association="Self.FK__reports__BillId__4316F928">
+>>>>>>> drop-account
       <End Role="bill" EntitySet="bill" />
       <End Role="reports" EntitySet="reports" />
     </AssociationSet>

@@ -1,5 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="KaraOkayModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+<<<<<<< HEAD
   <EntityType Name="Account">
     <Key>
       <PropertyRef Name="UserName" />
@@ -10,6 +11,8 @@
     <Property Name="type" Type="Int32" Nullable="false" />
     <NavigationProperty Name="Employees" Relationship="Self.FK__Employee__Accoun__44FF419A" FromRole="Account" ToRole="Employee" />
   </EntityType>
+=======
+>>>>>>> drop-account
   <EntityType Name="bill">
     <Key>
       <PropertyRef Name="BillID" />
@@ -34,8 +37,12 @@
     <Property Name="EmpPhone" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="BirthDate" Type="DateTime" Precision="0" />
     <Property Name="PlaceOfOrigin" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+<<<<<<< HEAD
     <Property Name="AccountName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
     <NavigationProperty Name="Account" Relationship="Self.FK__Employee__Accoun__44FF419A" FromRole="Employee" ToRole="Account" />
+=======
+    <Property Name="Password" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+>>>>>>> drop-account
   </EntityType>
   <EntityType Name="Item">
     <Key>
@@ -90,6 +97,7 @@
     <NavigationProperty Name="bill" Relationship="Self.FK__BillDetai__BillI__4E88ABD4" FromRole="BillDetail" ToRole="bill" />
     <NavigationProperty Name="Item" Relationship="Self.FK__BillDetai__Order__4F7CD00D" FromRole="BillDetail" ToRole="Items" />
   </EntityType>
+<<<<<<< HEAD
   <Association Name="FK__Employee__Accoun__44FF419A">
     <End Role="Account" Type="Self.Account" Multiplicity="0..1" />
     <End Role="Employee" Type="Self.Employee" Multiplicity="*" />
@@ -103,6 +111,9 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK__bill__RmId__4AB81AF0">
+=======
+  <Association Name="FK__bill__RmId__37A5467C">
+>>>>>>> drop-account
     <End Role="Room" Type="Self.Room" Multiplicity="1" />
     <End Role="bill" Type="Self.bill" Multiplicity="*" />
     <ReferentialConstraint>
@@ -151,6 +162,7 @@
     </ReferentialConstraint>
   </Association>
   <EntityContainer Name="KaraOkayEntities" annotation:LazyLoadingEnabled="true">
+<<<<<<< HEAD
     <EntitySet Name="Accounts" EntityType="Self.Account" />
     <EntitySet Name="bills" EntityType="Self.bill" />
     <EntitySet Name="Employees" EntityType="Self.Employee" />
@@ -166,6 +178,18 @@
     <AssociationSet Name="FK__bill__RmId__4AB81AF0" Association="Self.FK__bill__RmId__4AB81AF0">
       <End Role="Room" EntitySet="Rooms" />
       <End Role="bill" EntitySet="bills" />
+=======
+    <EntitySet Name="bill" EntityType="Self.bill" />
+    <EntitySet Name="Employee" EntityType="Self.Employee" />
+    <EntitySet Name="Items" EntityType="Self.Items" />
+    <EntitySet Name="reports" EntityType="Self.reports" />
+    <EntitySet Name="Room" EntityType="Self.Room" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+    <EntitySet Name="BillDetail" EntityType="Self.BillDetail" />
+    <AssociationSet Name="FK__bill__RmId__37A5467C" Association="Self.FK__bill__RmId__37A5467C">
+      <End Role="Room" EntitySet="Room" />
+      <End Role="bill" EntitySet="bill" />
+>>>>>>> drop-account
     </AssociationSet>
     <AssociationSet Name="FK__BillDetai__BillI__4E88ABD4" Association="Self.FK__BillDetai__BillI__4E88ABD4">
       <End Role="bill" EntitySet="bills" />

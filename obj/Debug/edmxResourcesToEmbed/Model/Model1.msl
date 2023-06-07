@@ -1,6 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
   <EntityContainerMapping StorageEntityContainer="KaraOkayModelStoreContainer" CdmEntityContainer="KaraOkayEntities">
+<<<<<<< HEAD
     <EntitySetMapping Name="Accounts">
       <EntityTypeMapping TypeName="KaraOkayModel.Account">
         <MappingFragment StoreEntitySet="Account">
@@ -12,6 +13,9 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="bills">
+=======
+    <EntitySetMapping Name="bill">
+>>>>>>> drop-account
       <EntityTypeMapping TypeName="KaraOkayModel.bill">
         <MappingFragment StoreEntitySet="bill">
           <ScalarProperty Name="BillID" ColumnName="BillID" />
@@ -32,7 +36,7 @@
           <ScalarProperty Name="EmpPhone" ColumnName="EmpPhone" />
           <ScalarProperty Name="BirthDate" ColumnName="BirthDate" />
           <ScalarProperty Name="PlaceOfOrigin" ColumnName="PlaceOfOrigin" />
-          <ScalarProperty Name="AccountName" ColumnName="AccountName" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

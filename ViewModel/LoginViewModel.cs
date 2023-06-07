@@ -42,8 +42,10 @@ namespace Wpf_Karaokay.ViewModel
         }
         public ICommand PasswordChangedCommand { get; set; }
         public ICommand LoginCommand { get; set; }
-        public Account SelectedAccount { get; set; }
-        public ObservableCollection<Account> Accounts { get; set; }
+
+        public ICommand AboutUsCommand { get; set; }
+        public Employee SelectedEmployee { get; set; }
+        public ObservableCollection<Employee> Employees { get; set; }
 
         
 
@@ -53,14 +55,23 @@ namespace Wpf_Karaokay.ViewModel
 
             
 
+            NavigationService.RegisterWindow("RoomsWindow", typeof(RoomsWindows), new RoomsWindowViewModel());
+
 
             // NavigationService.RegisterWindow("MiddleWindow", typeof(MiddleWindow), new MiddleWindowViewModel());
-            NavigationService.RegisterWindow("ManagerForm", typeof(ManagerForm), new ManagerFormViewModel());
+            NavigationService.RegisterWindow("AboutUsWindow", typeof(AboutUsWindow), new AboutUsViewModel());
 
+<<<<<<< HEAD
             List<Account> accountsFromDatabase = DataProvider.Ins.DB.Accounts.ToList();
             Accounts = new ObservableCollection<Account>(accountsFromDatabase);
+=======
+            List<Employee> employeesFromDatabase = DataProvider.Ins.DB.Employee.ToList();
+            Employees = new ObservableCollection<Employee>(employeesFromDatabase);
+>>>>>>> drop-account
 
             LoginCommand = new RelayCommand<Window>(Login);
+
+            AboutUsCommand = new RelayCommand(AboutUs);
 
             PasswordChangedCommand = new RelayCommand<PasswordBox>(UpdatePassword);
         }
@@ -73,7 +84,7 @@ namespace Wpf_Karaokay.ViewModel
         {
             if (p==null) { return; }
             // Perform login validation here
-            if (Username == "emp00" && Password == "1234")
+            if (Username == "emp00" && Password == "12345678")
             {
                 MessageBox.Show("Bạn là admin. Login thành công");
                 NavigationService.NavigateToWindow("ManagerForm");
@@ -81,9 +92,13 @@ namespace Wpf_Karaokay.ViewModel
             }
             else
             {
+<<<<<<< HEAD
                 
                 var accCount = Accounts.Where(x => x.UserName == Username && x.Password == Password).Count();
                 SelectedAccount = Accounts.FirstOrDefault(x => x.UserName == Username && x.Password == Password); 
+=======
+                var accCount = Employees.Where(x => x.EmpId == Username && x.Password == Password).Count();
+>>>>>>> drop-account
                 if (accCount > 0)
                 {
                     MessageBox.Show("Bạn là nhân viên. Login thành công");
@@ -97,10 +112,13 @@ namespace Wpf_Karaokay.ViewModel
                     NavigationService.NavigateToWindow("RoomsWindow"); 
                 }
                 else
-                {
-                    MessageBox.Show("Sai tài khoản hoặc mật khẩu");
-                }
+                {   
+                    MessageBox.Show("Sai tài khoản hoặc mật khẩu");}
             }
+        }
+        private void AboutUs(object parameter) 
+        {
+            NavigationService.NavigateToWindow("AboutUsWindow");
         }
 
     }

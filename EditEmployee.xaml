@@ -18,12 +18,12 @@
             <ColumnDefinition Width="83*"/>
         </Grid.ColumnDefinitions>
         <Label Content="EDIT EMPLOYEE" Foreground="Black" FontSize="24" FontWeight="Black" HorizontalAlignment="Left" Margin="94,10,0,418" Grid.Column="1"/>
-        <Button x:Name="insertBtn" Command="{Binding InsertCommand}" BorderBrush="Black" BorderThickness="2" materialDesign:ButtonAssist.CornerRadius="20" Content="INSERT"  Background="#47a992" Foreground="Black" HorizontalAlignment="Left" Margin="97,381,0,0" VerticalAlignment="Top" Height="39" Width="96" FontWeight="Bold" FontSize="15"/>
-        <Button x:Name="updateBtn" Command="{Binding UpdateCommand}" BorderBrush="Black" BorderThickness="2" materialDesign:ButtonAssist.CornerRadius="20" Content="UPDATE" Background="#FEBD25" Foreground="Black" HorizontalAlignment="Left" Margin="57,381,0,0" VerticalAlignment="Top" Height="39" Width="96" FontWeight="Bold" FontSize="15" Grid.Column="1"/>
-        <Button x:Name="deleteBtn" Command="{Binding DeleteCommand}" BorderBrush="Black" BorderThickness="2" materialDesign:ButtonAssist.CornerRadius="20" Content="DELETE" Background="#FC4F41" Foreground="Black" HorizontalAlignment="Left" Margin="229,381,0,0" VerticalAlignment="Top" Height="39" Width="96" FontWeight="Bold" FontSize="15" Grid.Column="1"/>
-        <Button x:Name="clearBtn" BorderBrush="Black" BorderThickness="2" materialDesign:ButtonAssist.CornerRadius="20" Content="CLEAR" Foreground="Black" HorizontalAlignment="Left" Margin="389,381,0,0" VerticalAlignment="Top" Height="39" Width="98" FontWeight="Bold" FontSize="15" Click="clearBtn_Click" RenderTransformOrigin="0.526,-0.625" Grid.Column="1" Grid.ColumnSpan="2"/>
+        <Button x:Name="insertBtn" Command="{Binding InsertCommand}" BorderBrush="Black" BorderThickness="2" materialDesign:ButtonAssist.CornerRadius="20" Content="INSERT"  Background="#47a992" Foreground="Black" HorizontalAlignment="Left" Margin="98,398,0,0" VerticalAlignment="Top" Height="39" Width="96" FontWeight="Bold" FontSize="15"/>
+        <Button x:Name="updateBtn" Command="{Binding UpdateCommand}" BorderBrush="Black" BorderThickness="2" materialDesign:ButtonAssist.CornerRadius="20" Content="UPDATE" Background="#FEBD25" Foreground="Black" HorizontalAlignment="Left" Margin="58,398,0,0" VerticalAlignment="Top" Height="39" Width="96" FontWeight="Bold" FontSize="15" Grid.Column="1"/>
+        <Button x:Name="deleteBtn" Command="{Binding DeleteCommand}" BorderBrush="Black" BorderThickness="2" materialDesign:ButtonAssist.CornerRadius="20" Content="DELETE" Background="#FC4F41" Foreground="Black" HorizontalAlignment="Left" Margin="230,398,0,0" VerticalAlignment="Top" Height="39" Width="96" FontWeight="Bold" FontSize="15" Grid.Column="1"/>
+        <Button x:Name="clearBtn" BorderBrush="Black" BorderThickness="2" materialDesign:ButtonAssist.CornerRadius="20" Content="CLEAR" Foreground="Black" HorizontalAlignment="Left" Margin="390,398,0,0" VerticalAlignment="Top" Height="39" Width="98" FontWeight="Bold" FontSize="15" Click="clearBtn_Click" RenderTransformOrigin="0.526,-0.625" Grid.Column="1" Grid.ColumnSpan="2"/>
 
-        <DataGrid Name="dataGrid" ItemsSource="{Binding Employees}" Background="White" SelectionMode="Extended" BorderBrush="Black" BorderThickness="2"  AutoGenerateColumns="False" Margin="125,85,26,131" Grid.Column="1" Grid.ColumnSpan="2" >
+        <DataGrid Name="dataGrid" ItemsSource="{Binding Employees}" Background="White" SelectionMode="Extended" BorderBrush="Black" BorderThickness="2"  AutoGenerateColumns="False" Margin="125,71,26,107" Grid.Column="1" Grid.ColumnSpan="2" >
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Employee ID" Binding="{Binding EmpId}" />
                 <DataGridTextColumn Header="Name" Binding="{Binding EmpName}" />
@@ -34,15 +34,17 @@
                 <!-- Add more columns for other properties as needed -->
             </DataGrid.Columns>
         </DataGrid>
-        <TextBox x:Name="txtEmpID" materialDesign:HintAssist.Hint=" Enter Employee ID" Background="White" BorderBrush="Black" BorderThickness="2" HorizontalAlignment="Left" Margin="129,91,0,0" TextWrapping="Wrap" Text="{Binding EmpID}" VerticalAlignment="Top" Width="185" Grid.ColumnSpan="2"/>
-        <TextBox x:Name="txtEmpName" materialDesign:HintAssist.Hint=" Enter Name" Background="White" BorderBrush="Black" BorderThickness="2" HorizontalAlignment="Left" Margin="129,131,0,0" TextWrapping="Wrap" Text="{Binding EmpName}" VerticalAlignment="Top" Width="185" Grid.ColumnSpan="2"/>
-        <TextBox x:Name="txtCitizenID" materialDesign:HintAssist.Hint=" Enter Citizen ID" Background="White" BorderBrush="Black" BorderThickness="2" HorizontalAlignment="Left" Margin="129,171,0,0" TextWrapping="Wrap" Text="{Binding CitizenID}" VerticalAlignment="Top" Width="185" Grid.ColumnSpan="2"/>
-        <TextBox x:Name="txtEmpPhone" materialDesign:HintAssist.Hint=" Enter Phone Number" Background="White" BorderBrush="Black" BorderThickness="2" HorizontalAlignment="Left" Margin="129,211,0,0" TextWrapping="Wrap" Text="{Binding EmpPhone}" VerticalAlignment="Top" Width="185" Grid.ColumnSpan="2"/>
-        <TextBox x:Name="txtBirthDate" materialDesign:HintAssist.Hint=" Enter Birthdate" Background="White" BorderBrush="Black" BorderThickness="2" HorizontalAlignment="Left" Margin="129,251,0,0" TextWrapping="Wrap" Text="{Binding BirthDate}" VerticalAlignment="Top" Width="185" Grid.ColumnSpan="2"/>
-        <TextBox x:Name="txtPlaceOfOrigin" materialDesign:HintAssist.Hint=" Enter Place of Origin" Background="White" BorderBrush="Black" BorderThickness="2" HorizontalAlignment="Left" Margin="129,291,0,0" TextWrapping="Wrap" Text="{Binding PlaceOfOrigin}" VerticalAlignment="Top" Width="185" Grid.ColumnSpan="2"/>
+        <TextBox x:Name="txtEmpID" materialDesign:HintAssist.Hint=" Enter Employee ID" Background="White" BorderBrush="Black" BorderThickness="2" HorizontalAlignment="Left" Margin="127,81,0,0" TextWrapping="Wrap" Text="{Binding EmpID}" VerticalAlignment="Top" Width="185" Grid.ColumnSpan="2"/>
+        <TextBox x:Name="txtEmpName" materialDesign:HintAssist.Hint=" Enter Name" Background="White" BorderBrush="Black" BorderThickness="2" HorizontalAlignment="Left" Margin="127,121,0,0" TextWrapping="Wrap" Text="{Binding EmpName}" VerticalAlignment="Top" Width="185" Grid.ColumnSpan="2"/>
+        <TextBox x:Name="txtCitizenID" materialDesign:HintAssist.Hint=" Enter Citizen ID" Background="White" BorderBrush="Black" BorderThickness="2" HorizontalAlignment="Left" Margin="127,161,0,0" TextWrapping="Wrap" Text="{Binding CitizenID}" VerticalAlignment="Top" Width="185" Grid.ColumnSpan="2"/>
+        <TextBox x:Name="txtEmpPhone" materialDesign:HintAssist.Hint=" Enter Phone Number" Background="White" BorderBrush="Black" BorderThickness="2" HorizontalAlignment="Left" Margin="127,201,0,0" TextWrapping="Wrap" Text="{Binding EmpPhone}" VerticalAlignment="Top" Width="185" Grid.ColumnSpan="2"/>
+        <TextBox x:Name="txtBirthDate" materialDesign:HintAssist.Hint=" Enter Birthdate" Background="White" BorderBrush="Black" BorderThickness="2" HorizontalAlignment="Left" Margin="127,241,0,0" TextWrapping="Wrap" Text="{Binding BirthDate}" VerticalAlignment="Top" Width="185" Grid.ColumnSpan="2"/>
+        <TextBox x:Name="txtPlaceOfOrigin" materialDesign:HintAssist.Hint=" Enter Place of Origin" Background="White" BorderBrush="Black" BorderThickness="2" HorizontalAlignment="Left" Margin="127,281,0,0" TextWrapping="Wrap" Text="{Binding PlaceOfOrigin}" VerticalAlignment="Top" Width="185" Grid.ColumnSpan="2"/>
+        <TextBox x:Name="txtPassword" materialDesign:HintAssist.Hint=" Enter Password" Background="White" BorderBrush="Black" BorderThickness="2" HorizontalAlignment="Left" Margin="127,321,0,0" TextWrapping="Wrap" Text="{Binding Password}" VerticalAlignment="Top" Width="185" Grid.ColumnSpan="2"/>
 
 
 
+<<<<<<< HEAD
         <Label Content="Employee ID" Foreground="Black" FontWeight="Bold" FontSize="13"  HorizontalAlignment="Left" Margin="23,92,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.528,0.119"/>
         <Label Content="Name" Foreground="Black" FontWeight="Bold" FontSize="13" HorizontalAlignment="Left" Margin="23,132,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.686,0.141"/>
         <Label Content="Citizen ID" Foreground="Black" FontWeight="Bold" FontSize="13" HorizontalAlignment="Left" Margin="23,172,0,0" VerticalAlignment="Top"/>
@@ -50,6 +52,16 @@
         <Label Content="Date of Birth" Foreground="Black" FontWeight="Bold" FontSize="13" HorizontalAlignment="Left" Margin="23,252,0,0" VerticalAlignment="Top"/>
         <Label Content="Place of Origin" Foreground="Black" FontWeight="Bold" FontSize="13" HorizontalAlignment="Left" Margin="23,292,0,0" VerticalAlignment="Top"/>
         <Label Content="Password" Foreground="Black" FontWeight="Bold" FontSize="13" HorizontalAlignment="Left" Margin="23,335,0,0" VerticalAlignment="Top"/>
+=======
+        <Label Content="Employee ID" Foreground="Black" FontWeight="Bold" FontSize="13"  HorizontalAlignment="Left" Margin="21,82,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.528,0.119"/>
+        <Label Content="Name" Foreground="Black" FontWeight="Bold" FontSize="13" HorizontalAlignment="Left" Margin="21,122,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.686,0.141"/>
+        <Label Content="Citizen ID" Foreground="Black" FontWeight="Bold" FontSize="13" HorizontalAlignment="Left" Margin="21,162,0,0" VerticalAlignment="Top"/>
+        <Label Content="Phone Number" Foreground="Black" FontWeight="Bold" FontSize="13" HorizontalAlignment="Left" Margin="21,202,0,0" VerticalAlignment="Top"/>
+        <Label Content="Date of Birth" Foreground="Black" FontWeight="Bold" FontSize="13" HorizontalAlignment="Left" Margin="21,242,0,0" VerticalAlignment="Top"/>
+        <Label Content="Place of Origin" Foreground="Black" FontWeight="Bold" FontSize="13" HorizontalAlignment="Left" Margin="21,282,0,0" VerticalAlignment="Top"/>
+        <Label Content="Password" Foreground="Black" FontWeight="Bold" FontSize="13" HorizontalAlignment="Left" Margin="21,322,0,0" VerticalAlignment="Top"/>
+
+>>>>>>> drop-account
         <Button Content="BACK" FontSize="14" FontWeight="Bold" BorderBrush="Black" Foreground="Black" BorderThickness="2" Background="#FC4F41" 
                 materialDesign:ButtonAssist.CornerRadius="20" Margin="9,10,121,0" VerticalAlignment="Top" Height="30" Command="{Binding DataContext.BackCommand, RelativeSource={RelativeSource AncestorType={x:Type Window}}}"
                         CommandParameter="{Binding}"/>

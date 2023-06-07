@@ -5,15 +5,6 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
       <Schema Namespace="KaraOkayModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-        <EntityType Name="Account">
-          <Key>
-            <PropertyRef Name="UserName" />
-          </Key>
-          <Property Name="UserName" Type="varchar" MaxLength="100" Nullable="false" />
-          <Property Name="DisplayName" Type="varchar" MaxLength="100" Nullable="false" />
-          <Property Name="Password" Type="varchar" MaxLength="100" Nullable="false" />
-          <Property Name="type" Type="int" Nullable="false" />
-        </EntityType>
         <EntityType Name="bill">
           <Key>
             <PropertyRef Name="BillID" />
@@ -47,7 +38,7 @@ warning 6002: The table/view 'KaraOkay.dbo.BillDetail' does not have a primary k
           <Property Name="EmpPhone" Type="varchar" MaxLength="100" Nullable="false" />
           <Property Name="BirthDate" Type="date" />
           <Property Name="PlaceOfOrigin" Type="varchar" MaxLength="100" />
-          <Property Name="AccountName" Type="varchar" MaxLength="100" />
+          <Property Name="Password" Type="varchar" MaxLength="100" />
         </EntityType>
         <EntityType Name="Items">
           <Key>
@@ -123,19 +114,7 @@ warning 6002: The table/view 'KaraOkay.dbo.BillDetail' does not have a primary k
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Employee__Accoun__44FF419A">
-          <End Role="Account" Type="Self.Account" Multiplicity="0..1" />
-          <End Role="Employee" Type="Self.Employee" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Account">
-              <PropertyRef Name="UserName" />
-            </Principal>
-            <Dependent Role="Employee">
-              <PropertyRef Name="AccountName" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__reports__BillId__5535A963">
+        <Association Name="FK__reports__BillId__4316F928">
           <End Role="bill" Type="Self.bill" Multiplicity="0..1" />
           <End Role="reports" Type="Self.reports" Multiplicity="*" />
           <ReferentialConstraint>
@@ -148,7 +127,6 @@ warning 6002: The table/view 'KaraOkay.dbo.BillDetail' does not have a primary k
           </ReferentialConstraint>
         </Association>
         <EntityContainer Name="KaraOkayModelStoreContainer">
-          <EntitySet Name="Account" EntityType="Self.Account" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="bill" EntityType="Self.bill" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Employee" EntityType="Self.Employee" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Items" EntityType="Self.Items" Schema="dbo" store:Type="Tables" />
@@ -175,11 +153,7 @@ warning 6002: The table/view 'KaraOkay.dbo.BillDetail' does not have a primary k
             <End Role="Items" EntitySet="Items" />
             <End Role="BillDetail" EntitySet="BillDetail" />
           </AssociationSet>
-          <AssociationSet Name="FK__Employee__Accoun__44FF419A" Association="Self.FK__Employee__Accoun__44FF419A">
-            <End Role="Account" EntitySet="Account" />
-            <End Role="Employee" EntitySet="Employee" />
-          </AssociationSet>
-          <AssociationSet Name="FK__reports__BillId__5535A963" Association="Self.FK__reports__BillId__5535A963">
+          <AssociationSet Name="FK__reports__BillId__4316F928" Association="Self.FK__reports__BillId__4316F928">
             <End Role="bill" EntitySet="bill" />
             <End Role="reports" EntitySet="reports" />
           </AssociationSet>
@@ -189,16 +163,6 @@ warning 6002: The table/view 'KaraOkay.dbo.BillDetail' does not have a primary k
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="KaraOkayModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-        <EntityType Name="Account">
-          <Key>
-            <PropertyRef Name="UserName" />
-          </Key>
-          <Property Name="UserName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="DisplayName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Password" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="type" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Employees" Relationship="Self.FK__Employee__Accoun__44FF419A" FromRole="Account" ToRole="Employee" />
-        </EntityType>
         <EntityType Name="bill">
           <Key>
             <PropertyRef Name="BillID" />
@@ -223,8 +187,7 @@ warning 6002: The table/view 'KaraOkay.dbo.BillDetail' does not have a primary k
           <Property Name="EmpPhone" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="BirthDate" Type="DateTime" Precision="0" />
           <Property Name="PlaceOfOrigin" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="AccountName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="Account" Relationship="Self.FK__Employee__Accoun__44FF419A" FromRole="Employee" ToRole="Account" />
+          <Property Name="Password" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="Item">
           <Key>
@@ -279,19 +242,7 @@ warning 6002: The table/view 'KaraOkay.dbo.BillDetail' does not have a primary k
           <NavigationProperty Name="bill" Relationship="Self.FK__BillDetai__BillI__4E88ABD4" FromRole="BillDetail" ToRole="bill" />
           <NavigationProperty Name="Item" Relationship="Self.FK__BillDetai__Order__4F7CD00D" FromRole="BillDetail" ToRole="Items" />
         </EntityType>
-        <Association Name="FK__Employee__Accoun__44FF419A">
-          <End Role="Account" Type="Self.Account" Multiplicity="0..1" />
-          <End Role="Employee" Type="Self.Employee" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Account">
-              <PropertyRef Name="UserName" />
-            </Principal>
-            <Dependent Role="Employee">
-              <PropertyRef Name="AccountName" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__bill__RmId__4AB81AF0">
+        <Association Name="FK__bill__RmId__37A5467C">
           <End Role="Room" Type="Self.Room" Multiplicity="1" />
           <End Role="bill" Type="Self.bill" Multiplicity="*" />
           <ReferentialConstraint>
@@ -340,21 +291,16 @@ warning 6002: The table/view 'KaraOkay.dbo.BillDetail' does not have a primary k
           </ReferentialConstraint>
         </Association>
         <EntityContainer Name="KaraOkayEntities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="Accounts" EntityType="Self.Account" />
-          <EntitySet Name="bills" EntityType="Self.bill" />
-          <EntitySet Name="Employees" EntityType="Self.Employee" />
-          <EntitySet Name="Items" EntityType="Self.Item" />
-          <EntitySet Name="reports" EntityType="Self.report" />
-          <EntitySet Name="Rooms" EntityType="Self.Room" />
-          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
-          <EntitySet Name="BillDetails" EntityType="Self.BillDetail" />
-          <AssociationSet Name="FK__Employee__Accoun__44FF419A" Association="Self.FK__Employee__Accoun__44FF419A">
-            <End Role="Account" EntitySet="Accounts" />
-            <End Role="Employee" EntitySet="Employees" />
-          </AssociationSet>
-          <AssociationSet Name="FK__bill__RmId__4AB81AF0" Association="Self.FK__bill__RmId__4AB81AF0">
-            <End Role="Room" EntitySet="Rooms" />
-            <End Role="bill" EntitySet="bills" />
+          <EntitySet Name="bill" EntityType="Self.bill" />
+          <EntitySet Name="Employee" EntityType="Self.Employee" />
+          <EntitySet Name="Items" EntityType="Self.Items" />
+          <EntitySet Name="reports" EntityType="Self.reports" />
+          <EntitySet Name="Room" EntityType="Self.Room" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+          <EntitySet Name="BillDetail" EntityType="Self.BillDetail" />
+          <AssociationSet Name="FK__bill__RmId__37A5467C" Association="Self.FK__bill__RmId__37A5467C">
+            <End Role="Room" EntitySet="Room" />
+            <End Role="bill" EntitySet="bill" />
           </AssociationSet>
           <AssociationSet Name="FK__BillDetai__BillI__4E88ABD4" Association="Self.FK__BillDetai__BillI__4E88ABD4">
             <End Role="bill" EntitySet="bills" />
@@ -375,17 +321,7 @@ warning 6002: The table/view 'KaraOkay.dbo.BillDetail' does not have a primary k
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="KaraOkayModelStoreContainer" CdmEntityContainer="KaraOkayEntities">
-          <EntitySetMapping Name="Accounts">
-            <EntityTypeMapping TypeName="KaraOkayModel.Account">
-              <MappingFragment StoreEntitySet="Account">
-                <ScalarProperty Name="UserName" ColumnName="UserName" />
-                <ScalarProperty Name="DisplayName" ColumnName="DisplayName" />
-                <ScalarProperty Name="Password" ColumnName="Password" />
-                <ScalarProperty Name="type" ColumnName="type" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="bills">
+          <EntitySetMapping Name="bill">
             <EntityTypeMapping TypeName="KaraOkayModel.bill">
               <MappingFragment StoreEntitySet="bill">
                 <ScalarProperty Name="BillID" ColumnName="BillID" />
@@ -406,7 +342,7 @@ warning 6002: The table/view 'KaraOkay.dbo.BillDetail' does not have a primary k
                 <ScalarProperty Name="EmpPhone" ColumnName="EmpPhone" />
                 <ScalarProperty Name="BirthDate" ColumnName="BirthDate" />
                 <ScalarProperty Name="PlaceOfOrigin" ColumnName="PlaceOfOrigin" />
-                <ScalarProperty Name="AccountName" ColumnName="AccountName" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

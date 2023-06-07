@@ -46,7 +46,7 @@
         <TextBlock HorizontalAlignment="Center" Margin="0,81,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="66" Width="205" FontFamily="Gill Sans MT" FontSize="60" FontWeight="Black"><Run Text="Rooms"/><LineBreak/><Run/></TextBlock>
         
         <Button Name="BackBtn"  Content="BackButton"  Visibility="{Binding ButtonVisibility}" FontSize="25" FontFamily="Gill Sans MT" HorizontalAlignment="Left" Margin="44,42,0,0" VerticalAlignment="Top" Height="60" Width="128"
-                Command="{Binding DataContext.BackButtonCommand, RelativeSource={RelativeSource AncestorType={x:Type Window}}}"/>
+                Command="{Binding DataContext.BackButtonCommand, RelativeSource={RelativeSource AncestorType={x:Type Window}}}" Background="#FF2E228B" Foreground="White"/>
 
     </Grid>
 </Window>

@@ -44,9 +44,9 @@
             </Wpf:CartesianChart.AxisX>
         </Wpf:CartesianChart>
 
-        <Button Content="Back" Margin="10,21,829,187" materialDesign:ButtonAssist.CornerRadius="15" BorderBrush="Black" BorderThickness="2" Foreground="Black" FontSize="16"
+        <Button Content="Back" Margin="0,0,806,184" materialDesign:ButtonAssist.CornerRadius="15" BorderBrush="Black" BorderThickness="2" Foreground="Black" FontSize="16"
                 Command="{Binding DataContext.BackCmd, RelativeSource={RelativeSource AncestorType={x:Type Window}}}"
-                        CommandParameter="{Binding}"/>
+                        CommandParameter="{Binding}" HorizontalAlignment="Right" Width="120" Height="42" VerticalAlignment="Bottom"/>
 
 
 

@@ -35,13 +35,12 @@ namespace Wpf_Karaokay.ViewModel
             NavigationService.RegisterWindow("EditRoom", typeof(EditRoom), new EditRoomViewModel());
             NavigationService.RegisterWindow("EditMenu", typeof(EditMenu), new EditMenuViewModel());
 
-            NavigationService.RegisterWindow("EmployeeWindow", typeof(EditEmployee), new EditEmployeeViewModel());
-
+       
             NavigationService.RegisterWindow("EditMenu", typeof(EditMenu), new EditMenuViewModel());
 
-            NavigationService.RegisterWindow("EditEmployee", typeof(EditEmployee), new EditEmployee());
+            NavigationService.RegisterWindow("EditEmployee", typeof(EditEmployee), new EditEmployeeViewModel());
 
-            NavigationService.RegisterWindow("LoginWindow", typeof(LoginWindow), new LoginViewModel());
+            
 
 
             CashierCmd = new RelayCommand(SwitchToRoomWindows);
@@ -84,7 +83,7 @@ namespace Wpf_Karaokay.ViewModel
 
         private void SwitchToEmployee(object parameter)
         {
-            NavigationService.NavigateToWindow("EmployeeWindow");
+            NavigationService.NavigateToWindow("EditEmployee");
         }
 
         private void SwitchToReport(object parameter)
@@ -94,6 +93,7 @@ namespace Wpf_Karaokay.ViewModel
 
         private void LogOut(object parameter) 
         {
+            NavigationService.RegisterWindow("LoginWindow", typeof(LoginWindow), new LoginViewModel());
             NavigationService.NavigateToWindow("LoginWindow");
         }
 

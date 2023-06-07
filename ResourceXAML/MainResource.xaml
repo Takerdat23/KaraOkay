@@ -10,12 +10,12 @@
     <viewModel:LoginViewModel x:Key="LoginVM"></viewModel:LoginViewModel>
     <viewModel:EditRoomViewModel x:Key="EditRoomVM"></viewModel:EditRoomViewModel>
     <viewModel:EditMenuViewModel x:Key="EditMenuVM"></viewModel:EditMenuViewModel>
-<<<<<<< HEAD
+
     <viewModel:EditEmployeeViewModel x:Key="EditEmployeeVM"></viewModel:EditEmployeeViewModel>
-=======
-    <viewModel:EditEmployee x:Key="EditEmployeeVM"></viewModel:EditEmployee>
+
+  
     <viewModel:AboutUsViewModel x:Key="aboutVM"></viewModel:AboutUsViewModel>
->>>>>>> drop-account
+
 
 
 </ResourceDictionary>

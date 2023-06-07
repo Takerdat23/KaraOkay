@@ -116,7 +116,7 @@ namespace Wpf_Karaokay.ViewModel
         private void Insert(object p)
         {
 
-            string connectionString = @"data source=.\sqlexpress;initial catalog=KaraOkay;integrated security=True;MultipleActiveResultSets=True;App=EntityFramework&quot;";
+            string connectionString = @"data source=.\sqlexpress;initial catalog=KaraOkay;integrated security=True;MultipleActiveResultSets=True;App=EntityFramework&quot;" ;
 
             using (SqlConnection connection = new SqlConnection(connectionString))
             // EmpId, EmpName, CCCD, EmpPhone, BirthDate, PlaceOfOrigin, AccountName

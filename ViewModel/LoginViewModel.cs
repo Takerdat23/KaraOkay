@@ -53,21 +53,18 @@ namespace Wpf_Karaokay.ViewModel
         {
 
 
-            
+            NavigationService.RegisterWindow("ManagerForm", typeof(ManagerForm), new ManagerFormViewModel());
 
             NavigationService.RegisterWindow("RoomsWindow", typeof(RoomsWindows), new RoomsWindowViewModel());
 
 
-            // NavigationService.RegisterWindow("MiddleWindow", typeof(MiddleWindow), new MiddleWindowViewModel());
+         
             NavigationService.RegisterWindow("AboutUsWindow", typeof(AboutUsWindow), new AboutUsViewModel());
 
-<<<<<<< HEAD
-            List<Account> accountsFromDatabase = DataProvider.Ins.DB.Accounts.ToList();
-            Accounts = new ObservableCollection<Account>(accountsFromDatabase);
-=======
-            List<Employee> employeesFromDatabase = DataProvider.Ins.DB.Employee.ToList();
+
+            List<Employee> employeesFromDatabase = DataProvider.Ins.DB.Employees.ToList();
             Employees = new ObservableCollection<Employee>(employeesFromDatabase);
->>>>>>> drop-account
+
 
             LoginCommand = new RelayCommand<Window>(Login);
 
@@ -86,34 +83,32 @@ namespace Wpf_Karaokay.ViewModel
             // Perform login validation here
             if (Username == "emp00" && Password == "12345678")
             {
-                MessageBox.Show("Bạn là admin. Login thành công");
+                MessageBox.Show("Welcome boss !!!");
                 NavigationService.NavigateToWindow("ManagerForm");
+                
             
             }
             else
             {
-<<<<<<< HEAD
-                
-                var accCount = Accounts.Where(x => x.UserName == Username && x.Password == Password).Count();
-                SelectedAccount = Accounts.FirstOrDefault(x => x.UserName == Username && x.Password == Password); 
-=======
+                SelectedEmployee = Employees.FirstOrDefault(x => x.EmpId == Username && x.Password == Password); 
                 var accCount = Employees.Where(x => x.EmpId == Username && x.Password == Password).Count();
->>>>>>> drop-account
+
                 if (accCount > 0)
                 {
-                    MessageBox.Show("Bạn là nhân viên. Login thành công");
+                    MessageBox.Show("Login successful !!");
                     // hide back button in roomswindow
 
                     object roomVM = new object(); 
                     NavigationService.RegisterWindow("RoomsWindow", typeof(RoomsWindows), new RoomsWindowViewModel());
                     roomVM= NavigationService.GetwindowVM("RoomsWindow");
                     RoomsWindowViewModel VM = roomVM as RoomsWindowViewModel;
-                    VM.ChangeBackButtonState(SelectedAccount); 
-                    NavigationService.NavigateToWindow("RoomsWindow"); 
+                    VM.ChangeBackButtonState(SelectedEmployee); 
+                    NavigationService.NavigateToWindow("RoomsWindow");
+               
                 }
                 else
                 {   
-                    MessageBox.Show("Sai tài khoản hoặc mật khẩu");}
+                    MessageBox.Show("Wrong usename or password !!");}
             }
         }
         private void AboutUs(object parameter) 

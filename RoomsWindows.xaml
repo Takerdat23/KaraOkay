@@ -44,9 +44,15 @@
             </ItemsControl>
         </ScrollViewer>
         <TextBlock HorizontalAlignment="Center" Margin="0,81,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="66" Width="205" FontFamily="Gill Sans MT" FontSize="60" FontWeight="Black"><Run Text="Rooms"/><LineBreak/><Run/></TextBlock>
-        
-        <Button Name="BackBtn"  Content="BackButton"  Visibility="{Binding ButtonVisibility}" FontSize="25" FontFamily="Gill Sans MT" HorizontalAlignment="Left" Margin="44,42,0,0" VerticalAlignment="Top" Height="60" Width="128"
-                Command="{Binding DataContext.BackButtonCommand, RelativeSource={RelativeSource AncestorType={x:Type Window}}}" Background="#FF2E228B" Foreground="White"/>
+
+        <Button materialDesign:ButtonAssist.CornerRadius="30" BorderBrush="Black" BorderThickness="2"
+            Visibility="{Binding ButtonVisibility}"
+                Background="#FF2E228B" Foreground="White"
+            Command="{Binding DataContext.BackButtonCommand, RelativeSource={RelativeSource AncestorType={x:Type Window}}}"
+            Style="{StaticResource MaterialDesignRaisedLightButton}"
+             FontFamily="Gill Sans MT" FontSize="12" Margin="122,0,0,0" Height="71" VerticalAlignment="Center" HorizontalAlignment="Left" Width="224">
+            <TextBlock VerticalAlignment="Top" Text ="Back" HorizontalAlignment="Left" FontFamily="Gill Sans MT" FontSize="35" Height="44" Width="91" RenderTransformOrigin="0.618,0.644" ></TextBlock>
+        </Button>
 
     </Grid>
 </Window>

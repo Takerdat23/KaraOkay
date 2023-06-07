@@ -18,7 +18,7 @@ namespace Wpf_Karaokay.ViewModel
 
 
         public Room SelectedRoom { get; set; }
-        public Account CurrentAccount { get; set; } 
+        //public Account CurrentAccount { get; set; } 
         public ObservableCollection<Room> Rooms { get; set; }
         public ICommand RoomButtonCommand { get; private set; }
         public ICommand BackButtonCommand { get; set; }
@@ -84,10 +84,10 @@ namespace Wpf_Karaokay.ViewModel
         }
 
        
-        public void ChangeBackButtonState(Account account)
+        public void ChangeBackButtonState(Employee account)
         {
         
-            if (account.type == 0)
+            if (account.EmpId != "emp00")
             {
                 ButtonVisibility = Visibility.Hidden; 
                 OnPropertyChanged(nameof(ButtonVisibility));  

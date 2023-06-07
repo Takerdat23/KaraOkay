@@ -18,14 +18,14 @@
 
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="180*"/>
-            <RowDefinition Height="311*"/>
+            <RowDefinition Height="31*"/>
+            <RowDefinition Height="42*"/>
         </Grid.RowDefinitions>
 
 
-        <Label Content="Report Revenue" Foreground="Black" FontSize="30" FontWeight="Bold" HorizontalAlignment="Center" Margin="0,63,0,0" VerticalAlignment="Top"/>
-        <Label Content="From date" FontSize="20" Foreground="Black" FontWeight="Bold" HorizontalAlignment="Left" Margin="47,114,0,0" VerticalAlignment="Top"/>
-        <Label Content="To date" FontSize="20" Foreground="Black" FontWeight="Bold" HorizontalAlignment="Left" Margin="47,160,0,0" VerticalAlignment="Top"/>
+        <Label Content="Report Revenue" Foreground="Black" FontSize="30" FontWeight="Bold" HorizontalAlignment="Center" Margin="0,63,0,0" VerticalAlignment="Top" Height="44" Width="222"/>
+        <Label Content="From date" FontSize="20" Foreground="Black" FontWeight="Bold" HorizontalAlignment="Left" Margin="47,114,0,0" VerticalAlignment="Top" Height="32" Width="99"/>
+        <Label Content="To date" FontSize="20" Foreground="Black" FontWeight="Bold" HorizontalAlignment="Left" Margin="47,160,0,0" VerticalAlignment="Top" Height="32" Width="74"/>
 
 
         <Button Background="#47a992" Style="{StaticResource MaterialDesignFlatMidBgButton}" BorderBrush="Black" BorderThickness="2" Foreground="Black"
@@ -35,16 +35,16 @@
                         CommandParameter="{Binding}"/>
         <DatePicker  FontSize ="20"  Margin="0,110,276,64" SelectedDate="{Binding StartDate}" VerticalAlignment="Stretch" HorizontalAlignment="Right" Width="498" />
         <DatePicker FontSize ="20"  Margin="0,160,276,22" SelectedDate="{Binding EndDate}" VerticalAlignment="Stretch" HorizontalAlignment="Right" Width="498" />
-        <materialDesign:Card Content="Card" HorizontalAlignment="Left" Margin="944,-176,0,0" VerticalAlignment="Top"/>
+        <materialDesign:Card Content="Card" HorizontalAlignment="Left" Margin="944,-176,0,0" VerticalAlignment="Top" Height="14" Width="6"/>
 
-        <Wpf:CartesianChart Series="{Binding SeriesCollection}" Margin="0,214,0,0" HorizontalAlignment="Center" Width="950" Grid.RowSpan="2">
+        <Wpf:CartesianChart Series="{Binding SeriesCollection}" Margin="0,10,0,0" HorizontalAlignment="Center" Width="890" Grid.Row="1">
             <Wpf:CartesianChart.AxisX>
                 <Wpf:Axis Title="Bill Dates" FontStyle="Oblique" Labels="{Binding BillLabels}"  />
 
             </Wpf:CartesianChart.AxisX>
         </Wpf:CartesianChart>
 
-        <Button Content="Back" Margin="10,10,865,172" materialDesign:ButtonAssist.CornerRadius="15" BorderBrush="Black" BorderThickness="2" Foreground="Black" FontSize="16"
+        <Button Content="Back" Margin="10,21,829,187" materialDesign:ButtonAssist.CornerRadius="15" BorderBrush="Black" BorderThickness="2" Foreground="Black" FontSize="16"
                 Command="{Binding DataContext.BackCmd, RelativeSource={RelativeSource AncestorType={x:Type Window}}}"
                         CommandParameter="{Binding}"/>
 

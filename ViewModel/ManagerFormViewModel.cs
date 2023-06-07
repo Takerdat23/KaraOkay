@@ -35,7 +35,7 @@ namespace Wpf_Karaokay.ViewModel
             NavigationService.RegisterWindow("ReportWindow", typeof(ReportWindow), new ReportViewModel());
 
             NavigationService.RegisterWindow("EditRoom", typeof(EditRoom), new EditRoomViewModel());
-            NavigationService.RegisterWindow("EditMenu", typeof(EditRoom), new EditMenuViewModel());
+            NavigationService.RegisterWindow("EditMenu", typeof(EditMenu), new EditMenuViewModel());
 
             NavigationService.RegisterWindow("EmployeeWindow", typeof(EditEmployee), new EditEmployeeViewModel());
 

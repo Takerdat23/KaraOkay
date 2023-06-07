@@ -18,6 +18,8 @@ namespace Wpf_Karaokay.ViewModel
 {
     public class LoginViewModel : BaseViewModel
     {
+
+
         private string username;
         public string Username
         {
@@ -43,11 +45,13 @@ namespace Wpf_Karaokay.ViewModel
         public Account SelectedAccount { get; set; }
         public ObservableCollection<Account> Accounts { get; set; }
 
+        
+
         public LoginViewModel()
         {
 
 
-            NavigationService.RegisterWindow("RoomsWindow", typeof(RoomsWindows), new RoomsWindowViewModel());
+            
 
 
             // NavigationService.RegisterWindow("MiddleWindow", typeof(MiddleWindow), new MiddleWindowViewModel());
@@ -77,12 +81,20 @@ namespace Wpf_Karaokay.ViewModel
             }
             else
             {
+                
                 var accCount = Accounts.Where(x => x.UserName == Username && x.Password == Password).Count();
-
+                SelectedAccount = Accounts.FirstOrDefault(x => x.UserName == Username && x.Password == Password); 
                 if (accCount > 0)
                 {
                     MessageBox.Show("Bạn là nhân viên. Login thành công");
-                    NavigationService.NavigateToWindow("RoomsWindow");
+                    // hide back button in roomswindow
+
+                    object roomVM = new object(); 
+                    NavigationService.RegisterWindow("RoomsWindow", typeof(RoomsWindows), new RoomsWindowViewModel());
+                    roomVM= NavigationService.GetwindowVM("RoomsWindow");
+                    RoomsWindowViewModel VM = roomVM as RoomsWindowViewModel;
+                    VM.ChangeBackButtonState(SelectedAccount); 
+                    NavigationService.NavigateToWindow("RoomsWindow"); 
                 }
                 else
                 {

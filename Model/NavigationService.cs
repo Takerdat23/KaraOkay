@@ -57,6 +57,18 @@ namespace Wpf_Karaokay.Model
             }
         }
 
+        public object GetwindowVM(string windowkey)
+        {
+            object ViewModel= new object(); 
+            if (_windows.TryGetValue(windowkey, out (Type windowType, object viewModel) windowInfo))
+            {
+                ViewModel = windowInfo.viewModel;
+            }
+            
+
+            return ViewModel;
+        }
+
         public void NavigateToPage(string pageKey)
         {
             if (_pages.TryGetValue(pageKey, out (Type pageType, object viewModel) pageInfo))

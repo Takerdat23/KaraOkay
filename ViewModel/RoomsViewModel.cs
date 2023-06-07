@@ -18,18 +18,31 @@ namespace Wpf_Karaokay.ViewModel
 
 
         public Room SelectedRoom { get; set; }
+        public Account CurrentAccount { get; set; } 
         public ObservableCollection<Room> Rooms { get; set; }
         public ICommand RoomButtonCommand { get; private set; }
         public ICommand BackButtonCommand { get; set; }
 
-   
+
+
+        private Visibility _buttonVisibility;
+        public Visibility ButtonVisibility
+        {
+            get { return _buttonVisibility; }
+            set
+            {
+                _buttonVisibility = value;
+                OnPropertyChanged(nameof(ButtonVisibility));
+            }
+        }
 
 
         public RoomsWindowViewModel()
         {
             // Fetch your rooms from the database and populate the collection
 
-           
+
+          
             List<Room> roomsFromDatabase = DataProvider.Ins.DB.Rooms.ToList();
             Rooms = new ObservableCollection<Room>(roomsFromDatabase);
             RoomButtonCommand = new RelayCommand<Room>(NavigateToCashierPage);
@@ -47,7 +60,7 @@ namespace Wpf_Karaokay.ViewModel
                 CashierViewModel cashierPageViewModel = new CashierViewModel();
                 cashierPageViewModel.GetCurrntRoom(SelectedRoom);
 
-                cashierPageViewModel.LoadSavedBillDetails(SelectedRoom); 
+           
                 String CashierPageName = "CashierRoom" + SelectedRoom.RmId;
                 //check if the CashierPageName is null 
                 NavigationService.NavigateToPage(CashierPageName);
@@ -63,11 +76,22 @@ namespace Wpf_Karaokay.ViewModel
             }
         }
 
-        public void BackButton(Room room )
+        public void BackButton(Room room)
         {
 
             NavigationService.RegisterWindow("ManagerForm", typeof(ManagerForm), new ManagerFormViewModel());
-            NavigationService.NavigateToWindow("ManagerForm"); 
+            NavigationService.NavigateToWindow("ManagerForm");
+        }
+
+       
+        public void ChangeBackButtonState(Account account)
+        {
+        
+            if (account.type == 0)
+            {
+                ButtonVisibility = Visibility.Hidden; 
+                OnPropertyChanged(nameof(ButtonVisibility));  
+            }
         }
     }
 }

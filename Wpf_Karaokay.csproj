@@ -96,12 +96,6 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="AddMenu.xaml.cs">
-      <DependentUpon>AddMenu.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="AddRoom.xaml.cs">
-      <DependentUpon>AddRoom.xaml</DependentUpon>
-    </Compile>
     <Compile Include="CashierPage.xaml.cs">
       <DependentUpon>CashierPage.xaml</DependentUpon>
     </Compile>
@@ -165,9 +159,6 @@
     <Compile Include="ReportWindow.xaml.cs">
       <DependentUpon>ReportWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="RoomManager.xaml.cs">
-      <DependentUpon>RoomManager.xaml</DependentUpon>
-    </Compile>
     <Compile Include="RoomsWindows.xaml.cs">
       <DependentUpon>RoomsWindows.xaml</DependentUpon>
     </Compile>
@@ -183,14 +174,6 @@
     <Compile Include="ViewModel\ManagerFormViewModel.cs" />
     <Compile Include="ViewModel\ReportViewModel.cs" />
     <Compile Include="ViewModel\RoomsViewModel.cs" />
-    <Page Include="AddMenu.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="AddRoom.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="CashierPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -215,16 +198,8 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="MainWindow.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="MainWindow.xaml.cs">
-      <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
     <Page Include="ManagerForm.xaml">
@@ -236,10 +211,6 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="ResourceXAML\MainResource.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="RoomManager.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

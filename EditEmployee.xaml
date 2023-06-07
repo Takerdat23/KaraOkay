@@ -49,10 +49,12 @@
         <Label Content="Phone Number" Foreground="Black" FontWeight="Bold" FontSize="13" HorizontalAlignment="Left" Margin="23,212,0,0" VerticalAlignment="Top"/>
         <Label Content="Date of Birth" Foreground="Black" FontWeight="Bold" FontSize="13" HorizontalAlignment="Left" Margin="23,252,0,0" VerticalAlignment="Top"/>
         <Label Content="Place of Origin" Foreground="Black" FontWeight="Bold" FontSize="13" HorizontalAlignment="Left" Margin="23,292,0,0" VerticalAlignment="Top"/>
-
+        <Label Content="Password" Foreground="Black" FontWeight="Bold" FontSize="13" HorizontalAlignment="Left" Margin="23,335,0,0" VerticalAlignment="Top"/>
         <Button Content="BACK" FontSize="14" FontWeight="Bold" BorderBrush="Black" Foreground="Black" BorderThickness="2" Background="#FC4F41" 
                 materialDesign:ButtonAssist.CornerRadius="20" Margin="9,10,121,0" VerticalAlignment="Top" Height="30" Command="{Binding DataContext.BackCommand, RelativeSource={RelativeSource AncestorType={x:Type Window}}}"
                         CommandParameter="{Binding}"/>
+        <TextBox x:Name="txtPlaceOfOrigin_Copy" materialDesign:HintAssist.Hint=" Enter password or empty " Background="White" BorderBrush="Black" BorderThickness="2" HorizontalAlignment="Left" Margin="129,334,0,0" TextWrapping="Wrap" Text="{Binding PlaceOfOrigin}" VerticalAlignment="Top" Width="185" Grid.ColumnSpan="2"/>
+        
 
 
     </Grid>

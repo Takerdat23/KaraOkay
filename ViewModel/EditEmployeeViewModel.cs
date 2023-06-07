@@ -79,6 +79,17 @@ namespace Wpf_Karaokay.ViewModel
             }
         }
 
+        private string _Password;
+        public string Password
+        {
+            get { return _Password; }
+            set
+            {
+                _Password = value;
+                OnPropertyChanged(nameof(Password));
+            }
+        }
+
         public ObservableCollection<Employee> Employees { get; set; }
 
         public ICommand InsertCommand { get; set; }

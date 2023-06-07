@@ -38,5 +38,7 @@ namespace Wpf_Karaokay
             txtBirthDate.Clear();
             txtPlaceOfOrigin.Clear();
         }
+
+       
     }
 }

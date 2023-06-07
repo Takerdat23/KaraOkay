@@ -157,3 +157,5 @@ D:\Karaokay\obj\Debug\EditEmployee.baml
 >>>>>>> branchEditRoom
 D:\C#.NET\SE104_project\KaraOkay\obj\Debug\EditEmployee.g.cs
 D:\C#.NET\SE104_project\KaraOkay\obj\Debug\EditEmployee.baml
+D:\C#.NET\SE104_project\KaraOkay\obj\Debug\Window1.g.cs
+D:\C#.NET\SE104_project\KaraOkay\obj\Debug\Window1.baml

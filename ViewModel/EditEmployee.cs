@@ -79,6 +79,17 @@ namespace Wpf_Karaokay.ViewModel
             }
         }
 
+        private string _Password;
+        public string Password
+        {
+            get { return _Password; }
+            set
+            {
+                _Password = value;
+                OnPropertyChanged(nameof(Password));
+            }
+        }
+
         public ObservableCollection<Employee> Employees { get; set; }
 
         public ICommand InsertCommand { get; set; }
@@ -110,7 +121,7 @@ namespace Wpf_Karaokay.ViewModel
             using (SqlConnection connection = new SqlConnection(connectionString))
             // EmpId, EmpName, CCCD, EmpPhone, BirthDate, PlaceOfOrigin, AccountName
             {
-                string query = "INSERT INTO Employee (EmpId, EmpName, CCCD, EmpPhone, BirthDate, PlaceOfOrigin) VALUES (@EmpId, @EmpName, @CitizenID, @EmpPhone, @BirthDate, @PlaceOfOrigin)";
+                string query = "INSERT INTO Employee (EmpId, EmpName, CCCD, EmpPhone, BirthDate, PlaceOfOrigin, Password) VALUES (@EmpId, @EmpName, @CitizenID, @EmpPhone, @BirthDate, @PlaceOfOrigin, @Password)";
 
                 SqlCommand command = new SqlCommand(query, connection);
                 command.Parameters.AddWithValue("@EmpId", EmpID);
@@ -119,6 +130,7 @@ namespace Wpf_Karaokay.ViewModel
                 command.Parameters.AddWithValue("@EmpPhone", EmpPhone);
                 command.Parameters.AddWithValue("@BirthDate", BirthDate);
                 command.Parameters.AddWithValue("@PlaceOfOrigin", PlaceOfOrigin);
+                command.Parameters.AddWithValue("@Password", Password);
 
                 try
                 {
@@ -133,6 +145,7 @@ namespace Wpf_Karaokay.ViewModel
                         EmpPhone = EmpPhone,
                         BirthDate = BirthDate,
                         PlaceOfOrigin = PlaceOfOrigin,
+                        Password = Password,
                     };
                     Employees.Add(employee);
                     OnPropertyChanged(nameof(Employees));
@@ -151,7 +164,7 @@ namespace Wpf_Karaokay.ViewModel
             string connectionString = @"data source=.\sqlexpress;initial catalog=KaraOkay;integrated security=True;MultipleActiveResultSets=True;App=EntityFramework&quot;";
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
-                string query = "UPDATE Employee SET EmpId = @EmpId, EmpName = @EmpName, CitizenID = @CitizenID, EmpPhone = @EmpPhone, BirthDate = @BirthDate, PlaceOfOrigin = @PlaceOfOrigin WHERE EmpId = @EmpId";
+                string query = "UPDATE Employee SET EmpId = @EmpId, EmpName = @EmpName, CitizenID = @CitizenID, EmpPhone = @EmpPhone, BirthDate = @BirthDate, PlaceOfOrigin = @PlaceOfOrigin, Password = @Password WHERE EmpId = @EmpId";
                 SqlCommand command = new SqlCommand(query, connection);
                 command.Parameters.AddWithValue("@EmpId", EmpID);
                 command.Parameters.AddWithValue("@EmpName", EmpName);
@@ -159,6 +172,7 @@ namespace Wpf_Karaokay.ViewModel
                 command.Parameters.AddWithValue("@EmpPhone", EmpPhone);
                 command.Parameters.AddWithValue("@BirthDate", BirthDate);
                 command.Parameters.AddWithValue("@PlaceOfOrigin", PlaceOfOrigin);
+                command.Parameters.AddWithValue("@Password", Password);
 
                 try
                 {
@@ -175,6 +189,7 @@ namespace Wpf_Karaokay.ViewModel
                         employee.EmpPhone = EmpPhone;
                         employee.BirthDate = BirthDate;
                         employee.PlaceOfOrigin = PlaceOfOrigin;
+                        employee.Password = Password;
                         Employees[index] = employee;
                     }
                     // Notify the UI that the collection has been modified

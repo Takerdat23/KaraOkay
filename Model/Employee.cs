@@ -20,8 +20,6 @@ namespace Wpf_Karaokay.Model
         public string EmpPhone { get; set; }
         public Nullable<System.DateTime> BirthDate { get; set; }
         public string PlaceOfOrigin { get; set; }
-        public string AccountName { get; set; }
-    
-        public virtual Account Account { get; set; }
+        public string Password { get; set; }
     }
 }

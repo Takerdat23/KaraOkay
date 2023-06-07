@@ -12,6 +12,7 @@
     <viewModel:EditRoomViewModel x:Key="EditRoomVM"></viewModel:EditRoomViewModel>
     <viewModel:EditMenuViewModel x:Key="EditMenuVM"></viewModel:EditMenuViewModel>
     <viewModel:EditEmployee x:Key="EditEmployeeVM"></viewModel:EditEmployee>
+    <viewModel:AboutUsViewModel x:Key="aboutVM"></viewModel:AboutUsViewModel>
 
 
 </ResourceDictionary>

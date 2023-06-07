@@ -1,15 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="KaraOkayModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-  <EntityType Name="Account">
-    <Key>
-      <PropertyRef Name="UserName" />
-    </Key>
-    <Property Name="UserName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="DisplayName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="Password" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="type" Type="Int32" Nullable="false" />
-    <NavigationProperty Name="Employee" Relationship="Self.FK__Employee__Accoun__31EC6D26" FromRole="Account" ToRole="Employee" />
-  </EntityType>
   <EntityType Name="bill">
     <Key>
       <PropertyRef Name="BillID" />
@@ -34,8 +24,7 @@
     <Property Name="EmpPhone" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="BirthDate" Type="DateTime" Precision="0" />
     <Property Name="PlaceOfOrigin" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-    <Property Name="AccountName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-    <NavigationProperty Name="Account" Relationship="Self.FK__Employee__Accoun__31EC6D26" FromRole="Employee" ToRole="Account" />
+    <Property Name="Password" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
   </EntityType>
   <EntityType Name="Items">
     <Key>
@@ -90,18 +79,6 @@
     <NavigationProperty Name="bill" Relationship="Self.FK__BillDetai__BillI__3C69FB99" FromRole="BillDetail" ToRole="bill" />
     <NavigationProperty Name="Items" Relationship="Self.FK__BillDetai__Order__3D5E1FD2" FromRole="BillDetail" ToRole="Items" />
   </EntityType>
-  <Association Name="FK__Employee__Accoun__31EC6D26">
-    <End Role="Account" Type="Self.Account" Multiplicity="0..1" />
-    <End Role="Employee" Type="Self.Employee" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Account">
-        <PropertyRef Name="UserName" />
-      </Principal>
-      <Dependent Role="Employee">
-        <PropertyRef Name="AccountName" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <Association Name="FK__bill__RmId__37A5467C">
     <End Role="Room" Type="Self.Room" Multiplicity="1" />
     <End Role="bill" Type="Self.bill" Multiplicity="*" />
@@ -150,8 +127,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <EntityContainer Name="KaraOkayEntities1" annotation:LazyLoadingEnabled="true">
-    <EntitySet Name="Account" EntityType="Self.Account" />
+  <EntityContainer Name="KaraOkayEntities" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="bill" EntityType="Self.bill" />
     <EntitySet Name="Employee" EntityType="Self.Employee" />
     <EntitySet Name="Items" EntityType="Self.Items" />
@@ -159,10 +135,6 @@
     <EntitySet Name="Room" EntityType="Self.Room" />
     <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
     <EntitySet Name="BillDetail" EntityType="Self.BillDetail" />
-    <AssociationSet Name="FK__Employee__Accoun__31EC6D26" Association="Self.FK__Employee__Accoun__31EC6D26">
-      <End Role="Account" EntitySet="Account" />
-      <End Role="Employee" EntitySet="Employee" />
-    </AssociationSet>
     <AssociationSet Name="FK__bill__RmId__37A5467C" Association="Self.FK__bill__RmId__37A5467C">
       <End Role="Room" EntitySet="Room" />
       <End Role="bill" EntitySet="bill" />

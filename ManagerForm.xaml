@@ -17,7 +17,7 @@
             <RowDefinition/>
         </Grid.RowDefinitions>
 
-        <Image Source="ADMINextraline.png" Margin="139,10,327,273" Grid.RowSpan="2"/>
+        <Image Source="ADMINextraline.png" Margin="357,10,109,273" Grid.RowSpan="2"/>
 
 
         <Button
@@ -58,7 +58,7 @@
             CommandParameter="{Binding}"
             
             IsEnabled="{Binding DataContext.RoomCmd, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}"
-            Margin="520,44,128,0" Background="#F5E9DB" RenderTransformOrigin="0.561,0.567" Height="133" VerticalAlignment="Top">
+            Margin="131,44,517,0" Background="#F5E9DB" RenderTransformOrigin="0.561,0.567" Height="133" VerticalAlignment="Top">
             <Image Source="Report.png" Width="80"/>
         </Button>
 
@@ -66,7 +66,10 @@
         <Label Content="Rooms" FontWeight="Bold" FontSize="20" HorizontalAlignment="Left" Margin="455,191,0,0" Grid.Row="1" VerticalAlignment="Top"/>
         <Label Content="Menu" FontWeight="Bold" FontSize="20" HorizontalAlignment="Left" Margin="660,191,0,0" VerticalAlignment="Top" Grid.Row="1"/>
         <Label Content="Employees" FontWeight="Bold" FontSize="20" HorizontalAlignment="Left" Margin="245,191,0,0" Grid.Row="1" VerticalAlignment="Top"/>
-        <Label Content="Report" FontWeight="Bold" FontSize="20" HorizontalAlignment="Left" Margin="557,174,0,0" VerticalAlignment="Top" Grid.RowSpan="2"/>
+        <Label Content="Report" FontWeight="Bold" FontSize="20" HorizontalAlignment="Left" Margin="168,174,0,0" VerticalAlignment="Top" Grid.RowSpan="2"/>
+
+        <Button Content="LOG OUT" FontSize="14" FontWeight="Bold" BorderBrush="Black" Foreground="Black" BorderThickness="2" Background="#FC4F41" 
+                materialDesign:ButtonAssist.CornerRadius="20" Margin="694,10,10,0" VerticalAlignment="Top" Height="30" Command="{Binding LogOutCommand}"/>
     </Grid>
 
 </Window>

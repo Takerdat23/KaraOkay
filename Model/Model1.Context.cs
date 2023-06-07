@@ -13,10 +13,10 @@ namespace Wpf_Karaokay.Model
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class KaraOkayEntities1 : DbContext
+    public partial class KaraOkayEntities : DbContext
     {
-        public KaraOkayEntities1()
-            : base("name=KaraOkayEntities1")
+        public KaraOkayEntities()
+            : base("name=KaraOkayEntities")
         {
         }
     
@@ -25,7 +25,6 @@ namespace Wpf_Karaokay.Model
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<Account> Account { get; set; }
         public virtual DbSet<bill> bill { get; set; }
         public virtual DbSet<Employee> Employee { get; set; }
         public virtual DbSet<Items> Items { get; set; }

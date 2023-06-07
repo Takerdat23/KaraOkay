@@ -1,16 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-  <EntityContainerMapping StorageEntityContainer="KaraOkayModelStoreContainer" CdmEntityContainer="KaraOkayEntities1">
-    <EntitySetMapping Name="Account">
-      <EntityTypeMapping TypeName="KaraOkayModel.Account">
-        <MappingFragment StoreEntitySet="Account">
-          <ScalarProperty Name="UserName" ColumnName="UserName" />
-          <ScalarProperty Name="DisplayName" ColumnName="DisplayName" />
-          <ScalarProperty Name="Password" ColumnName="Password" />
-          <ScalarProperty Name="type" ColumnName="type" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
+  <EntityContainerMapping StorageEntityContainer="KaraOkayModelStoreContainer" CdmEntityContainer="KaraOkayEntities">
     <EntitySetMapping Name="bill">
       <EntityTypeMapping TypeName="KaraOkayModel.bill">
         <MappingFragment StoreEntitySet="bill">
@@ -32,7 +22,7 @@
           <ScalarProperty Name="EmpPhone" ColumnName="EmpPhone" />
           <ScalarProperty Name="BirthDate" ColumnName="BirthDate" />
           <ScalarProperty Name="PlaceOfOrigin" ColumnName="PlaceOfOrigin" />
-          <ScalarProperty Name="AccountName" ColumnName="AccountName" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

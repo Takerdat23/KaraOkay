@@ -19,7 +19,7 @@
     <materialDesign:Card>
         <materialDesign:DialogHost CloseOnClickAway="True" x:Name="DialogHost">
             <StackPanel>
-                <Image Margin="0 80 0 5" Source="image 2 copy.png" Height="130"></Image>
+                <Image Margin="0 60 0 5" Source="image 2 copy.png" Height="130"></Image>
                 <TextBlock Margin="0 25 0 5" HorizontalAlignment="Center" FontSize="28" FontWeight="Bold" Text="Welcome to Karaokay!"/>
                 <TextBlock HorizontalAlignment="Center" FontSize="17" FontWeight="SemiBold" Text="Log in to your account"/>
                 <TextBox Margin="0 50 0 0" x:Name="txtUsername" Width="300" FontSize="18" 
@@ -45,6 +45,10 @@
                         Style="{StaticResource MaterialDesignFlatMidBgButton}"
                         materialDesign:ElevationAssist.Elevation="Dp0"  Height="53" Width="300"
                         materialDesign:ButtonAssist.CornerRadius="10" FontSize="18" Content="EXIT" Click="exitBtn_Click" />
+                <Button Margin="0 20 0 0" Background="White"  Foreground="Black" HorizontalAlignment="Center" Content="About Us" 
+                        BorderBrush="{x:Null}" materialDesign:ButtonAssist.CornerRadius="5" Command="{Binding AboutUsCommand}"/>
+
+
 
             </StackPanel>
         </materialDesign:DialogHost>

@@ -96,6 +96,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="AboutUsWindow.xaml.cs">
+      <DependentUpon>AboutUsWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="AddMenu.xaml.cs">
       <DependentUpon>AddMenu.xaml</DependentUpon>
     </Compile>
@@ -125,9 +128,6 @@
     </Compile>
     <Compile Include="MiddleWindow.xaml.cs">
       <DependentUpon>MiddleWindow.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Model\Account.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\bill.cs">
       <DependentUpon>Model1.tt</DependentUpon>
@@ -178,6 +178,7 @@
       <DependentUpon>RoomsWindows.xaml</DependentUpon>
     </Compile>
     <Compile Include="Service\NavigationService.cs" />
+    <Compile Include="ViewModel\AboutUsViewModel.cs" />
     <Compile Include="ViewModel\BaseViewModel.cs" />
     <Compile Include="ViewModel\CashierViewModel.cs" />
     <Compile Include="ViewModel\EditEmployee.cs" />
@@ -190,6 +191,10 @@
     <Compile Include="ViewModel\MiddleWindowViewModel.cs" />
     <Compile Include="ViewModel\ReportViewModel.cs" />
     <Compile Include="ViewModel\RoomsViewModel.cs" />
+    <Page Include="AboutUsWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="AddMenu.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -307,6 +312,7 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="yen.png" />
     <Resource Include="Report.png" />
     <Resource Include="Room.png" />
     <Resource Include="Group 3.png" />
@@ -318,6 +324,10 @@
     <Resource Include="ADMINadmin.png" />
     <Resource Include="extraline.png" />
     <Resource Include="ADMINextraline.png" />
+    <Resource Include="anh.png" />
+    <Resource Include="dat.png" />
+  </ItemGroup>
+  <ItemGroup>
     <Content Include="Model\Model1.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>Model1.edmx</DependentUpon>
